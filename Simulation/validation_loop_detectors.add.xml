@@ -1,0 +1,74 @@
+<additional>
+   <inductionLoop id="denny_e1_1" lane="332473706#0_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_e1_2" lane="332473706#0_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_e2_1" lane="428087113#0_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_e2_2" lane="428087113#0_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_e2_3" lane="428087113#0_3" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_e3_1" lane="436163947#1_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_e3_2" lane="436163947#1_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_w1_1" lane="-436163947#2_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_w1_2" lane="-436163947#2_2" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_w2_1" lane="-428087113#1_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_w2_2" lane="-428087113#1_2" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_w3_1" lane="-332473706#1_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="denny_w3_2" lane="-332473706#1_2" pos="5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="yesler_e1_1" lane="gneE50_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="yesler_e2_1" lane="gneE355_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="yesler_w1_1" lane="gneE354_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="yesler_w2_1" lane="gneE49_1" pos="-5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="boren_se1_1" lane="240455063#5_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_se1_2" lane="240455063#5_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_nw3_1" lane="-240455063#5_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_nw3_2" lane="-240455063#5_2" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_se2_1" lane="428231010#0_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_se2_2" lane="428231010#0_2" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_nw2_1" lane="-428231010#1_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_nw2_2" lane="-428231010#1_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_nw2_3" lane="-428231010#1_3" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_se3_1" lane="428230982#0_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_se3_2" lane="428230982#0_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_se3_3" lane="428230982#0_3" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_nw1_1" lane="-428230982#0_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="boren_nw1_2" lane="-428230982#0_2" pos="5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="pine_e1_1" lane="-37551507#1_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="pine_w2_1" lane="37551507#0_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="pine_w2_2" lane="37551507#0_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="pine_w1_1" lane="-428246441#1_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="pine_e2_1" lane="428246441#1_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="pine_e2_2" lane="428246441#1_2" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="pine_w3_1" lane="8111110#0.68_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="pine_w3_2" lane="8111110#0.68_2" pos="-5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="stewart_w1_1" lane="371267131#2_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="stewart_w1_2" lane="371267131#2_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="stewart_w1_3" lane="371267131#2_3" pos="-5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="seven_n1_1" lane="52840083.93_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="seven_n1_2" lane="52840083.93_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="seven_n1_3" lane="52840083.93_3" pos="-5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="seven_s1_1" lane="367069126_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="seven_s1_2" lane="367069126_2" pos="5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="first_se1_1" lane="-351500650#4_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_se1_2" lane="-351500650#4_2" pos="5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="first_nw3_1" lane="351500650#4_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_nw3_2" lane="351500650#4_2" pos="-5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="first_se2_1" lane="-428243129#2_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_se2_2" lane="-428243129#2_2" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_nw2_1" lane="428243129#0_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_nw2_2" lane="428243129#0_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_nw2_3" lane="428243129#0_3" pos="-5" period="3600" file="new output/loops.xml"/>
+
+   <inductionLoop id="first_se3_1" lane="-610573957#1_1" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_se3_2" lane="-610573957#1_2" pos="5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_nw1_1" lane="610573957#1_1" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_nw1_2" lane="610573957#1_2" pos="-5" period="3600" file="new output/loops.xml"/>
+   <inductionLoop id="first_nw1_3" lane="610573957#1_3" pos="-5" period="3600" file="new output/loops.xml"/>
+
+</additional>

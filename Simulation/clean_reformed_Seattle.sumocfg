@@ -1,8 +1,8 @@
 <configuration>
     <input>
-        <net-file value="clean corrected inputs/offset_signal_Seattle_network_reformed connections2.net.xml"/>
-        <route-files value="adjusted_reduced_od2trips_new_psrc_vehicle_trips_converted_taz.rou.xml, clean corrected inputs/new_bus_link_route.rou.xml, new_ped_od_input.rou.xml"/>
-        <additional-files value="clean corrected inputs/modified_new_Taz_with_pseudo.add.xml,edge_data.add.xml,edge_data_min.add.xml,clean corrected inputs/new_signal_additional.add.xml"/>
+        <net-file value="clean corrected inputs/correct_Alaskan_offset_signal_Seattle_network_reformed connections2.net.xml"/>
+        <route-files value="adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V4.rou.xml, clean corrected inputs/new_bus_link_route.rou.xml, new_ped_od_input.rou.xml"/>
+        <additional-files value="clean corrected inputs/forMFD_Taz_with_pseudo.add.xml,edge_data.add.xml,edge_data_min.add.xml,clean corrected inputs/correct_Alaskan_new_signal_additional.add.xml, validation_loop_detectors.add.xml"/>
     </input>
 
     <output>
@@ -12,7 +12,7 @@
 
     <time>
         <begin value="18000"/>
-        <end value="72000"/>
+        <end value="43200"/>
         <step-length value="0.1"/>
     </time>
 
@@ -31,8 +31,8 @@
     <routing>
         <routing-algorithm value="astar"/>
 		<weights.priority-factor value="10" />
-        <device.rerouting.probability value="0.8"/>
-        <device.rerouting.period value="200"/>
+        <device.rerouting.probability value="0.7"/>
+        <device.rerouting.period value="300"/>
         <device.rerouting.with-taz value="true"/>
         <device.rerouting.threads value="4"/>
     </routing>
