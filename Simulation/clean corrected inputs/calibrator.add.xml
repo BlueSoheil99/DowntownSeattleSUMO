@@ -1,0 +1,12 @@
+<additional>
+
+  <vType id="passengerHW" vClass="passenger" accel="3.2" color="yellow" decel="3.5" length="4" maxSpeed="200" lcStrategic="5" lcSpeedGain="1" lcCooperative="1" lcSpeedGainLookahead="5" minGap="2.5" cc1="0.9" cc2="4" cc3="-8" cc4="-0.1" cc5="0.1" cc6="11.44" cc7="0.25" cc8="3.5" cc9="1.5" />
+  <vType id="passenger" vClass="passenger" accel="3.2" color="yellow" decel="3.5" length="4" maxSpeed="200" lcStrategic="1" lcSpeedGain="1" lcCooperative="1" lcSpeedGainLookahead="5" minGap="1.5" cc1="0.9" cc2="4" cc3="-8" cc4="-0.1" cc5="0.1" cc6="11.44" cc7="0.25" cc8="3.5" cc9="1.5" />
+
+
+  <calibrator id="calibtest_edge" edge="beg" pos="0" output="new output/calibrator.xml">
+    <flow type="passengerHW" departPos="free" departSpeed="max"/>
+  </calibrator>
+
+
+</additional>

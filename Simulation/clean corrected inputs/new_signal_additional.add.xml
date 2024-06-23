@@ -1469,8 +1469,8 @@
 		<param key="linkMinDur:14" value="4.0"/>
 	</tlLogic>
 	<tlLogic id="53082162" type="static" programID="2" offset="86">
-		<phase duration="23.5" maxDur="23.5" minDur="7.0" name="0" next="3" state="ggrrrrr"/>
-		<phase duration="26.5" maxDur="26.5" minDur="7.0" name="0" next="5" state="rrGGGGG"/>
+		<phase duration="15" maxDur="23.5" minDur="7.0" name="0" next="3" state="ggrrrrr"/>
+		<phase duration="35" maxDur="35" minDur="7.0" name="0" next="5" state="rrGGGGG"/>
 		<phase duration="28.0" maxDur="28.0" minDur="7.0" name="0" next="6" state="rrGGrrG"/>
 		<phase duration="3.5" name="0" next="4" state="yyrrrrr"/>
 		<phase duration="1.0" name="0" next="1" state="rrrrrrr"/>
@@ -3953,14 +3953,14 @@
 		<param key="show-detectors" value="false"/>
 		<param key="vTypes" value=""/>
 		<phase duration="7.0" maxDur="35.5" minDur="7.0" name="0" next="2" state="gGGgrrrrrr"/>
-		<phase duration="7.0" maxDur="65.5" minDur="7.0" name="0" next="4" state="rrrrGgGrGr"/>
+		<phase duration="7.0" maxDur="45.5" minDur="7.0" name="0" next="4" state="rrrrGgGrGr"/>
 		<phase duration="3.5" name="0" next="3" state="yyyyrrrrrr"/>
 		<phase duration="1.0" name="0" next="1" state="rrrrrrrrrr"/>
 		<phase duration="3.5" name="0" next="5" state="rrrryyyryr"/>
 		<phase duration="1.0" name="0" next="0" state="rrrrrrrrrr"/>
 		<param key="linkMaxDur:1" value="35.5"/>
 		<param key="linkMinDur:1" value="7.0"/>
-		<param key="linkMaxDur:4" value="65.5"/>
+		<param key="linkMaxDur:4" value="45.5"/>
 		<param key="linkMinDur:4" value="7.0"/>
 	</tlLogic>
 	<tlLogic id="53194070" type="actuated" programID="2" offset="29">
@@ -4611,7 +4611,7 @@
 		<param key="show-detectors" value="false"/>
 		<param key="vTypes" value=""/>
 		<phase duration="7.0" maxDur="83.5" minDur="7.0" name="0" next="2" state="rrrrgGGGGGgGr"/>
-		<phase duration="7.0" maxDur="27.5" minDur="7.0" name="0" next="4" state="ggGGrrrrrrrrG"/>
+		<phase duration="7.0" maxDur="20" minDur="7.0" name="0" next="4" state="ggGGrrrrrrrrG"/>
 		<phase duration="3.5" name="0" next="3" state="rrrryyyyyyyyr"/>
 		<phase duration="1.0" name="0" next="1" state="rrrrrrrrrrrrr"/>
 		<phase duration="3.5" name="0" next="5" state="yyyyrrrrrrrry"/>
