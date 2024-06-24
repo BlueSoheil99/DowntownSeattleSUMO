@@ -7,12 +7,13 @@ Our network includes south of Mercer St, west of 12th Ave, and north of S Holgat
 The network and the TAZs used in the simulation<br>
 </p>
 
-- A more detailed documentation: [link](https://docs.google.com/document/d/11r4mTBNbqs4V5_dtWj9PiZJL7NsJ5M6Q/edit?usp=sharing&ouid=104702134464019992770&rtpof=true&sd=true)
+- For further questions, email [soheil99@uw.edu](mailto:soheil99@uw.edu)
+- A more detailed documentation: [link](https://docs.google.com/document/d/1cB_eXvKE2OPgtG05p4Bbuse4nkuFutzw?rtpof=true&usp=drive_fs)
 - This work was based upon the simulation in
-https://github.com/Yiran6/MatSumo (private repo). It also included pedestrians. That simulation could be found in `simulation/old files` folder.
+https://github.com/Yiran6/MatSumo (private repo). It also included pedestrians. That simulation could be found in `simulation/old simulation files` folder.
 
-Our work was divided into two sections, generating a  demand file (rou.xml) based on the real-world data
-and running a reasonable simulation in SUMO.
+Our work was divided into three sections, generating a  demand file (rou.xml) based on the real world, running a reasonable simulation in SUMO
+, and calibration which is explained in the detailed document.
 
 -------
 ## Demand generation
@@ -21,7 +22,7 @@ Demand generation takes place in four steps and
 final output of each step is the input of the next step. Output of the 4th step is the input for the simulation (route file).
 - **Step1: Trip generation**
   - Run `step1-read h5.ipynb`
-  - Input(s): PSRC trip dataset, estimated for Puget sound population.
+  - Input(s): PSRC trip dataset, estimated for Puget sound population for one working day.
   <span style="color: red;"> Due to Github space limitation, the source file has not been uploaded yet.</span>
   Using a UW email, you can access through this [link](https://drive.google.com/drive/folders/1KIlRBGK1AhPe5t2rL66fhlWQGoFRLiWj?usp=sharing).
 
@@ -29,7 +30,6 @@ final output of each step is the input of the next step. Output of the 4th step 
   - Description:
     - In this step, we work on trip data of individuals. Each row of the input file shows a trip for a person which could be done in different modes. 
     We first find trips done with cars. Then we try to remove the trips that were shared but used one vehicle (duplicate trips shared between different people).
-    -   <span style="color: red;"> Trips are happening in different days and we have not taken that into account. </span>
 
   <p align="center" width="100%">
     <img width="60%" src="https://github.com/BlueSoheil99/DowntownSeattleSUMO/blob/main/departure%20distribution.png?raw=true"><br>
@@ -37,9 +37,9 @@ final output of each step is the input of the next step. Output of the 4th step 
   </p>
 
 - **Step2: TAZ calibration**
-  - Run `step2-taz filteration_conversion-v.2.ipynb`
-  - Input(s): `psrc_vehicle_trips.csv`, `taz2010.shp`, `modified_new_Taz_with_pseudo.add.xml`, TAZ list of different super TAZs (`regions` folder)
-  - Output:  `psrc_vehicle_trips_converted_taz.csv`, if either `otaz` or `dtaz` for an input row is not in the simulation network, it is changed to its corresponding pseudo TAZ.
+  - Run `step2-taz filteration_conversion-v.3.ipynb`
+  - Input(s): `psrc_vehicle_trips.csv`, `taz2010.shp`, `correct_Alaskan_modified_new_Taz_with_pseudo.add.xml`, TAZ list of different super TAZs (`regions` folder)
+  - Output:  `psrc_vehicle_trips_converted_taz_calibrated_v2.csv`, if either `otaz` or `dtaz` for an input row is not in the simulation network, it is changed to its corresponding pseudo TAZ.
   - Description:
     - For our network we do not have all Puget sound TAZs and just focus on Downtown Seattle.
     Therefore, when we want to simulate trips that go to(come from) out of Downtown Seattle, 
@@ -51,9 +51,9 @@ final output of each step is the input of the next step. Output of the 4th step 
   
 - **Step3: Route file (SUMO input) generation**
   - Run `step3-generate_rou.ipynb`
-  - Input(s): `psrc_vehicle_trips_converted_taz.csv`,`modified_new_Taz_with_pseudo.add.xml`, start and end time of demand insertion, 
+  - Input(s): `psrc_vehicle_trips_converted_taz_calibrated_v2.csv`,`correct_Alaskan_modified_new_Taz_with_pseudo.add.xml`, start and end time of demand insertion, 
   
-  - Output: `(TAZ or od2trips)_psrc_vehicle_trips_converted_taz.rou.xml`, copy and paste it in the `simulation` folder.
+  - Output: `alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V2.rou.xml`, copy and paste it in the `Simulation` folder.
   - Description:
     - In the final step for demand generation, we can generate route files in two ways:
     1) Using [od2trips](https://sumo.dlr.de/docs/od2trips.html).
@@ -111,7 +111,6 @@ To run the simulation, you have to:
 4) Run `run_simulation.py` file
 5) Find the output results in `new output` folder.
 
-- Attention: We had two different types of demand (route) file: 
 
 - Some of the signals in `offset_signal_Seattle_network_reformed connections2.net.xml` were manually changed. 
 To use the original specification of traffic signals, use 
@@ -122,8 +121,15 @@ route files generated with od2trips.
 
 ----
 ## Results
-In the simulation folder, there are three folders containing three different simulation results. 
-- CodeA: TAZ-TAZ demand format, 15% demand reduction from SR99N and 10% from I5S, ends at 10:45 AM
-- CodeB: TAZ-TAZ demand format, for trips from SR99N to upper half of network: 25% demand reduction and 20% transferred to I5N, ends at 10:30 AM
-- CodeC: TAZ-link demand format, for trips from SR99N to upper half of network: 30% demand reduction and 15% transferred to I5N, ends at 10:30 AM
-- Old simulation: ends at 15PM
+Outputs for the final calibrated simulation are in `Simulation/May6 final` folder. The folder includes:
+* edge data for each hour which will be used for segmentation of dowtown Seattle network ([link](https://sumo.dlr.de/docs/Simulation/Output/Lane-_or_Edge-based_Traffic_Measures.html))
+* Log file
+* Data for loop detectors used for corridor calibration
+* trip info ( [link](https://sumo.dlr.de/docs/Simulation/Output/TripInfo.html))
+* signal-report file which shows average cycle time between 8-9AM and average green time for each approaching lane
+
+And three files that were not uploaded for their big size:
+* Edge data for each minute which can be used for MFD generation
+* Vehicle routes ([link](https://sumo.dlr.de/docs/Simulation/Output/VehRoutes.html))
+* vehRouteTime fine where for each trip,
+it shows departure time and the time taken on each edge of the route
