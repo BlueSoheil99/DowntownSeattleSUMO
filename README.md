@@ -133,3 +133,6 @@ And three files that were not uploaded for their big size:
 * Vehicle routes ([link](https://sumo.dlr.de/docs/Simulation/Output/VehRoutes.html))
 * vehRouteTime fine where for each trip,
 it shows departure time and the time taken on each edge of the route
+
+----
+for using sumo-web3d install it this way: ` pip install git+https://github.com/Philhil/sumo-web3d.git@fix_setup_packagedata`

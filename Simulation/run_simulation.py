@@ -1,9 +1,37 @@
 import sys
 import traci
-# import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 from SignalTracker import SignalTracker
 import pandas as pd
 import pickle
+
+
+full_day = False
+congested_sim = False
+
+if full_day:
+    sumocfg_file = "fullDayTests.sumocfg"
+    loop_locations = "fullDay tests/validation_loop_detectors.add.xml"
+    trip_info_address = 'fullDay tests/out/vehRouteTime_output.pickle'
+    loop_info_address = 'fullDay tests/out/loopVehicles_output.pickle'
+    # this file will show IDs and times of vehicles that arrive each loop.
+    # Format: a set of (vehID, entrance_time) pairs for each set of loop detectors
+    # If a vehicle stays on a loop for several minutes, we only capture its arrival time.
+    # Arrival times are in minutes, starting from 0. For example, if arrival time is 12,
+    # it means that the vehicle arrived between 12*60 and 13*60 seconds of simulation
+else:
+    sumocfg_file = "clean_reformed_Seattle.sumocfg"
+    loop_locations = "validation_loop_detectors.add.xml"
+    trip_info_address = 'new output/vehRouteTime_output.pickle'
+
+
+def get_loop_dict(loop_loc_file):
+    tree = ET.parse(loop_loc_file)  # Replace with your actual file name
+    root = tree.getroot()
+    loop_dict = {}
+    for elem in root.iter("inductionLoop"):
+        loop_dict[elem.get('id')] = elem.get('lane')
+    return loop_dict
 
 
 def update_vehicle(vehicleID, current_step, vehicles_tt_dict, finished=False):
@@ -51,7 +79,7 @@ def update_vehicle(vehicleID, current_step, vehicles_tt_dict, finished=False):
 ## In the simulation above, we tried to force vehicles used fairview avenue (which is a main street) using corridor
 ## coordination, increasing speed, increasing priority, etc. The problem was that without the second part of this code,
 ## vehicles did not have reasonable routing and were using roads with low priority too much.
-traci.start(["sumo-gui", "-c", "clean_reformed_Seattle.sumocfg"])
+traci.start(["sumo-gui", "-c", sumocfg_file])
 
 ################################################
 ### 2- ELIMINATE THE EFFECT OF PEDESTRAIN LANES
@@ -135,8 +163,9 @@ for speed in change_order:
 # segmentation_hour_begin = 5.05
 # segmentation_hour_end = 5.1
 
-segmentation_step_begin = 3*3600*10
-segmentation_step_end = 4*3600*10
+period1 = (3*3600*10, 4*3600*10)  # 8-9 am
+period2 = (4*3600*10, 5*3600*10)  # 9-10 am
+segmentation_step_begin, segmentation_step_end = period1[0], period1[1]
 signals = []
 tl = traci.trafficlight
 
@@ -144,9 +173,11 @@ tl = traci.trafficlight
 ###############################
 ### 5- RUN THE SIMULATION LOOP
 ###############################
-trip_info_address = 'new output/vehRouteTime_output.pickle'
 trip_travel_time_data = dict()
 vehicleIDs = set()
+loop_dict = get_loop_dict(loop_locations)
+loop_vehicles = {key[:-2]: set() for key in loop_dict.keys()}
+# we only want data for loop sets and do not want super detailed data for each detector
 
 last_step = 20*60
 step = 0
@@ -155,27 +186,33 @@ while traci.simulation.getMinExpectedNumber() > 0:
     traci.simulationStep()
     step += 1
 
-    if step%10 == 0: # we check this every second
-        if step == segmentation_step_begin:
-            for tlsID in tl.getIDList():
-                signals.append(SignalTracker(tlsID, tl, step//10))
-        if step > segmentation_step_begin and step < segmentation_step_end:
-            for signal in signals:
-                signal.update(tl)
-        if step == segmentation_step_end:
-            data = {'id':[], 'hasProblem':[], 'avgCycle':[], 'lanes':[], 'avgTimes':[]}
-            for signal in signals:
-                signal.stop(step//10)
-                data['id'].append(signal.ID)
-                data['hasProblem'].append(signal.hasProblem)
-                data['avgCycle'].append(signal.avgCycleTime)
-                data['lanes'].append(list(signal.laneTimeDict.keys()))
-                data['avgTimes'].append(list(signal.laneTimeDict.values()))
+    if not congested_sim and not full_day:  # it means the simulation for 5-10 am period under normal demand
+        if step%10 == 0:  # we check this every second
+            if step == segmentation_step_end:
+                data = {'id': [], 'hasProblem': [], 'avgCycle': [], 'lanes': [], 'avgTimes': []}
+                for signal in signals:
+                    signal.stop(step // 10)
+                    data['id'].append(signal.ID)
+                    data['hasProblem'].append(signal.hasProblem)
+                    data['avgCycle'].append(signal.avgCycleTime)
+                    data['lanes'].append(list(signal.laneTimeDict.keys()))
+                    data['avgTimes'].append(list(signal.laneTimeDict.values()))
 
-            # signals_to_csv(signals)
-            data = pd.DataFrame(data=data)
-            data.to_csv(f'new output/signal_report{segmentation_step_begin}_{segmentation_step_end}.csv',
-                        index=False)
+                # signals_to_csv(signals)
+                data = pd.DataFrame(data=data)
+                data.to_csv(
+                    f'new output/signal_report{segmentation_step_begin}_{segmentation_step_end}.csv',
+                    index=False)
+                segmentation_step_begin, segmentation_step_end = period2[0], period2[1]
+                signals = []
+
+            if step == segmentation_step_begin:
+                for tlsID in tl.getIDList():
+                    signals.append(SignalTracker(tlsID, tl, step//10))
+            if step > segmentation_step_begin and step < segmentation_step_end:
+                for signal in signals:
+                    signal.update(tl)
+
 
     ## updating travel times of vehicles ##
     departed_vhs = traci.simulation.getDepartedIDList()
@@ -192,12 +229,29 @@ while traci.simulation.getMinExpectedNumber() > 0:
             if '_' not in vehicleID:   # exclude transit IDs
                 update_vehicle(vehicleID, step, trip_travel_time_data, finished=False)
 
+    if full_day:  # for Zepu's simulations
+        ## updating vehicles IDs of each loop
+        for loop in loop_dict.keys():
+            vehicles = traci.inductionloop.getVehicleData(loop)
+            loop = loop[:-2]  # removing lane number from loop name
+            if len(vehicles):
+                for vehicle in vehicles:
+                    vehicleID = vehicle[0]
+                    vehicle_enter_time = vehicle[2]
+                    loop_vehicles[loop].add((vehicleID, int(vehicle_enter_time//60)))
+            else:
+                continue
+
     print(f'step: {step}')
 
 
 # trip_travel_time_data = {edge:trip_travel_time_data[edge]['route times'] for edge in trip_travel_time_data.keys()}
 with open(trip_info_address, 'wb') as f:
     pickle.dump(trip_travel_time_data, f)
+
+if full_day:
+    with open(loop_info_address, 'wb') as f:
+        pickle.dump(loop_vehicles, f)
 
 # Close TraCI connection
 traci.close()

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-11-03 15:20:52 by Eclipse SUMO duarouter Version 1.19.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="..\data/correct_Alaskan_offset_signal_Seattle_network_reformed connections2.net.xml"/>
+        <route-files value="files/trips.rou.xml"/>
+    </input>
+
+    <output>
+        <output-file value="..\output/loopRoutes.rou.xml"/>
+        <route-length value="true"/>
+    </output>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="passenger" length="4.00" minGap="1.40" maxSpeed="200.00" vClass="passenger" color="yellow" lcStrategic="1" lcCooperative="1" lcSpeedGain="1" lcSpeedGainLookahead="5" accel="3.2" decel="3.5"/>
+    <vehicle id="2010" type="passenger" depart="18015.00" departLane="first" departSpeed="random">
+        <route edges="6463530#3 6463530#4 6343878#3 -353690159#3 -353690159#2 -353690159#1 -353690159#0 -6514305#2 -465971498#1 576974321 263669002#0 263669002#1 263669002#2 263669002#3 263669002#4 460419023#0 -51817330#6 gneE530 gneE526 69200848#1 124045518#0 124045518#1 486260018 4748960 4748960.15 452336740 14017473" routeLength="3570.41"/>
+    </vehicle>
+    <vehicle id="1470" type="passenger" depart="18015.11" departLane="free" departSpeed="max">
+        <route edges="135475703 635718964 667504465 664237602 668520066 668520065 635718965 548597249 243738295 548267482#0 179222050#1 179222050#3 179222050#4 179222050#5 546095808#0 546095808#1 572049556#0 572049556#2 591627840#0 591627840#3 422748213#0 422748213#3 -428341108#0 -179222048#1 42005979#15 42005979#16 -560112141#2 -367550329#3" routeLength="5225.04"/>
+    </vehicle>
+    <vehicle id="denny_e1:denny_w1" depart="19000.00" departPos="-5.00" arrivalPos="5.00">
+        <route edges="332473706#0 332473707#0 332473707#2 332200727#0 332200727#2 144113316#0 144113316#0.16 144113316#1 378845730 332200726 332200728#0 332200728#1 332597972#0 332597972#1 332597972#2 332597972#3 332200725#0 332200725#1 332200725#2 332200722 242288219#0 332200724#0 524878319#0 524878319#3 332200723 548492231 490208227#0 338863386#0 338863385#0 338863385#3 548492030#0 548492030#2 620698424 428087125 428087113#0 563752576#0 360390215 360390227 235037493 360390221#0 182891397#0 436163947#1 393047810 -460421473#2 -6430733#0 -460423542#0 -436163947#2" routeLength="1666.13"/>
+    </vehicle>
+</routes>
