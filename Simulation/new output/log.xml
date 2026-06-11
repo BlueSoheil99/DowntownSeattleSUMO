@@ -1,0 +1,183 @@
+Warning: The option 'sloppy-insert' is deprecated, because it is now activated by default, see the new option 'eager-insert'.
+Warning: The option 'ignore-accidents' is deprecated. Use 'collision.action none' instead.
+Loading net-file from 'E:\SUMO_proj\DowntownSeattleSUMO\Simulation\clean corrected inputs/correct_Alaskan_offset_signal_Seattle_network_reformed connections2.net.xml' ... done (1605ms).
+Loading additional-files from 'E:\SUMO_proj\DowntownSeattleSUMO\Simulation\clean corrected inputs/forMFD_Taz_with_pseudo.add.xml' ... done (70ms).
+Loading additional-files from 'E:\SUMO_proj\DowntownSeattleSUMO\Simulation\edge_data.add.xml' ... done (16ms).
+Loading additional-files from 'E:\SUMO_proj\DowntownSeattleSUMO\Simulation\edge_data_min.add.xml' ... done (17ms).
+Loading additional-files from 'E:\SUMO_proj\DowntownSeattleSUMO\Simulation\edge_data_150.add.xml' ... done (16ms).
+Loading additional-files from 'E:\SUMO_proj\DowntownSeattleSUMO\Simulation\clean corrected inputs/correct_Alaskan_new_signal_additional.add.xml' ... done (32ms).
+Loading additional-files from 'E:\SUMO_proj\DowntownSeattleSUMO\Simulation\validation_loop_detectors.add.xml' ... done (3ms).
+Warning: At actuated tlLogic '1089668757', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '1089668757', linkIndex 11,12 has no controlling detector.
+Warning: At actuated tlLogic '1487927529', actuated phase 0 has no controlling detector.
+Warning: Unused states in tlLogic '1884382810', program '0' in phase 0 after tl-index 15
+Warning: Unused states in tlLogic '2476726095', program '0' in phase 0 after tl-index 6
+Warning: Unused states in tlLogic '2511119226', program '0' in phase 0 after tl-index 8
+Warning: Missing green phase in tlLogic '2511119226', program '0' for tl-index 9.
+Warning: At actuated tlLogic '2906119381', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '30003796', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '30079057', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '3668981707', program '0' for tl-index 9.
+Warning: At actuated tlLogic '3668981707', actuated phase 4 has no controlling detector.
+Warning: At actuated tlLogic '53018668', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '53070502', program '0' for tl-index 10.
+Warning: Unused states in tlLogic '53072274', program '0' in phase 0 after tl-index 19
+Warning: Unused states in tlLogic '53082270', program '0' in phase 0 after tl-index 21
+Warning: Unused states in tlLogic '53102408', program '0' in phase 0 after tl-index 17
+Warning: Missing green phase in tlLogic '53102408', program '0' for tl-index 18.
+Warning: Unused states in tlLogic '53128145', program '0' in phase 0 after tl-index 9
+Warning: At actuated tlLogic '53128668', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Unused states in tlLogic '53144731', program '0' in phase 0 after tl-index 8
+Warning: At actuated tlLogic '53155723', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53155724', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53155725', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53155726', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53155727', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '53160861', program '0' for tl-index 14.
+Warning: Unused states in tlLogic '53189262', program '0' in phase 0 after tl-index 18
+Warning: Missing green phase in tlLogic '53189262', program '0' for tl-index 19.
+Warning: At actuated tlLogic '53189262', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53189262', linkIndex 5,6,13,14 has no controlling detector.
+Warning: Missing green phase in tlLogic '53189264', program '0' for tl-index 11.
+Warning: At actuated tlLogic '53189264', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '53194991', program '0' for tl-index 18.
+Warning: At actuated tlLogic '53194991', linkIndex 7 has no controlling detector.
+Warning: At actuated tlLogic '53200538', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53200538', linkIndex 4,5,10,11,12 has no controlling detector.
+Warning: Unused states in tlLogic '53221383', program '0' in phase 0 after tl-index 9
+Warning: Unused states in tlLogic '6336579535', program '0' in phase 0 after tl-index 16
+Warning: At actuated tlLogic 'J6', linkIndex 0,12,16,17 has no controlling detector.
+Warning: Unused states in tlLogic 'cluster30760194_5354979853', program '0' in phase 0 after tl-index 17
+Warning: Missing green phase in tlLogic 'cluster30760194_5354979853', program '0' for tl-index 18.
+Warning: At actuated tlLogic 'cluster_cluster_2511119195_2511119206_gneJ479', linkIndex 2,3,6,7 has no controlling detector.
+Warning: Unused states in tlLogic 'gneJ358', program '0' in phase 0 after tl-index 19
+Warning: At actuated tlLogic 'gneJ371', minDur 13.00 is too short for a detector gap of 52.50m.
+Warning: At actuated tlLogic 'gneJ371', linkIndex 4,5,6 has no controlling detector.
+Warning: Unused states in tlLogic '4163983439', program '2' in phase 0 after tl-index 7
+Warning: At actuated tlLogic '4163983439', actuated phase 1 has no controlling detector.
+Error: Invalid link '9' given as linkMaxDur parameter for actuated tlLogic '4163983439', program '2.
+Error: Invalid link '9' given as linkMinDur parameter for actuated tlLogic '4163983439', program '2.
+Warning: Missing green phase in tlLogic '53189617', program '2' for tl-index 8.
+Warning: At actuated tlLogic '53189617', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '53155734', program '2' for tl-index 9.
+Warning: At actuated tlLogic 'gneJ234', actuated phase 1 has no controlling detector.
+Warning: At actuated tlLogic '2476726095', actuated phase 1 has no controlling detector.
+Warning: At actuated tlLogic '53036746', actuated phase 1 has no controlling detector.
+Warning: At actuated tlLogic '2481926130', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53142127', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53142127', actuated phase 3 has no controlling detector.
+Warning: Unused states in tlLogic '53142964', program '2' in phase 0 after tl-index 8
+Warning: Missing green phase in tlLogic '53114276', program '2' for tl-index 15.
+Warning: At actuated tlLogic '53114280', actuated phase 1 has no controlling detector.
+Warning: Missing green phase in tlLogic '53155393', program '2' for tl-index 6.
+Warning: At actuated tlLogic '53146388', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53155395', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53091449', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53201468', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53086664', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53148286', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53142966', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53203465', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53144260', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53203464', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53142130', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic 'gneJ121', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '5273265168', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '5273270316', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Unused states in tlLogic '53088988', program '2' in phase 0 after tl-index 7
+Warning: At actuated tlLogic '53088988', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53088988', actuated phase 0 has no controlling detector.
+Warning: At actuated tlLogic '53088988', actuated phase 1 has no controlling detector.
+Warning: At actuated tlLogic '53088988', actuated phase 2 has no controlling detector.
+Warning: At actuated tlLogic '53088988', linkIndex 0,1,2,5,6,7 has no controlling detector.
+Error: Invalid link '8' given as linkMaxDur parameter for actuated tlLogic '53088988', program '2.
+Error: Invalid link '8' given as linkMinDur parameter for actuated tlLogic '53088988', program '2.
+Warning: Missing green phase in tlLogic '53147420', program '2' for tl-index 8.
+Warning: At actuated tlLogic '53142968', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53184113', actuated phase 0 has no controlling detector.
+Warning: Missing green phase in tlLogic '53168043', program '2' for tl-index 15.
+Warning: At actuated tlLogic '53213824', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53247237', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53099320', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53147426', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '53160878', program '2' for tl-index 11.
+Warning: At actuated tlLogic '53142970', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53142970', actuated phase 1 has no controlling detector.
+Warning: At actuated tlLogic '2062150190', actuated phase 1 has no controlling detector.
+Warning: At actuated tlLogic '30279697', minDur 7.00 is too short for a detector gap of 30.00m.
+Warning: At actuated tlLogic '53045786', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '53160852', program '2' for tl-index 11.
+Warning: At actuated tlLogic '53160852', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53088999', actuated phase 1 has no controlling detector.
+Warning: Unused states in tlLogic '6336579546', program '2' in phase 0 after tl-index 11
+Warning: At actuated tlLogic '6336579546', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '6336579546', linkIndex 7,8 has no controlling detector.
+Warning: Missing green phase in tlLogic '53221908', program '2' for tl-index 12.
+Warning: At actuated tlLogic '53221908', minDur 7.00 is too short for a detector gap of 30.00m.
+Warning: Missing green phase in tlLogic '53184115', program '2' for tl-index 13.
+Warning: At actuated tlLogic '53142972', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53147432', minDur 1.00 is too short for a detector gap of 7.50m.
+Warning: Missing green phase in tlLogic '53070509', program '2' for tl-index 13.
+Warning: Missing green phase in tlLogic '53070503', program '2' for tl-index 7.
+Warning: At actuated tlLogic '53070503', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '30345462', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53070522', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Unused states in tlLogic 'gneJ464', program '2' in phase 0 after tl-index 3
+Warning: At actuated tlLogic '53209848', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53184118', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53142974', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '53147435', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '53200538', program '2' for tl-index 17.
+Warning: Missing green phase in tlLogic '5606261681', program '2' for tl-index 8.
+Warning: At actuated tlLogic '53073251', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '30345078', program '2' for tl-index 7.
+Warning: At actuated tlLogic '634', actuated phase 1 has no controlling detector.
+Warning: Missing green phase in tlLogic '3624081878', program '2' for tl-index 9.
+Warning: At actuated tlLogic '3624081878', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '2906119381', program '2' for tl-index 6.
+Warning: At actuated tlLogic '1089668757', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '1692270811', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '1692270811', actuated phase 3 has no controlling detector.
+Warning: At actuated tlLogic '53128668', minDur 1.00 is too short for a detector gap of 7.50m.
+Warning: Unused states in tlLogic '3153558838', program '2' in phase 0 after tl-index 16
+Warning: Missing green phase in tlLogic '3153558838', program '2' for tl-index 20.
+Warning: At actuated tlLogic '3153558838', linkIndex 6,7 has no controlling detector.
+Warning: At actuated tlLogic '53131121', minDur 7.00 is too short for a detector gap of 30.00m.
+Warning: At actuated tlLogic '53082272', minDur 7.00 is too short for a detector gap of 30.00m.
+Warning: At actuated tlLogic 'gneJ371', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: Missing green phase in tlLogic '2037272672', program '2' for tl-index 13.
+Warning: At actuated tlLogic '2037272672', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '3798496987', minDur 1.00 is too short for a detector gap of 7.50m.
+Warning: At actuated tlLogic '53073248', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '2706300474', minDur 5.00 is too short for a detector gap of 22.50m.
+Warning: At actuated tlLogic '2706300474', actuated phase 0 has no controlling detector.
+Warning: At actuated tlLogic '2706300474', actuated phase 1 has no controlling detector.
+Warning: At actuated tlLogic '2706300474', actuated phase 3 has no controlling detector.
+Warning: At actuated tlLogic '2706300474', actuated phase 5 has no controlling detector.
+Warning: At actuated tlLogic '2706300474', actuated phase 6 has no controlling detector.
+Warning: At actuated tlLogic '2706300474', actuated phase 10 has no controlling detector.
+Warning: At actuated tlLogic '53073246', minDur 1.00 is too short for a detector gap of 7.50m.
+Warning: At actuated tlLogic '53073245', minDur 1.00 is too short for a detector gap of 7.50m.
+Warning: At actuated tlLogic '53071908', actuated phase 1 has no controlling detector.
+Warning: At actuated tlLogic '53144754', minDur 5.00 is too short for a detector gap of 22.50m.
+Loading done.
+Warning: Taz usage was requested but no taz present in trip '11_47581064'!
+Warning: Taz usage was requested but no taz present in trip '550_44581424'!
+Warning: Taz usage was requested but no taz present in trip 'Link_light_rail_52084613'!
+Warning: busStop '99260' on lane '164665655#4_1' is too short for vehicle 'Link_light_rail_52084613'.
+Warning: busStop '621' on lane '144691574#1.29_1' is too short for vehicle 'Link_light_rail_52084613'.
+Warning: busStop '532' on lane '144691574#3.133_1' is too short for vehicle 'Link_light_rail_52084613'.
+Warning: busStop '565' on lane '144691574#4.511.86_1' is too short for vehicle 'Link_light_rail_52084613'.
+Warning: busStop '1121' on lane '144691574#6.357_1' is too short for vehicle 'Link_light_rail_52084613'.
+Warning: busStop '99603' on lane '144691574#6.2193_1' is too short for vehicle 'Link_light_rail_52084613'.
+Error: The start edge for person 'pf_1_2672_2220_AM_0' is not known.
+Quitting (on error).
+Simulation ended at time: 18000.00.
+Performance:
+ Duration: 26.77s
+ Real time factor: 0
+ UPS: 0.000000
+Vehicles:
+ Inserted: 0 (Loaded: 4)
+ Running: 0
+ Waiting: 0
