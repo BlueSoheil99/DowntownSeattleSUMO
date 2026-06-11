@@ -281,11 +281,3 @@ The simulation focuses on Downtown Seattle:
 Only transit stops located within the simulation network are considered during ridership processing and passenger generation.
 
 ---
-
-## Author
-
-Yiran Zhang
-
-Department of Civil & Environmental Engineering
-
-University of Washington
