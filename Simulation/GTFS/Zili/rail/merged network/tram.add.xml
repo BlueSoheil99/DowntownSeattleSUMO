@@ -1,0 +1,10 @@
+<additional>
+    <vType id="tram"
+           vClass="tram"
+           accel="1.2"
+           decel="1.5"
+           sigma="0.3"
+           length="40"
+           maxSpeed="25"
+           guiShape="rail"/>
+</additional>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-06-15 14:04:27.105857 by gtfs2pt.py UNKNOWN
+<configuration>
+    <gtfs value="rail_gtfs_fil.zip"/>
+    <date value="20260329"/>
+    <modes value="tram"/>
+    <verbose value="True"/>
+    <network value="merged.net.xml"/>
+    <repair value="True"/>
+</configuration>
+-->
+
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.0" lane="164665655#0_0" startPos="103.69" endPos="163.69" friendlyPos="true" name="SODO"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.1" lane="164665655#5_0" startPos="0.00" endPos="60.00" friendlyPos="true" name="Stadium">
+        <access friendlyPos="true" lane="-370826209.583_0" pos="85.11" length="42.09"/>
+        <access friendlyPos="true" lane="-370826214#1_0" pos="3.24" length="7.59"/>
+        <access friendlyPos="true" lane="-370826214#2_0" pos="1.10" length="20.41"/>
+        <access friendlyPos="true" lane="-428246473_0" pos="1.95" length="36.00"/>
+        <access friendlyPos="true" lane="164665655#4_0" pos="43.05" length="9.53"/>
+        <access friendlyPos="true" lane="170853848#2_1" pos="1.09" length="25.44"/>
+        <access friendlyPos="true" lane="370826214#2_0" pos="0.00" length="29.12"/>
+        <access friendlyPos="true" lane="428246473_0" pos="0.00" length="40.84"/>
+        <access friendlyPos="true" lane="428246474_0" pos="25.66" length="21.98"/>
+        <access friendlyPos="true" lane="428246478_0" pos="33.64" length="55.09"/>
+    </busStop>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.2" lane="144691574#1.29_0" startPos="0.00" endPos="60.00" friendlyPos="true" name="Int'l Dist/Chinatown"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.3" lane="144691574#3_0" startPos="73.26" endPos="133.26" friendlyPos="true" name="Pioneer Square"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.4" lane="144691574#4.511.86_0" startPos="0.00" endPos="60.00" friendlyPos="true" name="Symphony"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.5" lane="144691574#6.357_0" startPos="41.46" endPos="101.46" friendlyPos="true" name="Westlake"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.6" lane="144691574#6.2193_0" startPos="0.00" endPos="60.00" friendlyPos="true" name="Capitol Hill"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.7" lane="144691574#0.2674_0" startPos="2340.32" endPos="2400.32" friendlyPos="true" name="Univ of Washington"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.8" lane="144691574#0.2674_0" startPos="3935.50" endPos="3995.50" friendlyPos="true" name="U District"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.9" lane="144691574#0.2674_0" startPos="5758.14" endPos="5818.14" friendlyPos="true" name="Roosevelt"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.10" lane="144691574#0.2674_0" startPos="8985.81" endPos="9045.81" friendlyPos="true" name="Northgate"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.11" lane="144691574#0.2674_0" startPos="12775.39" endPos="12835.39" friendlyPos="true" name="Shoreline South/148th"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.12" lane="144691574#0.2674_0" startPos="16079.99" endPos="16139.99" friendlyPos="true" name="Shoreline North/185th"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" lane="144691574#0.2674_0" startPos="18514.82" endPos="18574.82" friendlyPos="true" name="Mountlake Terrace"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" lane="144691574#0.2674_0" startPos="22611.38" endPos="22671.38" friendlyPos="true" name="Lynnwood City Center"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.0" lane="1474234268_0" startPos="39.47" endPos="99.47" friendlyPos="true" name="Federal Way Downtown"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.1" lane="694990053#0_0" startPos="119.17" endPos="179.17" friendlyPos="true" name="Star Lake"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.2" lane="694990052#8_0" startPos="3280.19" endPos="3340.19" friendlyPos="true" name="Kent Des Moines"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.3" lane="694990052#8_0" startPos="7099.28" endPos="7159.28" friendlyPos="true" name="Angle Lake"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.4" lane="694990052#8_0" startPos="9556.53" endPos="9616.53" friendlyPos="true" name="SeaTac/Airport"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.5" lane="694990052#8_0" startPos="12309.20" endPos="12369.20" friendlyPos="true" name="Tukwila Int'l Blvd"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.6" lane="164665658#0_0" startPos="1360.71" endPos="1420.71" friendlyPos="true" name="Rainier Beach"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.7" lane="164665658#0_0" startPos="3119.76" endPos="3179.76" friendlyPos="true" name="Othello"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.8" lane="164665658#0_0" startPos="5683.68" endPos="5743.68" friendlyPos="true" name="Columbia City"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.9" lane="164665660_0" startPos="422.03" endPos="482.03" friendlyPos="true" name="Mount Baker"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.10" lane="914225608_0" startPos="853.58" endPos="913.58" friendlyPos="true" name="Beacon Hill"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.2" lane="157345877#0_0" startPos="1537.40" endPos="1597.40" friendlyPos="true" name="Columbia City"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.3" lane="157345877#0_0" startPos="4065.49" endPos="4125.49" friendlyPos="true" name="Othello"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.4" lane="157345877#0_0" startPos="5795.56" endPos="5855.56" friendlyPos="true" name="Rainier Beach"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.5" lane="102313757#0_0" startPos="7607.68" endPos="7667.68" friendlyPos="true" name="Tukwila Int'l Blvd"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.6" lane="102313757#0_0" startPos="10333.52" endPos="10393.52" friendlyPos="true" name="SeaTac/Airport"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.7" lane="102313757#0_0" startPos="12880.34" endPos="12940.34" friendlyPos="true" name="Angle Lake"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.8" lane="102313757#0_0" startPos="16684.57" endPos="16744.57" friendlyPos="true" name="Kent Des Moines"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.9" lane="694990054#0_0" startPos="121.33" endPos="181.33" friendlyPos="true" name="Star Lake"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.10" lane="828429542#0_0" startPos="625.72" endPos="685.72" friendlyPos="true" name="Federal Way Downtown"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.0" lane="1271342004_0" startPos="13907.50" endPos="13967.50" friendlyPos="true" name="Northgate"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.1" lane="1271342004_0" startPos="17158.19" endPos="17218.19" friendlyPos="true" name="Roosevelt"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.2" lane="1271342004_0" startPos="18969.66" endPos="19029.66" friendlyPos="true" name="U District"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.3" lane="1271342004_0" startPos="20577.49" endPos="20637.49" friendlyPos="true" name="Univ of Washington"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.4" lane="371527759#0.3598_0" startPos="66.20" endPos="126.20" friendlyPos="true" name="Capitol Hill"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.5" lane="371527759#0.5584_0" startPos="0.00" endPos="60.00" friendlyPos="true" name="Westlake">
+        <access friendlyPos="true" lane="173554614#0_0" pos="112.74" length="46.93"/>
+        <access friendlyPos="true" lane="371527759#0.5424_0" pos="100.56" length="47.98"/>
+        <access friendlyPos="true" lane="371527759#0.5568_0" pos="22.25" length="5.50"/>
+        <access friendlyPos="true" lane="580426496#0_0" pos="9.98" length="20.80"/>
+        <access friendlyPos="true" lane="8111110#0.68_0" pos="0.00" length="22.20"/>
+        <access friendlyPos="true" lane="8111110#0_0" pos="63.16" length="25.96"/>
+        <access friendlyPos="true" lane="gneE671_0" pos="8.72" length="7.70"/>
+        <access friendlyPos="true" lane="gneE672_0" pos="28.01" length="1.54"/>
+        <access friendlyPos="true" lane="gneE673_0" pos="1.31" length="45.28"/>
+        <access friendlyPos="true" lane="gneE674_0" pos="0.00" length="40.56"/>
+    </busStop>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.6" lane="452336725#3.82_0" startPos="35.67" endPos="95.67" friendlyPos="true" name="Symphony"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.7" lane="452336725#5.63_0" startPos="34.71" endPos="94.71" friendlyPos="true" name="Pioneer Square"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.8" lane="452336725#7.16_0" startPos="37.30" endPos="97.30" friendlyPos="true" name="Int'l Dist/Chinatown"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.9" lane="170853848#3_0" startPos="0.00" endPos="60.00" friendlyPos="true" name="Stadium">
+        <access friendlyPos="true" lane="-370826209.583_0" pos="37.07" length="0.17"/>
+        <access friendlyPos="true" lane="-370826214#1_0" pos="0.00" length="91.83"/>
+        <access friendlyPos="true" lane="-370826214#2_0" pos="0.00" length="86.38"/>
+        <access friendlyPos="true" lane="-428246463_0" pos="14.92" length="92.72"/>
+        <access friendlyPos="true" lane="-428246473_0" pos="0.16" length="84.16"/>
+        <access friendlyPos="true" lane="-537607366_0" pos="7.98" length="88.51"/>
+        <access friendlyPos="true" lane="164665655#4_1" pos="0.00" length="30.30"/>
+        <access friendlyPos="true" lane="170853848#2_0" pos="44.63" length="15.55"/>
+        <access friendlyPos="true" lane="370826214#2_0" pos="1.11" length="100.31"/>
+        <access friendlyPos="true" lane="428246473_0" pos="1.79" length="98.55"/>
+    </busStop>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.10" lane="1493551859#0.1303_0" startPos="627.71" endPos="687.71" friendlyPos="true" name="SODO"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.11" lane="514723621_0" startPos="705.32" endPos="765.32" friendlyPos="true" name="Beacon Hill"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.0" lane="1271342004_0" startPos="282.77" endPos="342.77" friendlyPos="true" name="Lynnwood City Center"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.1" lane="1271342004_0" startPos="4397.58" endPos="4457.58" friendlyPos="true" name="Mountlake Terrace"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.2" lane="1271342004_0" startPos="6819.57" endPos="6879.57" friendlyPos="true" name="Shoreline North/185th"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.3" lane="1271342004_0" startPos="10125.67" endPos="10185.67" friendlyPos="true" name="Shoreline South/148th"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3000.4" lane="160643776_0" startPos="461.40" endPos="521.40" friendlyPos="true" name="Mercer Island"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3000.5" lane="160643776_0" startPos="6011.95" endPos="6071.95" friendlyPos="true" name="Judkins Park"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.0" lane="310001065#1_0" startPos="15304.24" endPos="15364.24" friendlyPos="true" name="Spring District"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.1" lane="310001065#1_0" startPos="16288.19" endPos="16348.19" friendlyPos="true" name="BelRed"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.2" lane="310001065#1_0" startPos="18894.49" endPos="18954.49" friendlyPos="true" name="Overlake Village"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.3" lane="751013565#1_0" startPos="223.57" endPos="283.57" friendlyPos="true" name="Redmond Technology"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.4" lane="751013565#1_0" startPos="5462.35" endPos="5522.35" friendlyPos="true" name="Downtown Redmond"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4115.trimmed.0" lane="310001065#1_0" startPos="12648.43" endPos="12708.43" friendlyPos="true" name="East Main"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4115.trimmed.1" lane="310001065#1_0" startPos="13645.51" endPos="13705.51" friendlyPos="true" name="Bellevue Downtown"/>
+    <busStop id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4115.trimmed.2" lane="310001065#1_0" startPos="14451.69" endPos="14511.69" friendlyPos="true" name="Wilburton"/>
+</additional>

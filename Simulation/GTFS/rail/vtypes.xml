@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-06-19 19:03:05.416336 by Eclipse SUMO gtfs2pt.py v1_26_0+0000-fa7df22d7f1
+<configuration>
+    <gtfs value="gtfs data/rail_gtfs_downtown.zip"/>
+    <date value="20260329"/>
+    <modes value="tram"/>
+    <verbose value="True"/>
+    <network value="merged_v2.net.xml"/>
+    <repair value="True"/>
+</configuration>
+-->
+
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <vType id="tram" vClass="tram"/>
+</additional>

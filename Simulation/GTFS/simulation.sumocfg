@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-06-15 14:15:00 by Eclipse SUMO GUI Version 1.22.0
+-->
+
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+<!--        Zili rail simulation -->
+<!--        <net-file value="Zili/merged.net.xml"/>-->
+<!--        <additional-files value="Zili/rail/merged network/tram.add.xml,-->
+<!--        Zili/rail/merged network/gtfs_pt_stops_fixed.add.xml,-->
+<!--        Zili/rail/merged network/gtfs_pt_vehicles.add.xml"/>-->
+
+<!--    Zili bus simulation -->
+<!--        <additional-files value="Zili/bus/bus.add.xml,-->
+<!--        Zili/bus/gtfs_pt_stops.add.xml,-->
+<!--        Zili/bus/gtfs_pt_vehicles.add.xml"/>-->
+
+<!--        updated rail simulation after fixing network file-->
+        <net-file value="merged_v2.net.xml"/>
+         <additional-files value="rail/tram.add.xml,
+                rail/gtfs_pt_stops.add.xml,
+                rail/gtfs_pt_vehicles.add.xml,
+                bus/bus.add.xml,
+                bus/gtfs_pt_stops.add.xml,
+                bus/gtfs_pt_vehicles.add.xml"/>
+
+    </input>
+
+</sumoConfiguration>

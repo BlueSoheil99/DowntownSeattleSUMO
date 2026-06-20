@@ -1,0 +1,10 @@
+<additional>
+    <vType id="bus"
+           vClass="bus"
+           accel="1.0"
+           decel="4.5"
+           sigma="0.5"
+           length="12"
+           maxSpeed="16.7"
+           guiShape="bus"/>
+</additional>
