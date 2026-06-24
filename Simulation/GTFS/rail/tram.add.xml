@@ -8,5 +8,6 @@
            sigma="0.3"
            length="40"
            maxSpeed="25"
-           guiShape="rail"/>
+           guiShape="rail"
+           color="red"/>
 </additional>

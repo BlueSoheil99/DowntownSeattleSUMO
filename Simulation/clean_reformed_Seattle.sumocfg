@@ -1,8 +1,16 @@
 <configuration>
     <input>
         <net-file value="clean corrected inputs/correct_Alaskan_offset_signal_Seattle_network_reformed connections2.net.xml"/>
-        <route-files value="adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V4.rou.xml, new_ped_od_input.rou.xml,  clean corrected inputs/new_bus_link_route_with_line.rou.xml, clean corrected inputs/kcm_personflows_253_AM.rou.xml"/>
-        <additional-files value="clean corrected inputs/forMFD_Taz_with_pseudo.add.xml, edge_data.add.xml, edge_data_min.add.xml, edge_data_150.add.xml,clean corrected inputs/correct_Alaskan_new_signal_additional.add.xml, validation_loop_detectors.add.xml"/>
+        <route-files value="adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V4.rou.xml"/>
+<!--        <route-files value="adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V4.rou.xml,-->
+<!--        ridership/new_bus_link_route_with_line.rou.xml,-->
+<!--        ridership/kcm_personflows_253_AM.rou.xml"/>-->
+
+        <additional-files value="clean corrected inputs/forMFD_Taz_with_pseudo.add.xml,
+         edge_data.add.xml, edge_data_min.add.xml,
+         edge_data_150.add.xml,
+         clean corrected inputs/correct_Alaskan_new_signal_additional.add.xml,
+          validation_loop_detectors.add.xml"/>
     </input>
 
     <output>
@@ -42,3 +50,4 @@
     </report>
 
 </configuration>
+

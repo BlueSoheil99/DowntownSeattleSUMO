@@ -5,24 +5,46 @@ She has a doc about the things she did. Read her stuff in `/Zili` first.
 
 ### 2- in this directory, I regenerated her work. 
 you can run `simulation.sumocfg` to run the modified verion or Zili's train or bus simulations. 
-Here I fixed some network issues first (some rail tracks were not connected properly)
+Here I fixed some network issues first (some rail tracks were not connected properly in `Zili\rail\toy network\seattle_lightrail_full.net.xml'` and in `merged.net.xml` that Zili made)
 , then ran her codes to regenerate sumo files for bus and rail gtfs separately, and then combined them to make a simulation with both bus and rail.
 
 ### 3- debugging is needed
 - Format:
     - `gtfs2pt` outputs are `add.xml` files and demand is not in `rou.xml` files. maybe it's better to have `rou.xml` file for demand. 
-    - make sure that stop and trip names are what we expect based on GTFS files.
+    - make sure that stop and trip names are what we expect based on GTFS files. This is particularly important regarding working with codes in `ridership`.
 - Rail: 
-    - in some parts there are two rail tracks next to each other. it can be nicer and cleaner. Zili's original rail network is nice but when she combined it with the DT network some artifacts were made. Not a big deal though.
     - we can do some preprocessing on gtfs data so that we only capture trips between Judkins park, UW, and SODO. the filtering that the code currently does is not effective. This one is also not very important but it would be nicer not to have a very big area for simulation. 
 
-- Bus: This is the main part that needs to be addressed. see below
+network: 
+- run the `netconvert` command in the notebook one more time. you will recieve some network warnings. I suggest spending some time to find geometry issues of the network. By correct premissions in `soheil_seattle_correct_premissions` we mean that we allowed 'tram' for rail tracks and that was needed to make gtfs2pt work with no errors. 
+- (**You may ignore the following network issues. soheil_seattle_merged.net.xml works well with older sim files. didn't remove them to keep track later.**)
+  - The way Zili used SUMO commands to merge rail network (only the parts that were out of DT)
+  and the older network file (the one in `/clean corrected inputs`) leads to some artifacts. For example, compare the old `.net.xml` file with the new one in this folder and see what happened to SR99 entrance.
+  I think the best way to complement the rail network is simply by adding new edges from the rail network to the xml file of the old network directly,
+  without using netedit or netconvert. 
+  - I tried adding manually. not a good idea. coordinates mess up and gtfs2pt won't work properly. the reason behind Zili's 
+  network problem is that her rail network has nodes like J0 and edges like E1. there are similar nodes/edges in the DT network. so I chnaged those names in the rail network and tried Zili's work again
 
+<p align="center">
+  <img src="img.png" width="40%">
+</p>
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+Bus:
+- This is the main part that needs to be addressed. see below
+- first of all: bus routes seems to be bad. they don't take most obvious routes! see screenshot below for a bus in line 8. 
+could be a premission issue or speed issue. Probably the later because from old sim we know old network has some speed issues when sidewalks have low speeds compared to vehicle lanes.
+![img_3.png](img_3.png)
+
+- second: buses need to filtered and then added to the network. current filterning method is not very good (in notebook file)
 Below is ChatGPT review of what we need to address for bus trips. I asked it to read ipynb file and the log when gtfs2pt is run for bus gtfs.
 
-In general, the proper workflow should include selecting specific routes, filtering them properly to be suitable for the incomplete network we have, and then run gtfs2pt on that. after that, we should carefully read the `gtfs2pt` log  and look at the simulation and how buses behave in simulation compared to our expectation. 
+- In general, the proper workflow should include selecting specific routes, filtering them properly to be suitable for the incomplete network we have, and then run gtfs2pt on that. after that, we should carefully read the `gtfs2pt` log  and look at the simulation and how buses behave in simulation compared to our expectation. 
 
-Note that if you run Zili's bus simulation, you would face an error in simulation. that simulation is based on 12 routes that can be found in the ipynb file. Obviously this error should be fixed.
+- Note that if you run Zili's bus simulation, you would face an error in simulation. that simulation is based on 12 routes that can be found in the ipynb file. Obviously this error should be fixed.
 
 ---------------------
 

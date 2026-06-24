@@ -1,0 +1,65 @@
+<configuration>
+    <input>
+        <net-file value="GTFS/soheil_seattle_merged.net.xml"/>
+
+
+        <additional-files value="clean corrected inputs/forMFD_Taz_with_pseudo.add.xml,
+        edge_data.add.xml,
+        edge_data_min.add.xml,
+        edge_data_150.add.xml,
+        clean corrected inputs/correct_Alaskan_new_signal_additional.add.xml,
+        validation_loop_detectors.add.xml,
+                GTFS/rail/tram.add.xml,
+                GTFS/rail/gtfs_pt_stops.add.xml,
+                GTFS/rail/gtfs_pt_vehicles.add.xml,
+                GTFS/bus/bus.add.xml,
+                GTFS/bus/gtfs_pt_stops.add.xml,
+                GTFS/bus/gtfs_pt_vehicles.add.xml"/>
+
+<!--        <route-files value="adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V4.rou.xml,-->
+<!--         clean corrected inputs/new_bus_link_route_with_line.rou.xml,-->
+<!--         clean corrected inputs/kcm_personflows_253_AM.rou.xml"/>-->
+        <route-files value=
+                             "adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V3.rou.xml,
+                             ridership/test.rou.xml"
+        />
+
+    </input>
+
+    <output>
+        <tripinfo-output value="new output/tripinfo_output.xml"/>
+        <vehroute-output value="new output/vehroute_output.xml"/>
+    </output>
+
+    <time>
+        <begin value="18000"/>
+        <end value="43200"/>
+        <step-length value="0.1"/>
+    </time>
+
+    <processing>
+        <extrapolate-departpos value="true"/>
+        <threads value="4"/>
+        <ignore-junction-blocker value="60"/>
+        <ignore-route-errors value="true"/>
+        <ignore-accidents value="true"/>
+        <collision.action value="remove"/>
+        <time-to-teleport value="150"/>
+        <sloppy-insert value="true"/>
+        <lanechange.overtake-right value="true"/>
+    </processing>
+
+    <routing>
+        <routing-algorithm value="astar"/>
+		<weights.priority-factor value="10" />
+        <device.rerouting.probability value="0.7"/>
+        <device.rerouting.period value="300"/>
+        <device.rerouting.with-taz value="true"/>
+        <device.rerouting.threads value="4"/>
+    </routing>
+
+    <report>
+        <log value="new output/log.xml"/>
+    </report>
+
+</configuration>

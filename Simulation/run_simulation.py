@@ -21,6 +21,7 @@ if full_day:
     # it means that the vehicle arrived between 12*60 and 13*60 seconds of simulation
 else:
     sumocfg_file = "clean_reformed_Seattle.sumocfg"
+    # sumocfg_file = "gtfs_ridership_vehicular.sumocfg"
     loop_locations = "validation_loop_detectors.add.xml"
     trip_info_address = 'new output/vehRouteTime_output.pickle'
 

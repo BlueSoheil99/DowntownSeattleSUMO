@@ -18,13 +18,17 @@
 <!--        Zili/bus/gtfs_pt_vehicles.add.xml"/>-->
 
 <!--        updated rail simulation after fixing network file-->
-        <net-file value="merged_v2.net.xml"/>
+<!--        <net-file value="merged_v2.net.xml"/>-->
+
+        <net-file value="soheil_seattle_merged.net.xml"/>
+
          <additional-files value="rail/tram.add.xml,
                 rail/gtfs_pt_stops.add.xml,
                 rail/gtfs_pt_vehicles.add.xml,
                 bus/bus.add.xml,
                 bus/gtfs_pt_stops.add.xml,
                 bus/gtfs_pt_vehicles.add.xml"/>
+
 
     </input>
 

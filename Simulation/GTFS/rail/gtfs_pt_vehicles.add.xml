@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-06-19 19:03:11.121317 by Eclipse SUMO gtfs2pt.py v1_26_0+0000-fa7df22d7f1
+<!-- generated on 2026-06-23 12:39:39.616175 by Eclipse SUMO gtfs2pt.py v1_26_0+0000-fa7df22d7f1
 <configuration>
     <gtfs value="gtfs data/rail_gtfs_downtown.zip"/>
     <date value="20260329"/>
     <modes value="tram"/>
     <verbose value="True"/>
-    <network value="merged_v2.net.xml"/>
+    <network value="soheil_seattle_merged.net.xml"/>
     <repair value="True"/>
 </configuration>
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001" edges="164665655#0 164665655#1 164665655#2 164665655#3 164665655#4 164665655#5 164665655#5.573 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 E5 144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001" edges="164665655#0 164665655#1 164665655#2 164665655#3 164665655#4 164665655#5 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.0" duration="10" until="0"/> <!-- SODO -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.1" duration="10" until="240"/> <!-- Stadium -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.2" duration="10" until="360"/> <!-- Int'l Dist/Chinatown -->
@@ -29,7 +29,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="2760"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="3000"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003" edges="1474234268 694990066#0 1474235717 1453379591 694990053#0 694990052#8 164665658#0 164665660 1474229588 914225608 514723620#0 164665655#0 164665655#1 164665655#2 164665655#3 164665655#4 164665655#5 164665655#5.573 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 E5 144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003" edges="1474234268 694990066#0 1474235717 1453379591 694990053#0 694990052#8 164665658#0 164665660 1474229588 914225608 514723620#0 164665655#0 164665655#1 164665655#2 164665655#3 164665655#4 164665655#5 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.0" duration="10" until="0"/> <!-- Federal Way Downtown -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.1" duration="10" until="480"/> <!-- Star Lake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.2" duration="10" until="840"/> <!-- Kent Des Moines -->
@@ -57,7 +57,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="5400"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="5640"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1006" edges="694990052#8 164665658#0 164665660 1474229588 914225608 514723620#0 164665655#0 164665655#1 164665655#2 164665655#3 164665655#4 164665655#5 164665655#5.573 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 E5 144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1006" edges="694990052#8 164665658#0 164665660 1474229588 914225608 514723620#0 164665655#0 164665655#1 164665655#2 164665655#3 164665655#4 164665655#5 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.4" duration="10" until="0"/> <!-- SeaTac/Airport -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.5" duration="10" until="180"/> <!-- Tukwila Int'l Blvd -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.6" duration="10" until="720"/> <!-- Rainier Beach -->
@@ -81,7 +81,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="4020"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="4260"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1007" edges="1474234268 694990066#0 1474235717 1453379591 694990053#0 694990052#8 164665658#0 164665660 1474229588 914225608 514723620#0 164665655#0 164665655#1 164665655#2 164665655#3 164665655#4 164665655#5 164665655#5.573 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 E5 144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1007" edges="1474234268 694990066#0 1474235717 1453379591 694990053#0 694990052#8 164665658#0 164665660 1474229588 914225608 514723620#0 164665655#0 164665655#1 164665655#2 164665655#3 164665655#4 164665655#5 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.0" duration="10" until="0"/> <!-- Federal Way Downtown -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.1" duration="10" until="360"/> <!-- Star Lake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1003.2" duration="10" until="600"/> <!-- Kent Des Moines -->
@@ -109,13 +109,13 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="5040"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="5280"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1105.trimmed" edges="144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1105.trimmed" edges="144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.11" duration="10" until="0"/> <!-- Shoreline South/148th -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.12" duration="10" until="180"/> <!-- Shoreline North/185th -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="360"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="600"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1106.trimmed" edges="144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1106.trimmed" edges="144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.7" duration="10" until="0"/> <!-- Univ of Washington -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.8" duration="10" until="180"/> <!-- U District -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.9" duration="10" until="300"/> <!-- Roosevelt -->
@@ -125,7 +125,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="1260"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="1500"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001" edges="514723621 E0 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001" edges="514723621 E0_rail E1_rail 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.0" duration="10" until="0"/> <!-- Beacon Hill -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.1" duration="10" until="120"/> <!-- Mount Baker -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.2" duration="10" until="360"/> <!-- Columbia City -->
@@ -138,7 +138,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.9" duration="10" until="3000"/> <!-- Star Lake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.10" duration="10" until="3360"/> <!-- Federal Way Downtown -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002" edges="1271342004 E1 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 E9 452336725#8.21 170853848#2 170853848#3 170853848#4 170853848#5 170853848#6 1493551859#0.1303 164665650#0 514723621 E0 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002" edges="1271342004 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 452336725#8 170853848#2 170853848#3 170853848#4 170853848#5 170853848#6 1493551859#0.1312 164665650#0 514723621 E0_rail E1_rail 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.0" duration="10" until="0"/> <!-- Northgate -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.1" duration="10" until="420"/> <!-- Roosevelt -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.2" duration="10" until="660"/> <!-- U District -->
@@ -162,7 +162,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.9" duration="10" until="4500"/> <!-- Star Lake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.10" duration="10" until="4860"/> <!-- Federal Way Downtown -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2003" edges="514723621 E0 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2003" edges="514723621 E0_rail E1_rail 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.0" duration="10" until="0"/> <!-- Beacon Hill -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.1" duration="10" until="120"/> <!-- Mount Baker -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.2" duration="10" until="300"/> <!-- Columbia City -->
@@ -175,7 +175,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.9" duration="10" until="2160"/> <!-- Star Lake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.10" duration="10" until="2520"/> <!-- Federal Way Downtown -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005" edges="1271342004 E1 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 E9 452336725#8.21 170853848#2 170853848#3 170853848#4 170853848#5 170853848#6 1493551859#0.1303 164665650#0 514723621 E0 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005" edges="1271342004 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 452336725#8 170853848#2 170853848#3 170853848#4 170853848#5 170853848#6 1493551859#0.1312 164665650#0 514723621 E0_rail E1_rail 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.0" duration="10" until="0"/> <!-- Lynnwood City Center -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.1" duration="10" until="240"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.2" duration="10" until="420"/> <!-- Shoreline North/185th -->
@@ -203,7 +203,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.9" duration="10" until="4800"/> <!-- Star Lake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.10" duration="10" until="5160"/> <!-- Federal Way Downtown -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2008" edges="1271342004 E1 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 E9 452336725#8.21 170853848#2 170853848#3 170853848#4 170853848#5 170853848#6 1493551859#0.1303 164665650#0 514723621 E0 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2008" edges="1271342004 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 452336725#8 170853848#2 170853848#3 170853848#4 170853848#5 170853848#6 1493551859#0.1312 164665650#0 514723621 E0_rail E1_rail 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.0" duration="10" until="0"/> <!-- Lynnwood City Center -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.1" duration="10" until="240"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.2" duration="10" until="420"/> <!-- Shoreline North/185th -->
@@ -248,7 +248,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.9" duration="10" until="900"/> <!-- Star Lake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.10" duration="10" until="1260"/> <!-- Federal Way Downtown -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2109.trimmed" edges="E0 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2109.trimmed" edges="E1_rail 157345877#0 102313757#0 694990054#0 1453379592 1474235716 694990056 828429542#0">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.1" duration="10" until="0"/> <!-- Mount Baker -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.2" duration="10" until="180"/> <!-- Columbia City -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.3" duration="10" until="420"/> <!-- Othello -->
@@ -260,7 +260,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.9" duration="10" until="2040"/> <!-- Star Lake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2001.10" duration="10" until="2400"/> <!-- Federal Way Downtown -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3000" edges="882880003#1 160640889 160643776 161081946#2 776663913 164665655#5.573 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 E5 144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3000" edges="882880003#1 160640889 160643776 161081946#2 776663913 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3000.0" duration="10" until="0"/> <!-- Wilburton -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3000.1" duration="10" until="240"/> <!-- Bellevue Downtown -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3000.2" duration="10" until="720"/> <!-- East Main -->
@@ -281,7 +281,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="4500"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="4740"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3001" edges="1456627080 882880003#0 882880003#1 160640889 160643776 161081946#2 776663913 164665655#5.573 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 E5 144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3001" edges="1456627080 882880003#0 882880003#1 160640889 160643776 161081946#2 776663913 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3001.0" duration="10" until="0"/> <!-- Downtown Redmond -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3001.1" duration="10" until="360"/> <!-- Redmond Technology -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3001.2" duration="10" until="480"/> <!-- Overlake Village -->
@@ -307,7 +307,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="4440"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="4680"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3002" edges="1456627080 882880003#0 882880003#1 160640889 160643776 161081946#2 776663913 164665655#5.573 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 E5 144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3002" edges="1456627080 882880003#0 882880003#1 160640889 160643776 161081946#2 776663913 144691574#1 144691574#1.29 144691574#1.137 144691574#2 144691574#3 144691574#3.133 144691574#3.148 144691574#4 144691574#4.511 144691574#4.511.86 144691574#6 144691574#6.347 144691574#6.357 144691574#6.500 144691574#6.516 144691574#6.2179 144691574#6.2193 144691574#6.2325 144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3001.1" duration="10" until="0"/> <!-- Redmond Technology -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3001.2" duration="10" until="120"/> <!-- Overlake Village -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3001.3" duration="10" until="420"/> <!-- BelRed -->
@@ -332,11 +332,11 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="4080"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="4320"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3103.trimmed" edges="144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3103.trimmed" edges="144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.13" duration="10" until="0"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.14" duration="10" until="240"/> <!-- Lynnwood City Center -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3104.trimmed" edges="144691574#0.2674">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_3104.trimmed" edges="144691574#0.2421">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.9" duration="10" until="0"/> <!-- Roosevelt -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.10" duration="10" until="300"/> <!-- Northgate -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_1001.11" duration="10" until="600"/> <!-- Shoreline South/148th -->
@@ -357,7 +357,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.2" duration="10" until="360"/> <!-- Overlake Village -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.3" duration="10" until="480"/> <!-- Redmond Technology -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009" edges="1271342004 E1 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 E8 776663914 508513932#0 310001337 310001065#1 751013565#0 751013565#1">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009" edges="1271342004 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 916405933#0 776663914 508513932#0 310001337 310001065#1 751013565#0 751013565#1">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.0" duration="10" until="0"/> <!-- Lynnwood City Center -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.1" duration="10" until="240"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.2" duration="10" until="420"/> <!-- Shoreline North/185th -->
@@ -370,7 +370,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.5" duration="10" until="1860"/> <!-- Westlake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.6" duration="10" until="1980"/> <!-- Symphony -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.7" duration="10" until="2040"/> <!-- Pioneer Square -->
-        <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.8" duration="10" until="2160"/> <!-- Int'l Dist/Chinatown -->
+        <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009.12" duration="10" until="2160"/> <!-- Int'l Dist/Chinatown -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009.13" duration="10" until="2460"/> <!-- Judkins Park -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009.14" duration="10" until="2760"/> <!-- Mercer Island -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009.15" duration="10" until="3060"/> <!-- South Bellevue -->
@@ -382,7 +382,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.2" duration="10" until="4080"/> <!-- Overlake Village -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4000.3" duration="10" until="4200"/> <!-- Redmond Technology -->
     </route>
-    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4012" edges="1271342004 E1 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 E8 776663914 508513932#0 310001337 310001065#1 751013565#0 751013565#1">
+    <route id="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4012" edges="1271342004 371527759#0.2791 371527759#0.3598 371527759#0.3718 371527759#0.3743 371527759#0.5413 371527759#0.5424 371527759#0.5568 371527759#0.5584 452336725#3 452336725#3.82 452336725#3.159 452336725#5 452336725#5.46 452336725#5.63 452336725#6 452336725#7 452336725#7.16 452336725#7.152 916405933#0 776663914 508513932#0 310001337 310001065#1 751013565#0 751013565#1">
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.0" duration="10" until="0"/> <!-- Lynnwood City Center -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.1" duration="10" until="240"/> <!-- Mountlake Terrace -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2005.2" duration="10" until="420"/> <!-- Shoreline North/185th -->
@@ -395,7 +395,7 @@
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.5" duration="10" until="1860"/> <!-- Westlake -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.6" duration="10" until="1980"/> <!-- Symphony -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.7" duration="10" until="2040"/> <!-- Pioneer Square -->
-        <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_100479_2002.8" duration="10" until="2160"/> <!-- Int'l Dist/Chinatown -->
+        <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009.12" duration="10" until="2160"/> <!-- Int'l Dist/Chinatown -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009.13" duration="10" until="2460"/> <!-- Judkins Park -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009.14" duration="10" until="2760"/> <!-- Mercer Island -->
         <stop busStop="LLR_2026-03-29_Jan29_Spring26_CLCrev_Sunday_2LINE_4009.15" duration="10" until="3060"/> <!-- South Bellevue -->
