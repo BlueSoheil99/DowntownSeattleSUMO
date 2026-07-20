@@ -3,20 +3,14 @@ import os
 import pandas as pd
 
 
-## SOHEIL: The stop IDs that are created from gtfs2pt in gtfs folder do not have the stop IDs from stops.txt of
-# the gtfs files. so running this script does not work at its current format. One possible way is to fork gtfs2pt and
-# make sure that generated stops have the correct stop_ids.
-# Stops needed for each trip is written in stop_times.txt in gtfs
-
 
 
 # Inputs
 sumo_stop_file = "sumo_bus_stop_ids.csv"
-ridership_root = "data/routeData/kcm"   # change if needed
-# ridership_root = "data/routeData/st"   # change if needed
+prefix = "kcm"  #or 'st' --- change if needed
+ridership_root = f"data/routeData/{prefix}"
 service_change = "253"
 time_period = "AM"
-prefix = "st"
 
 # Load SUMO bus stop IDs
 sumo_stops = pd.read_csv(sumo_stop_file)

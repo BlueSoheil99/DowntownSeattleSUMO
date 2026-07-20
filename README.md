@@ -1,4 +1,6 @@
 # Simulation of Downtown Seattle AM peak
+> **Setup:** This repo uses Git LFS for large data/network files. A plain `git clone` alone will leave those files as small pointer stubs — after cloning, run `git lfs install` (one-time per machine) then `git lfs pull` inside the repo to fetch the real content.
+
 In this work, we simulated passenger vehicles and public transportation of Downtown seattle between 5 to 10 AM. The exact simulation period could be modified in step3 of demand generation and in sumocfg file. 
 Our network includes south of Mercer St, west of 12th Ave, and north of S Holgate St.
 

@@ -1,6 +1,6 @@
 <configuration>
     <input>
-        <net-file value="GTFS/soheil_seattle_merged.net.xml"/>
+        <net-file value="GTFS/soheil_seattle_merged_pedspeed.net.xml"/>
 
 
         <additional-files value="clean corrected inputs/forMFD_Taz_with_pseudo.add.xml,
@@ -16,13 +16,11 @@
                 GTFS/bus/gtfs_pt_stops.add.xml,
                 GTFS/bus/gtfs_pt_vehicles.add.xml"/>
 
-<!--        <route-files value="adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V4.rou.xml,-->
-<!--         clean corrected inputs/new_bus_link_route_with_line.rou.xml,-->
-<!--         clean corrected inputs/kcm_personflows_253_AM.rou.xml"/>-->
-        <route-files value=
-                             "adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V3.rou.xml,
-                             ridership/test.rou.xml"
-        />
+
+        <route-files value= "adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V3.rou.xml,
+                             ridership/kcm_personflows_253_AM_with_alighting.rou.xml"/>
+
+<!--        <route-files value= "ridership/kcm_personflows_253_AM_with_alighting.rou.xml"/>-->
 
     </input>
 

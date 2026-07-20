@@ -13,7 +13,7 @@ bus_stops = []
 
 for bus_stop in root.findall("busStop"):
     bus_stops.append({
-        "stop_id": bus_stop.get("id"),
+        "stop_id": bus_stop.get("id").split('_')[1],
         "lane": bus_stop.get("lane"),
         "startPos": bus_stop.get("startPos"),
         "endPos": bus_stop.get("endPos")

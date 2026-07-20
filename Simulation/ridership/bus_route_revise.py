@@ -4,9 +4,9 @@ from xml.dom import minidom
 import pandas as pd
 import zipfile
 
-## SOHEIL: see GTFS gtfs_pt_vehicles.add.xml files. I changed Yiran's original code into something that adds 'line' to
-# 'route's in the add file. but when you do down in that file you'll see 'vehicle's and they already have their 'line'
-# as a parameter. So I don't think if this is helpful.
+## SOHEIL: gtfs2pt outputs with --use-gtfs-stopids will provide both lines and stopIDs.
+# so this code is basically redundant. If needed, just make sure when using the add file you also copy <route>s into the output
+# TODO: double check line directions. I see inconsistencies in how gtfs2pt outputs use lineID or lineID#1
 
 input_file = "../GTFS/bus/gtfs_pt_vehicles.add.xml"
 gtfs_zip = "../GTFS/gtfs data/kcm_google_transit_downtown.zip"

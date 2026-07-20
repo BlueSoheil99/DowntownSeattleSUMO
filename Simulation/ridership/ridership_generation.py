@@ -1,19 +1,63 @@
+"""
+
+SOHEIL: gtfs2pt outputs with --use-gtfs-stopids will provide both lines and stopIDs.
+# Stops needed for each trip is written in stop_times.txt in gtfs
+# Todo: 1- using that option may result in creating duplicate stops with same IDs but on different edges/lanes.
+# TODO: 2- double check line directions. I see inconsistencies in how gtfs2pt outputs use lineID or lineID#1
+# currently the test files include bus routes "24", "33", "70", and "8"
+
+--------------
+
+gtfs2fcd.py gives each *distinct stop sequence* of a route its own line id, suffixing
+duplicates with #1, #2 ... So one KCM route becomes several SUMO lines, and they are
+mostly opposite directions:
+
+    line 24    33 vehicles  Elliott Ave W & W Roy St   -> 3rd Ave & Cedar St
+    line 24#1  35 vehicles  4th Ave S & S Royal Brougham -> Elliott Ave W & W Mercer Pl  (reverse)
+    line 24#2   1 vehicle   Elliott Ave W & W Roy St   -> 3rd Ave S & S Main St
+    line 8     70 vehicles  |  line 8#1   72 vehicles  (reverse)
+    line 33    28 vehicles  |  line 33#1  31 vehicles  |  line 33#2   5
+    line 70     8 vehicles  |  line 70#1  87 vehicles  |  line 70#2  85  |  line 70#3  9
+
+The ridership CSVs only know `routeNum` ("24"), which normalises to the BASE line id, so
+every personFlow is emitted with lines="24" / "8" / "33" / "70". Consequences:
+  * the reverse-direction vehicles carry no passengers at all;
+  * for route 70 the demand lands on the 8-vehicle variant while 181 other route-70
+    vehicles run empty -- riders will queue at stops for a long time.
+
+Three ways to resolve it (a modelling choice, deliberately NOT made here):
+  b) emit a space-separated list, lines="24 24#1 24#2" (SUMO accepts a list) so a person may
+     board any variant -- but a rider could then board a bus that never reaches their
+     destination stop, so verify SUMO's boarding behaviour before relying on this;
+  c) make generation direction-aware: use the ridership `direction` column (I/O), map each
+     direction to the matching SUMO line variant by comparing terminal stops, and generate
+     per-variant flows using that variant's own stop sequence. Most faithful, most work.
+"""
+
+
 import pandas as pd
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from collections import defaultdict
 
+
+
 # Inputs
-ridership_file = r"E:\SUMO_proj\seattleTransitRidership\kcm_ridership_matched_sumo_stops_253_AM.csv"
-route_file = "new_bus_link_route_with_line.rou.xml"
+sumo_stop_file = "sumo_bus_stop_ids.csv"
+ridership_file = r"kcm_ridership_matched_sumo_stops_253_AM.csv"
+route_file = "../GTFS/bus/gtfs_pt_vehicles.add.xml"
+
 output_person_file = "kcm_personflows_253_AM_with_alighting.rou.xml"
 
 begin_time = 5 * 3600
 end_time = 9 * 3600
 duration_hours = 4
 
-ridership = pd.read_csv(ridership_file)
 
+# Load SUMO bus stop IDs
+sumo_stops = pd.read_csv(sumo_stop_file)
+
+ridership = pd.read_csv(ridership_file)
 ridership["stopId"] = ridership["stopId"].astype(str)
 ridership["routeNum"] = ridership["routeNum"].astype(str)
 
@@ -31,21 +75,26 @@ for col in ["tripBoardings", "tripAlightings", "departingLoad"]:
 
 tree = ET.parse(route_file)
 root = tree.getroot()
-
 line_to_stop_sequences = defaultdict(list)
-
-for trip in root.findall("trip"):
+# for trip in root.findall("trip"):
+for trip in root.findall("vehicle"):
     if trip.get("type") != "bus":
         continue
 
     line = trip.get("line")
     if line is None:
         continue
+    # stops = [s.get("busStop") for s in trip.findall("stop") if s.get("busStop")]
 
-    stops = [s.get("busStop") for s in trip.findall("stop") if s.get("busStop")]
-
+    route_id = trip.get("route") # from gtfs2pt outputs, it is actually the trip id of the first trip that uses this route
+    route= root.find(f'.//route[@id="{route_id}"]')
+    stops = [s.get("busStop").split('_')[1] for s in route.findall("stop") if s.get("busStop")]
     if len(stops) >= 2:
         line_to_stop_sequences[line].append(stops)
+
+print(line_to_stop_sequences.keys())
+print(" figure out how #'s are coded")
+
 
 def get_representative_sequence(line):
     sequences = line_to_stop_sequences.get(line, [])
@@ -108,8 +157,11 @@ for line, line_df in ridership.groupby("sumo_line"):
                 continue
 
             destination_stop = downstream_stops[-1]
-            persons_per_hour = boardings / duration_hours
+            # persons_per_hour = assigned_boardings / duration_hours  # SOHEIL: I think numbers are already in hourly basis
+            persons_per_hour = assigned_boardings
+            persons_per_hour = persons_per_hour *10  #TODO SOHEIL: for test purposes -- REMOVE IT LATER
 
+            #SOHEIL: codes below are duplicated with the loop below. can use a function to avoid duplication. but for now, just keep it as is.
             pf = ET.SubElement(routes_root, "personFlow", {
                 "id": f"pf_{line}_{origin_stop}_{destination_stop}_AM_{created}",
                 "begin": str(begin_time),
@@ -117,9 +169,19 @@ for line, line_df in ridership.groupby("sumo_line"):
                 "personsPerHour": f"{persons_per_hour:.4f}"
             })
 
+            # ET.SubElement(pf, "ride", {
+            #     "from": origin_stop,
+            #     "busStop": destination_stop,
+            #     "lines": line
+            # })
+            # ET.SubElement(pf, "walk", {
+            #     "from": sumo_stops[sumo_stops.stop_id==int(origin_stop)].lane.tolist()[0].split('_')[0],
+            #     "busStop": 'gtfs_'+origin_stop,
+            # })
             ET.SubElement(pf, "ride", {
-                "from": origin_stop,
-                "busStop": destination_stop,
+                "from": sumo_stops[sumo_stops.stop_id == int(origin_stop)].lane.tolist()[0].split('_')[0],
+                "to": sumo_stops[sumo_stops.stop_id == int(destination_stop)].lane.tolist()[0].split('_')[0],
+                "busStop": 'gtfs_' + destination_stop,
                 "lines": line
             })
 
@@ -133,7 +195,10 @@ for line, line_df in ridership.groupby("sumo_line"):
             alight_weight = dest_row["tripAlightings"] / total_downstream_alight
 
             assigned_boardings = boardings * alight_weight
-            persons_per_hour = assigned_boardings / duration_hours
+            # persons_per_hour = assigned_boardings / duration_hours #SOHEIL: I think numbers are already in hourly basis
+            persons_per_hour = assigned_boardings
+            persons_per_hour = persons_per_hour *10  #TODO SOHEIL: for test purposes -- REMOVE IT LATER
+
 
             if persons_per_hour <= 0:
                 continue
@@ -145,9 +210,21 @@ for line, line_df in ridership.groupby("sumo_line"):
                 "personsPerHour": f"{persons_per_hour:.4f}"
             })
 
+            # ET.SubElement(pf, "ride", {
+            #     "from": origin_stop,
+            #     "busStop": destination_stop,
+            #     "lines": line
+            # })
+
+
+            # ET.SubElement(pf, "walk", {
+            #     "from": sumo_stops[sumo_stops.stop_id==int(origin_stop)].lane.tolist()[0].split('_')[0],
+            #     "busStop": 'gtfs_'+origin_stop,
+            # })
             ET.SubElement(pf, "ride", {
-                "from": origin_stop,
-                "busStop": destination_stop,
+                "from": sumo_stops[sumo_stops.stop_id==int(origin_stop)].lane.tolist()[0].split('_')[0],
+                "to": sumo_stops[sumo_stops.stop_id==int(destination_stop)].lane.tolist()[0].split('_')[0],
+                "busStop": 'gtfs_'+destination_stop,
                 "lines": line
             })
 
@@ -164,7 +241,7 @@ pd.DataFrame(skipped, columns=["line", "stopId", "reason"]).to_csv(
 )
 
 pd.DataFrame(initial_load_records).to_csv(
-    "../clean corrected inputs/estimated_initial_load_by_line_253_AM.csv", index=False
+    "estimated_initial_load_by_line_253_AM.csv", index=False
 )
 
 print(f"Generated: {output_person_file}")
