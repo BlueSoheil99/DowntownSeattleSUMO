@@ -50,7 +50,7 @@
     <busStop id="gtfs_450" lane="-671432782#1_1" startPos="38.50" endPos="51.50" friendlyPos="true" name="3rd Ave &amp; Union St"/>
     <busStop id="gtfs_480" lane="532864853#0_1" startPos="56.83" endPos="69.83" friendlyPos="true" name="3rd Ave &amp; Marion St"/>
     <busStop id="gtfs_500" lane="gneE177_1" startPos="54.85" endPos="67.85" friendlyPos="true" name="3rd Ave &amp; James St"/>
-    <busStop id="gtfs_1471" lane="164242787#1_1" startPos="0.00" endPos="3.89" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
+    <busStop id="gtfs_1471" lane="164242787#1_1" startPos="0.89" endPos="13.89" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
     <busStop id="gtfs_1610" lane="gneE173_1" startPos="29.36" endPos="42.36" friendlyPos="true" name="Prefontaine Pl S &amp; Yesler Way"/>
     <busStop id="gtfs_538" lane="gneE282_1" startPos="60.00" endPos="73.00" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
     <busStop id="gtfs_558" lane="-421777784#2_1" startPos="61.76" endPos="74.76" friendlyPos="true" name="3rd Ave &amp; Seneca St"/>
@@ -87,4 +87,11 @@
     <busStop id="gtfs_29270" lane="623536799_1" startPos="10.05" endPos="23.05" friendlyPos="true" name="E John St &amp; Broadway  E - Bay 1"/>
     <busStop id="gtfs_29277" lane="337668916#3_1" startPos="24.48" endPos="37.48" friendlyPos="true" name="E John St &amp; 12th Ave E"/>
     <busStop id="gtfs_29273" lane="337668916#3_1" startPos="279.19" endPos="292.19" friendlyPos="true" name="E John St &amp; 15th Ave E"/>
+    <!-- new bus stops -->
+    <busStop id="gtfs_1561" lane="-537661114_1" startPos="40" endPos="53" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St NB"/>
+    <busStop id="gtfs_1562" lane="531870054_1" startPos="40" endPos="53" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St SB"/>
+    <busStop id="gtfs_1559" lane="gneE143_1" startPos="47" endPos="60" friendlyPos="true" name="Alaskan Way &amp; Columbia St"/>
+    <busStop id="gtfs_1558" lane="gneE487_1" startPos="47" endPos="60" friendlyPos="true" name="Columbia St &amp; Alaskan Way"/>
+    <!-- comment -->
+
 </additional>
