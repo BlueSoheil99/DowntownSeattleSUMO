@@ -1,0 +1,33 @@
+<connections>
+    <connection from="gneE143" to="-635483971" fromLane="1" toLane="1"/>
+    <connection from="-635483971" to="-gneE487" fromLane="1" toLane="1"/>
+    <connection from="-gneE487" to="-gneE488" fromLane="1" toLane="1"/>
+    <connection from="-gneE488" to="-gneE489" fromLane="1" toLane="1"/>
+    <connection from="-gneE489" to="-gneE64" fromLane="1" toLane="1"/>
+    <connection from="-gneE64" to="-gneE272.65" fromLane="1" toLane="1"/>
+    <connection from="-gneE272.65" to="-gneE272" fromLane="1" toLane="1"/>
+    <connection from="-gneE272" to="-gneE269.20" fromLane="1" toLane="1"/>
+    <connection from="-gneE269.20" to="-gneE269" fromLane="1" toLane="1"/>
+    <connection from="-gneE269" to="-370819917#1" fromLane="1" toLane="1"/>
+    <connection from="-370819917#1" to="gneE279" fromLane="1" toLane="2"/>
+    <crossing node="53018668" edges="635483971" discard="true"/>
+    <crossing node="53018668" edges="635483971 -635483971" priority="1" width="4.00" linkIndex="6"/>
+    <crossing node="53114260" edges="gneE488" discard="true"/>
+    <crossing node="53114260" edges="gneE488 -gneE488" priority="0" width="4.00"/>
+    <crossing node="53114260" edges="gneE487" discard="true"/>
+    <crossing node="53114260" edges="gneE487 -gneE487" priority="0" width="4.00"/>
+    <crossing node="53135841" edges="gneE489" discard="true"/>
+    <crossing node="53135841" edges="gneE489 -gneE489" priority="0" width="4.00"/>
+    <crossing node="53135841" edges="gneE488" discard="true"/>
+    <crossing node="53135841" edges="gneE488 -gneE488" priority="0" width="4.00"/>
+    <crossing node="53142127" edges="gneE272.65" discard="true"/>
+    <crossing node="53142127" edges="gneE272.65 -gneE272.65" priority="1" width="4.00" linkIndex="13"/>
+    <crossing node="53142127" edges="gneE64" discard="true"/>
+    <crossing node="53142127" edges="gneE64 -gneE64" priority="1" width="4.00" linkIndex="15"/>
+    <crossing node="53142130" edges="gneE269.20" discard="true"/>
+    <crossing node="53142130" edges="gneE269.20 -gneE269.20" priority="1" width="4.00" linkIndex="11"/>
+    <crossing node="53142130" edges="gneE272" discard="true"/>
+    <crossing node="53142130" edges="gneE272 -gneE272" priority="1" width="4.00" linkIndex="13"/>
+    <crossing node="gneJ133" edges="370819917#1" discard="true"/>
+    <crossing node="gneJ133" edges="370819917#1 -370819917#1" priority="1" width="4.00" linkIndex="13"/>
+</connections>

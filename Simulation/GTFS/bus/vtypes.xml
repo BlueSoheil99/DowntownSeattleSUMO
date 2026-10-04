@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-07-17 13:31:04.707137 by Eclipse SUMO gtfs2pt.py v1.27.1
+<!-- generated on 2026-10-03 22:47:28.298538 by Eclipse SUMO gtfs2pt.py v1_27_1+0000-7717f2379d9
 <configuration>
     <gtfs value="gtfs data/kcm_google_transit_downtown.zip"/>
     <date value="20260617"/>
     <modes value="bus"/>
+    <vtype-output value="bus/vtypes.xml"/>
     <verbose value="True"/>
-    <network value="soheil_seattle_merged.net.xml"/>
+    <network value="soheil_seattle_merged_pedspeed.net.xml"/>
+    <route-output value="bus/gtfs_pt_vehicles.add.xml"/>
+    <additional-output value="bus/gtfs_pt_stops.add.xml"/>
+    <patched-stops value="bus/patched_stops.add.xml"/>
     <use-gtfs-stopids value="True"/>
     <repair value="True"/>
 </configuration>

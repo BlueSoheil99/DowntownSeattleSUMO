@@ -164,3 +164,12 @@ The rail/tram import looked much cleaner. The KCM bus import has real mapping an
 - **Check network connectivity near the problematic edges.** Some roads may be disconnected, one-way in the wrong direction, or missing turn connections.
 - **Only adjust stop-matching radius after checking geometry.** A larger radius can help, but it can also map stops to wrong edges.
 - **Consider importing fuller KCM trips first, then limiting demand or simulation area later**, instead of aggressively clipping the GTFS before running `gtfs2pt.py`.
+
+### Network patch: eastbound Columbia St bus lane
+The source map predates the 2019 Columbia St changes and only had Columbia St westbound, so northbound C Line buses looped around the block and stop 1559 was merged into 1558.
+`soheil_seattle_merged.net.xml` now includes an eastbound bus-only lane on Columbia St from Alaskan Way to 3rd Ave (edges `-635483971` … `-370819917#1`), and the south sidewalk was moved from the westbound edges onto it. The patch lives in `columbia_eb_bus.edg.xml` / `.con.xml` / `.tll.xml`. The signal programs at Alaskan Way, 1st, 2nd and 3rd Ave are the originals plus one link per new bus movement.
+**If `soheil_seattle_merged.net.xml` is ever regenerated, reapply the patch**, then rerun the ped-speed cell in `seattle_sumo_network_setup.ipynb`:
+```
+netconvert -s soheil_seattle_merged.net.xml -e columbia_eb_bus.edg.xml -x columbia_eb_bus.con.xml -i columbia_eb_bus.tll.xml --no-turnarounds -o soheil_seattle_merged.net.xml
+```
+`bus/patched_stops.add.xml` pins stop 1559 to Alaskan Way just before the turn. Its GTFS coordinate is closer to Columbia St, so gtfs2pt would otherwise place it there.

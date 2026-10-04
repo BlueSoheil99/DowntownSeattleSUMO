@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-07-20 13:50:46.553408 by Eclipse SUMO gtfs2pt.py v1.27.1
+<!-- generated on 2026-10-03 22:48:55.685786 by Eclipse SUMO gtfs2pt.py v1_27_1+0000-7717f2379d9
 <configuration>
     <gtfs value="gtfs data/kcm_google_transit_downtown.zip"/>
     <date value="20260617"/>
     <modes value="bus"/>
+    <vtype-output value="bus/vtypes.xml"/>
     <verbose value="True"/>
     <network value="soheil_seattle_merged_pedspeed.net.xml"/>
+    <route-output value="bus/gtfs_pt_vehicles.add.xml"/>
+    <additional-output value="bus/gtfs_pt_stops.add.xml"/>
+    <patched-stops value="bus/patched_stops.add.xml"/>
     <use-gtfs-stopids value="True"/>
     <repair value="True"/>
 </configuration>
@@ -207,6 +211,30 @@
         <stop busStop="gtfs_29277" duration="10" until="563"/> <!-- E John St &amp; 12th Ave E -->
         <stop busStop="gtfs_29273" duration="10" until="611"/> <!-- E John St &amp; 15th Ave E -->
         <stop busStop="gtfs_29260" duration="10" until="650"/> <!-- E Thomas St &amp; 16th Ave E -->
+    </route>
+    <route id="800867450" edges="-537661114 -537671576 gneE44 gneE44.52 gneE143 -635483971 -gneE487 -gneE488 -gneE489 -gneE64 -gneE272.65 -gneE272 -gneE269.20 -gneE269 -370819917#1 gneE279 -532864853#2 -462696720#2 -421777784#2 458064438#1 370819899#0 370819899#0.32 532243339#0 460425665#0 465991370#0 206883229#0 206883229#0.87 399134509#1 239939822#0 239939822#2 617436202#0 617436202#0.84 621378235#1 621378235#2 465797210#1 465797210#2 465797213#1 465797213#2 512250031#1 512250031#2 465797215#1 534549105#0 511213262#0 511213262#1 462696739 337671935 337671936#0 22768013#0 242288220#0 393063429#0 6435402#0 6435402#2 6435402#4 422748215#0 -422748212#9 -422748212#7 163419193#1 163419193#2 163419193#3 163419193#4 163419193#5 428087111 391470503#0 22927960#0 22927960#2 -484624022 -484624021 -428087110#3 -428087110#2 -173554574#2 -173554574#0 -428087148#2 -428087147#1 -38940711#1 6483622#0 512250646#5 428248101#0 465797042#0 465797042#0.53 620595195#0 620595195#0.78 524888104#0 524888104#0.90 617433067#0 617433067#0.80 240852322#0 240852322#2 240852322#3 157032158#1 171121261 171121268 4748960 4748960.15 22768208 pseudoMercer2 pseudoMercer4">
+        <stop busStop="gtfs_1561" duration="10" until="0"/> <!-- Alaskan Way S &amp; S Jackson St -->
+        <stop busStop="gtfs_1559" duration="10" until="32"/> <!-- Alaskan Way &amp; Columbia St -->
+        <stop busStop="gtfs_539" duration="10" until="75"/> <!-- 3rd Ave &amp; Marion St -->
+        <stop busStop="gtfs_558" duration="10" until="103"/> <!-- 3rd Ave &amp; Seneca St -->
+        <stop busStop="gtfs_575" duration="10" until="223"/> <!-- 3rd Ave &amp; Pike St -->
+        <stop busStop="gtfs_600" duration="10" until="363"/> <!-- 3rd Ave &amp; Virginia St -->
+        <stop busStop="gtfs_18440" duration="10" until="494"/> <!-- Blanchard St &amp; 6th Ave -->
+        <stop busStop="gtfs_26690" duration="10" until="593"/> <!-- Westlake &amp; 9th-Denny -->
+        <stop busStop="gtfs_26715" duration="10" until="707"/> <!-- Westlake Ave N &amp; Harrison St -->
+        <stop busStop="gtfs_26730" duration="10" until="823"/> <!-- Westlake Ave N &amp; Mercer St -->
+    </route>
+    <route id="800867470" edges="-331926451 -3319264510 -393047813#0 -393047815#1 -422748213#3 -422748213#1 -591627840#4 -591627840#1 -572049556#3 -572049556#1 -546095808#2 -546095808#0 163419193#0 422748212#7 422748212#8 -422748215#2 -6435402#4 -6435402#3 -6435402#1 -393063429#1 -242288220#1 -22768013#1 -399134517#3 -399134517#1 62206854#0 62206854#4 465797214#0 465797214#2 607173032#0 607173032#2 621426665#1 540076529#0 465797219#1 465797219#2 -621319687#1 -206883229#2 -206883229#2.84 -460423529#1 -460425665#2 -532243339#2 -671432782#1 -458064438#2 -458064438#2.47 421777784#1 462696720#0 532864853#0 gneE273 370819917#1 gneE269 gneE269.20 gneE272 gneE272.65 gneE64 gneE489 gneE488 gneE487 635483971 gneE144 gneE48 gneE48.68 537671576 537661114 531870054">
+        <stop busStop="gtfs_10328" duration="10" until="0"/> <!-- Valley St &amp; Fairview Ave N -->
+        <stop busStop="gtfs_26641" duration="10" until="76"/> <!-- Westlake &amp; Mercer -->
+        <stop busStop="gtfs_26645" duration="10" until="120"/> <!-- Westlake &amp; Thomas -->
+        <stop busStop="gtfs_26665" duration="10" until="214"/> <!-- Westlake &amp; 9th-Denny -->
+        <stop busStop="gtfs_420" duration="10" until="390"/> <!-- 3rd Ave &amp; Virginia St -->
+        <stop busStop="gtfs_431" duration="10" until="480"/> <!-- 3rd Ave &amp; Pike St -->
+        <stop busStop="gtfs_468" duration="10" until="626"/> <!-- 3rd Ave &amp; Seneca St -->
+        <stop busStop="gtfs_481" duration="10" until="720"/> <!-- 3rd Ave &amp; Columbia St -->
+        <stop busStop="gtfs_1558" duration="10" until="754"/> <!-- Columbia St &amp; Alaskan Way -->
+        <stop busStop="gtfs_1562" duration="10" until="795"/> <!-- Alaskan Way S &amp; S Jackson St -->
     </route>
     <vehicle id="473767460.0" route="473767460" type="bus" depart="20434" line="24">
         <param key="gtfs.route_name" value="24"/>
@@ -860,9 +888,17 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867550.0" route="800867470" type="bus" depart="86390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801592650.0" route="801592550" type="bus" depart="82790" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868520.0" route="800867470" type="bus" depart="82790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801592660.0" route="801592560" type="bus" depart="83433" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -876,6 +912,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867880.0" route="800867470" type="bus" depart="79190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801592690.0" route="801592560" type="bus" depart="77313" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -883,6 +923,10 @@
     <vehicle id="801592700.0" route="801592550" type="bus" depart="75590" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868150.0" route="800867470" type="bus" depart="75590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801592710.0" route="801592560" type="bus" depart="73428" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -892,9 +936,17 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800869490.0" route="800867470" type="bus" depart="72890" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801592740.0" route="801592550" type="bus" depart="78290" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800867510.0" route="800867470" type="bus" depart="78290" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801592750.0" route="801592560" type="bus" depart="82593" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -903,6 +955,10 @@
     <vehicle id="801592760.0" route="801592550" type="bus" depart="71090" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800867850.0" route="800867470" type="bus" depart="71090" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801592770.0" route="801592550" type="bus" depart="68750" line="70#1">
         <param key="gtfs.route_name" value="70"/>
@@ -920,6 +976,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867790.0" route="800867470" type="bus" depart="65990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801592810.0" route="801592560" type="bus" depart="66363" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -931,6 +991,10 @@
     <vehicle id="801592860.0" route="801592550" type="bus" depart="76490" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800869240.0" route="800867470" type="bus" depart="76490" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801592870.0" route="801592550" type="bus" depart="69470" line="70#1">
         <param key="gtfs.route_name" value="70"/>
@@ -944,6 +1008,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867680.0" route="800867470" type="bus" depart="84590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801592950.0" route="801592560" type="bus" depart="59599" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -951,6 +1019,10 @@
     <vehicle id="801592960.0" route="801592550" type="bus" depart="62390" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868390.0" route="800867470" type="bus" depart="62390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801592980.0" route="801592840" type="bus" depart="59930" line="70#3">
         <param key="gtfs.route_name" value="70"/>
@@ -964,6 +1036,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868620.0" route="800867470" type="bus" depart="61190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593010.0" route="801592560" type="bus" depart="58699" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -972,9 +1048,17 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868920.0" route="800867450" type="bus" depart="68030" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
     <vehicle id="801593030.0" route="801592550" type="bus" depart="74690" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800867620.0" route="800867470" type="bus" depart="74690" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593040.0" route="801592560" type="bus" depart="79053" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -996,9 +1080,17 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867970.0" route="800867470" type="bus" depart="58790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593110.0" route="801592550" type="bus" depart="56990" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868050.0" route="800867470" type="bus" depart="56990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593120.0" route="801592550" type="bus" depart="54890" line="70#1">
         <param key="gtfs.route_name" value="70"/>
@@ -1007,6 +1099,10 @@
     <vehicle id="801593130.0" route="801592550" type="bus" depart="53990" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800869590.0" route="800867470" type="bus" depart="53990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593140.0" route="801592560" type="bus" depart="52354" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -1020,6 +1116,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867930.0" route="800867470" type="bus" depart="50390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593190.0" route="801592560" type="bus" depart="55069" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1032,6 +1132,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800869050.0" route="800867470" type="bus" depart="57590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593240.0" route="801592560" type="bus" depart="47854" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1039,6 +1143,10 @@
     <vehicle id="801593260.0" route="801592550" type="bus" depart="43190" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868770.0" route="800867470" type="bus" depart="43190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593270.0" route="801592560" type="bus" depart="44254" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -1052,6 +1160,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868110.0" route="800867470" type="bus" depart="48590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593300.0" route="801592560" type="bus" depart="60499" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1064,6 +1176,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868170.0" route="800867470" type="bus" depart="55790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593330.0" route="801592550" type="bus" depart="62990" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
@@ -1071,6 +1187,10 @@
     <vehicle id="800890550.0" route="800890330" type="bus" depart="62990" line="8#1">
         <param key="gtfs.route_name" value="8"/>
         <param key="gtfs.trip_headsign" value="Mount Baker Transit Center"/>
+    </vehicle>
+    <vehicle id="800867770.0" route="800867470" type="bus" depart="62990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593340.0" route="801592540" type="bus" depart="67563" line="70">
         <param key="gtfs.route_name" value="70"/>
@@ -1080,6 +1200,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800869160.0" route="800867470" type="bus" depart="41390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593360.0" route="801592550" type="bus" depart="40490" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
@@ -1087,6 +1211,10 @@
     <vehicle id="801593370.0" route="801592550" type="bus" depart="39590" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800869300.0" route="800867470" type="bus" depart="39590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593380.0" route="801592560" type="bus" depart="40654" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -1124,6 +1252,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868810.0" route="800867470" type="bus" depart="60590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593480.0" route="801592560" type="bus" depart="57859" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1144,6 +1276,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867990.0" route="800867470" type="bus" depart="35990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593530.0" route="801592560" type="bus" depart="36094" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1156,6 +1292,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868330.0" route="800867470" type="bus" depart="44990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593560.0" route="801592560" type="bus" depart="35494" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1164,13 +1304,25 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800869420.0" route="800867470" type="bus" depart="37790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593580.0" route="801592550" type="bus" depart="52190" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868590.0" route="800867470" type="bus" depart="52190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593590.0" route="801592550" type="bus" depart="73790" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868500.0" route="800867470" type="bus" depart="73790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593600.0" route="801592550" type="bus" depart="80090" line="70#1">
         <param key="gtfs.route_name" value="70"/>
@@ -1183,6 +1335,10 @@
     <vehicle id="801593630.0" route="801592550" type="bus" depart="66590" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800867660.0" route="800867470" type="bus" depart="66590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593650.0" route="801592540" type="bus" depart="84273" line="70">
         <param key="gtfs.route_name" value="70"/>
@@ -1199,6 +1355,10 @@
     <vehicle id="800890760.0" route="800890330" type="bus" depart="59390" line="8#1">
         <param key="gtfs.route_name" value="8"/>
         <param key="gtfs.trip_headsign" value="Mount Baker Transit Center"/>
+    </vehicle>
+    <vehicle id="800867730.0" route="800867470" type="bus" depart="59390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593680.0" route="801592560" type="bus" depart="64009" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -1228,9 +1388,17 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868070.0" route="800867470" type="bus" depart="31790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593750.0" route="801592550" type="bus" depart="32390" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868990.0" route="800867470" type="bus" depart="32390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593760.0" route="801592550" type="bus" depart="31190" line="70#1">
         <param key="gtfs.route_name" value="70"/>
@@ -1272,6 +1440,10 @@
         <param key="gtfs.route_name" value="8"/>
         <param key="gtfs.trip_headsign" value="Mount Baker Transit Center"/>
     </vehicle>
+    <vehicle id="800868410.0" route="800867470" type="bus" depart="29990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593850.0" route="801592550" type="bus" depart="36890" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
@@ -1300,6 +1472,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867750.0" route="800867470" type="bus" depart="58190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801593930.0" route="801592560" type="bus" depart="48754" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1307,6 +1483,10 @@
     <vehicle id="801593950.0" route="801592550" type="bus" depart="65390" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868250.0" route="800867470" type="bus" depart="65390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801593960.0" route="801592550" type="bus" depart="72050" line="70#1">
         <param key="gtfs.route_name" value="70"/>
@@ -1360,6 +1540,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868830.0" route="800867450" type="bus" depart="23990" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
     <vehicle id="801594090.0" route="801592560" type="bus" depart="74973" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1368,9 +1552,17 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800867670.0" route="800867470" type="bus" depart="77390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="801594110.0" route="801592550" type="bus" depart="56390" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800869340.0" route="800867470" type="bus" depart="56390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801594130.0" route="801592560" type="bus" depart="81693" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -1391,6 +1583,10 @@
     <vehicle id="801594170.0" route="801592550" type="bus" depart="63590" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800869610.0" route="800867470" type="bus" depart="63590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="801594180.0" route="801592560" type="bus" depart="61099" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -1416,6 +1612,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800868950.0" route="800867450" type="bus" depart="23390" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
     <vehicle id="801594240.0" route="801592560" type="bus" depart="26478" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1432,9 +1632,17 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800869130.0" route="800867450" type="bus" depart="22790" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
     <vehicle id="801594280.0" route="801592550" type="bus" depart="22190" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868960.0" route="800867450" type="bus" depart="22190" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
     </vehicle>
     <vehicle id="801594290.0" route="801592560" type="bus" depart="23268" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -1520,6 +1728,10 @@
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
     </vehicle>
+    <vehicle id="800869470.0" route="800867470" type="bus" depart="64190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
     <vehicle id="816207560.0" route="801592560" type="bus" depart="63484" line="70#2">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="Downtown Seattle Fairview"/>
@@ -1539,6 +1751,10 @@
     <vehicle id="816207870.0" route="801592550" type="bus" depart="64790" line="70#1">
         <param key="gtfs.route_name" value="70"/>
         <param key="gtfs.trip_headsign" value="U-District Station Eastlake"/>
+    </vehicle>
+    <vehicle id="800868460.0" route="800867470" type="bus" depart="64790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
     <vehicle id="816207880.0" route="801592560" type="bus" depart="62284" line="70#2">
         <param key="gtfs.route_name" value="70"/>
@@ -2063,5 +2279,649 @@
     <vehicle id="800891760.0" route="800890330" type="bus" depart="25310" line="8#1">
         <param key="gtfs.route_name" value="8"/>
         <param key="gtfs.trip_headsign" value="Mount Baker Transit Center"/>
+    </vehicle>
+    <vehicle id="800867490.0" route="800867470" type="bus" depart="80390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867500.0" route="800867450" type="bus" depart="78119" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867530.0" route="800867450" type="bus" depart="84119" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867580.0" route="800867450" type="bus" depart="76319" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867590.0" route="800867470" type="bus" depart="71990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867600.0" route="800867470" type="bus" depart="70190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867610.0" route="800867450" type="bus" depart="72779" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867630.0" route="800867450" type="bus" depart="80819" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867650.0" route="800867470" type="bus" depart="81590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867690.0" route="800867450" type="bus" depart="82919" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867700.0" route="800867470" type="bus" depart="69290" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867710.0" route="800867450" type="bus" depart="67430" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867720.0" route="800867450" type="bus" depart="75479" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867740.0" route="800867450" type="bus" depart="66342" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867760.0" route="800867470" type="bus" depart="67790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867780.0" route="800867450" type="bus" depart="70379" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867800.0" route="800867450" type="bus" depart="64602" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867810.0" route="800867450" type="bus" depart="69230" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867820.0" route="800867450" type="bus" depart="59253" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867830.0" route="800867470" type="bus" depart="61790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867860.0" route="800867450" type="bus" depart="85207" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867870.0" route="800867450" type="bus" depart="77219" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867890.0" route="800867450" type="bus" depart="58002" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867900.0" route="800867450" type="bus" depart="61653" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867910.0" route="800867470" type="bus" depart="54590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867920.0" route="800867450" type="bus" depart="56682" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867940.0" route="800867470" type="bus" depart="41990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800867950.0" route="800867450" type="bus" depart="39830" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867960.0" route="800867450" type="bus" depart="48230" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800867980.0" route="800867470" type="bus" depart="33590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868000.0" route="800867450" type="bus" depart="42230" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868010.0" route="800867470" type="bus" depart="52790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868020.0" route="800867450" type="bus" depart="50630" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868030.0" route="800867470" type="bus" depart="44390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868040.0" route="800867450" type="bus" depart="59853" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868060.0" route="800867450" type="bus" depart="65202" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868080.0" route="800867470" type="bus" depart="40190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868090.0" route="800867450" type="bus" depart="46430" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868100.0" route="800867450" type="bus" depart="54882" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868120.0" route="800867450" type="bus" depart="38030" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868130.0" route="800867450" type="bus" depart="34113" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868140.0" route="800867450" type="bus" depart="73679" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868160.0" route="800867450" type="bus" depart="81719" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868180.0" route="800867450" type="bus" depart="45230" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868190.0" route="800867470" type="bus" depart="47390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868200.0" route="800867470" type="bus" depart="30890" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868210.0" route="800867470" type="bus" depart="38990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868220.0" route="800867450" type="bus" depart="53682" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868230.0" route="800867450" type="bus" depart="36830" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868240.0" route="800867450" type="bus" depart="63453" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868260.0" route="800867450" type="bus" depart="31945" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868270.0" route="800867450" type="bus" depart="42830" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868280.0" route="800867450" type="bus" depart="36282" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868290.0" route="800867470" type="bus" depart="53390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868300.0" route="800867470" type="bus" depart="36590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868310.0" route="800867470" type="bus" depart="46790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868320.0" route="800867450" type="bus" depart="53082" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868340.0" route="800867450" type="bus" depart="44630" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868350.0" route="800867470" type="bus" depart="38390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868360.0" route="800867470" type="bus" depart="28130" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868370.0" route="800867450" type="bus" depart="34482" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868380.0" route="800867450" type="bus" depart="51230" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868400.0" route="800867450" type="bus" depart="60453" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868420.0" route="800867470" type="bus" depart="55190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868430.0" route="800867450" type="bus" depart="62853" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868440.0" route="800867450" type="bus" depart="29785" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868450.0" route="800867470" type="bus" depart="27710" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868470.0" route="800867450" type="bus" depart="30685" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868480.0" route="800867450" type="bus" depart="71879" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868490.0" route="800867450" type="bus" depart="69779" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868510.0" route="800867450" type="bus" depart="79919" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868530.0" route="800867470" type="bus" depart="27230" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868540.0" route="800867450" type="bus" depart="33633" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868550.0" route="800867470" type="bus" depart="43790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868560.0" route="800867470" type="bus" depart="35390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868570.0" route="800867450" type="bus" depart="41630" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868580.0" route="800867450" type="bus" depart="50030" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868600.0" route="800867450" type="bus" depart="27813" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868610.0" route="800867450" type="bus" depart="28773" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868630.0" route="800867450" type="bus" depart="68630" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868640.0" route="800867470" type="bus" depart="26810" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868650.0" route="800867450" type="bus" depart="33273" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868660.0" route="800867450" type="bus" depart="25902" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868670.0" route="800867470" type="bus" depart="30410" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868680.0" route="800867450" type="bus" depart="28293" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868690.0" route="800867450" type="bus" depart="24942" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868700.0" route="800867450" type="bus" depart="25422" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868710.0" route="800867470" type="bus" depart="22130" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868720.0" route="800867470" type="bus" depart="34790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868730.0" route="800867450" type="bus" depart="32793" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868740.0" route="800867450" type="bus" depart="24462" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868750.0" route="800867470" type="bus" depart="26330" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868760.0" route="800867450" type="bus" depart="41030" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868780.0" route="800867470" type="bus" depart="51590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868790.0" route="800867450" type="bus" depart="49430" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868800.0" route="800867450" type="bus" depart="58602" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868820.0" route="800867470" type="bus" depart="25910" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868840.0" route="800867450" type="bus" depart="32425" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868850.0" route="800867470" type="bus" depart="34190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868860.0" route="800867470" type="bus" depart="42590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868870.0" route="800867450" type="bus" depart="40430" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868880.0" route="800867470" type="bus" depart="50990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868890.0" route="800867450" type="bus" depart="57342" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868900.0" route="800867450" type="bus" depart="48830" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868910.0" route="800867470" type="bus" depart="59990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868930.0" route="800867450" type="bus" depart="31585" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800868940.0" route="800867470" type="bus" depart="25430" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868970.0" route="800867470" type="bus" depart="23930" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800868980.0" route="800867450" type="bus" depart="30205" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869000.0" route="800867470" type="bus" depart="40790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869010.0" route="800867450" type="bus" depart="38630" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869020.0" route="800867450" type="bus" depart="47030" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869030.0" route="800867470" type="bus" depart="49190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869040.0" route="800867450" type="bus" depart="55482" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869060.0" route="800867450" type="bus" depart="65802" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869070.0" route="800867470" type="bus" depart="67190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869080.0" route="800867450" type="bus" depart="21590" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869090.0" route="800867470" type="bus" depart="29090" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869100.0" route="800867450" type="bus" depart="26913" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869120.0" route="800867470" type="bus" depart="24830" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869140.0" route="800867450" type="bus" depart="31105" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869150.0" route="800867470" type="bus" depart="32990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869170.0" route="800867450" type="bus" depart="39230" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869180.0" route="800867470" type="bus" depart="49790" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869190.0" route="800867450" type="bus" depart="56082" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869200.0" route="800867450" type="bus" depart="47630" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869210.0" route="800867450" type="bus" depart="66830" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869220.0" route="800867470" type="bus" depart="68390" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869230.0" route="800867450" type="bus" depart="74579" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869250.0" route="800867450" type="bus" depart="20639" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869260.0" route="800867470" type="bus" depart="31310" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869270.0" route="800867450" type="bus" depart="29253" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869280.0" route="800867470" type="bus" depart="23030" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869290.0" route="800867450" type="bus" depart="37430" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869310.0" route="800867450" type="bus" depart="45830" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869320.0" route="800867470" type="bus" depart="47990" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869330.0" route="800867450" type="bus" depart="54282" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869350.0" route="800867450" type="bus" depart="64053" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869360.0" route="800867450" type="bus" depart="19619" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869370.0" route="800867450" type="bus" depart="27333" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869380.0" route="800867470" type="bus" depart="21230" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869390.0" route="800867470" type="bus" depart="29510" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869400.0" route="800867450" type="bus" depart="35682" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869410.0" route="800867450" type="bus" depart="44030" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869430.0" route="800867470" type="bus" depart="46190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869440.0" route="800867450" type="bus" depart="52482" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869450.0" route="800867450" type="bus" depart="62253" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869460.0" route="800867450" type="bus" depart="70979" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869480.0" route="800867450" type="bus" depart="79019" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869500.0" route="800867450" type="bus" depart="17647" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869510.0" route="800867450" type="bus" depart="35082" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869520.0" route="800867470" type="bus" depart="28610" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869530.0" route="800867470" type="bus" depart="20330" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869540.0" route="800867450" type="bus" depart="26382" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869550.0" route="800867450" type="bus" depart="43430" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869560.0" route="800867470" type="bus" depart="37190" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869570.0" route="800867470" type="bus" depart="45590" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800869580.0" route="800867450" type="bus" depart="51830" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800869600.0" route="800867450" type="bus" depart="61053" line="C_Line">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="South Lake Union Downtown Seattle"/>
+    </vehicle>
+    <vehicle id="800870050.0" route="800867470" type="bus" depart="18530" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
+    </vehicle>
+    <vehicle id="800870060.0" route="800867470" type="bus" depart="19430" line="C_Line#1">
+        <param key="gtfs.route_name" value="C Line"/>
+        <param key="gtfs.trip_headsign" value="West Seattle Alaska Junction"/>
     </vehicle>
 </routes>

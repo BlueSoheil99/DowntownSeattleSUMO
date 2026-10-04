@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-07-20 13:50:46.042596 by Eclipse SUMO gtfs2pt.py v1.27.1
+<!-- generated on 2026-10-03 22:48:54.094528 by Eclipse SUMO gtfs2pt.py v1_27_1+0000-7717f2379d9
 <configuration>
     <gtfs value="gtfs data/kcm_google_transit_downtown.zip"/>
     <date value="20260617"/>
     <modes value="bus"/>
+    <vtype-output value="bus/vtypes.xml"/>
     <verbose value="True"/>
     <network value="soheil_seattle_merged_pedspeed.net.xml"/>
+    <route-output value="bus/gtfs_pt_vehicles.add.xml"/>
+    <additional-output value="bus/gtfs_pt_stops.add.xml"/>
+    <patched-stops value="bus/patched_stops.add.xml"/>
     <use-gtfs-stopids value="True"/>
     <repair value="True"/>
 </configuration>
@@ -39,7 +43,7 @@
     <busStop id="gtfs_420" lane="-621319687#1_1" startPos="92.50" endPos="105.50" friendlyPos="true" name="3rd Ave &amp; Virginia St"/>
     <busStop id="gtfs_433" lane="-532243339#2_1" startPos="64.26" endPos="77.26" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
     <busStop id="gtfs_468" lane="421777784#1_1" startPos="51.50" endPos="64.50" friendlyPos="true" name="3rd Ave &amp; Seneca St"/>
-    <busStop id="gtfs_490" lane="gneE274_1" startPos="53.49" endPos="66.49" friendlyPos="true" name="3rd Ave &amp; Cherry St"/>
+    <busStop id="gtfs_490" lane="gneE274_1" startPos="55.11" endPos="68.11" friendlyPos="true" name="3rd Ave &amp; Cherry St"/>
     <busStop id="gtfs_515" lane="452330584_1" startPos="50.09" endPos="63.09" friendlyPos="true" name="3rd Ave S &amp; S Main St"/>
     <busStop id="gtfs_10210" lane="-393047815#1_1" startPos="7.46" endPos="20.46" friendlyPos="true" name="Fairview Ave N &amp; Mercer St"/>
     <busStop id="gtfs_10225" lane="-428087138#0_1" startPos="4.69" endPos="17.69" friendlyPos="true" name="Fairview Ave N &amp; Thomas St"/>
@@ -50,9 +54,9 @@
     <busStop id="gtfs_450" lane="-671432782#1_1" startPos="38.50" endPos="51.50" friendlyPos="true" name="3rd Ave &amp; Union St"/>
     <busStop id="gtfs_480" lane="532864853#0_1" startPos="56.83" endPos="69.83" friendlyPos="true" name="3rd Ave &amp; Marion St"/>
     <busStop id="gtfs_500" lane="gneE177_1" startPos="54.85" endPos="67.85" friendlyPos="true" name="3rd Ave &amp; James St"/>
-    <busStop id="gtfs_1471" lane="164242787#1_1" startPos="0.89" endPos="13.89" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
+    <busStop id="gtfs_1471" lane="164242787#1_1" startPos="0.00" endPos="3.89" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
     <busStop id="gtfs_1610" lane="gneE173_1" startPos="29.36" endPos="42.36" friendlyPos="true" name="Prefontaine Pl S &amp; Yesler Way"/>
-    <busStop id="gtfs_538" lane="gneE282_1" startPos="60.00" endPos="73.00" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
+    <busStop id="gtfs_538" lane="gneE282_1" startPos="60.01" endPos="73.01" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
     <busStop id="gtfs_558" lane="-421777784#2_1" startPos="61.76" endPos="74.76" friendlyPos="true" name="3rd Ave &amp; Seneca St"/>
     <busStop id="gtfs_575" lane="532243339#0_1" startPos="88.47" endPos="101.47" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
     <busStop id="gtfs_880" lane="512250031#2_1" startPos="14.28" endPos="27.28" friendlyPos="true" name="Virginia St &amp; 6th Ave"/>
@@ -61,7 +65,6 @@
     <busStop id="gtfs_10305" lane="179222048#1_1" startPos="3.62" endPos="16.62" friendlyPos="true" name="Fairview Ave N &amp; Harrison St"/>
     <busStop id="gtfs_10325" lane="pseudoMercer2_0" startPos="7.67" endPos="20.67" friendlyPos="true" name="Fairview Ave N &amp; Valley St"/>
     <busStop id="gtfs_1530" lane="gneE402_1" startPos="7.52" endPos="20.52" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
-<!--    <busStop id="gtfs_1610" lane="gneE350_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Prefontaine Pl S &amp; Yesler Way"/>-->
     <busStop id="gtfs_29260" lane="-337668916#3_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="E Thomas St &amp; 16th Ave E"/>
     <busStop id="gtfs_29261" lane="-337668916#3_1" startPos="21.69" endPos="34.69" friendlyPos="true" name="E John St &amp; 15th Ave E"/>
     <busStop id="gtfs_29301" lane="-337668916#2_1" startPos="32.05" endPos="45.05" friendlyPos="true" name="E John St &amp; 12th Ave E"/>
@@ -87,11 +90,30 @@
     <busStop id="gtfs_29270" lane="623536799_1" startPos="10.05" endPos="23.05" friendlyPos="true" name="E John St &amp; Broadway  E - Bay 1"/>
     <busStop id="gtfs_29277" lane="337668916#3_1" startPos="24.48" endPos="37.48" friendlyPos="true" name="E John St &amp; 12th Ave E"/>
     <busStop id="gtfs_29273" lane="337668916#3_1" startPos="279.19" endPos="292.19" friendlyPos="true" name="E John St &amp; 15th Ave E"/>
-    <!-- new bus stops -->
-    <busStop id="gtfs_1561" lane="-537661114_1" startPos="40" endPos="53" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St NB"/>
-    <busStop id="gtfs_1562" lane="531870054_1" startPos="40" endPos="53" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St SB"/>
-    <busStop id="gtfs_1559" lane="gneE143_1" startPos="47" endPos="60" friendlyPos="true" name="Alaskan Way &amp; Columbia St"/>
-    <busStop id="gtfs_1558" lane="gneE487_1" startPos="47" endPos="60" friendlyPos="true" name="Columbia St &amp; Alaskan Way"/>
-    <!-- comment -->
-
+    <busStop id="gtfs_1561" lane="-537661114_0" startPos="35.04" endPos="48.04" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St">
+        <access friendlyPos="true" lane="-307511472#0_0" pos="11.37" length="111.35"/>
+        <access friendlyPos="true" lane="213928814#0_0" pos="0.28" length="53.21"/>
+        <access friendlyPos="true" lane="307511472#0_0" pos="0.00" length="106.22"/>
+        <access friendlyPos="true" lane="537661114_0" pos="23.34" length="48.77"/>
+        <access friendlyPos="true" lane="537671576_0" pos="89.03" length="70.96"/>
+        <access friendlyPos="true" lane="6384231_0" pos="12.35" length="47.00"/>
+        <access friendlyPos="true" lane="gneE704_0" pos="50.86" length="74.21"/>
+        <access friendlyPos="true" lane="gneE705_0" pos="2.60" length="83.81"/>
+        <access friendlyPos="true" lane="gneE706_0" pos="3.76" length="74.09"/>
+        <access friendlyPos="true" lane="gneE707_0" pos="24.07" length="83.70"/>
+    </busStop>
+    <busStop id="gtfs_1559" lane="gneE143_1" startPos="40.00" endPos="53.00" friendlyPos="true" name="Alaskan Way &amp; Columbia St"/>
+    <busStop id="gtfs_539" lane="gneE279_1" startPos="43.49" endPos="56.49" friendlyPos="true" name="3rd Ave &amp; Marion St"/>
+    <busStop id="gtfs_18440" lane="534549105#0_1" startPos="98.58" endPos="111.58" friendlyPos="true" name="Blanchard St &amp; 6th Ave"/>
+    <busStop id="gtfs_26690" lane="242288220#0_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Westlake &amp; 9th-Denny"/>
+    <busStop id="gtfs_26715" lane="422748215#0_1" startPos="88.18" endPos="101.18" friendlyPos="true" name="Westlake Ave N &amp; Harrison St"/>
+    <busStop id="gtfs_26730" lane="pseudoMercer4_0" startPos="52.52" endPos="65.52" friendlyPos="true" name="Westlake Ave N &amp; Mercer St"/>
+    <busStop id="gtfs_10328" lane="-331926451_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Valley St &amp; Fairview Ave N"/>
+    <busStop id="gtfs_26641" lane="-546095808#2_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Westlake &amp; Mercer"/>
+    <busStop id="gtfs_26645" lane="-422748215#2_1" startPos="53.39" endPos="66.39" friendlyPos="true" name="Westlake &amp; Thomas"/>
+    <busStop id="gtfs_26665" lane="-22768013#1_1" startPos="13.43" endPos="26.43" friendlyPos="true" name="Westlake &amp; 9th-Denny"/>
+    <busStop id="gtfs_431" lane="-460425665#2_1" startPos="96.24" endPos="109.24" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
+    <busStop id="gtfs_481" lane="gneE273_1" startPos="54.07" endPos="67.07" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
+    <busStop id="gtfs_1558" lane="gneE487_1" startPos="38.55" endPos="51.55" friendlyPos="true" name="Columbia St &amp; Alaskan Way"/>
+    <busStop id="gtfs_1562" lane="531870054_1" startPos="37.52" endPos="50.52" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St"/>
 </additional>

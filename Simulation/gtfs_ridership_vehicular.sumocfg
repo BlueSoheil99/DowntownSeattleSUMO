@@ -7,7 +7,7 @@
         edge_data.add.xml,
         edge_data_min.add.xml,
         edge_data_150.add.xml,
-        clean corrected inputs/correct_Alaskan_new_signal_additional.add.xml,
+        clean corrected inputs/correct_Alaskan_new_signal_additional_columbia_eb.add.xml,
         validation_loop_detectors.add.xml,
                 GTFS/rail/tram.add.xml,
                 GTFS/rail/gtfs_pt_stops.add.xml,

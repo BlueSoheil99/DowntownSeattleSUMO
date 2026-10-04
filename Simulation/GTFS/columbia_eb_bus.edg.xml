@@ -1,0 +1,52 @@
+<edges>
+    <edge id="370819917#1" numLanes="4" spreadType="right"/>
+    <edge id="-370819917#1" from="3629600001" to="gneJ133" priority="6" numLanes="2" speed="13.41" spreadType="right" shape="3472.42,3802.21 3492.31,3815.00 3514.43,3832.28">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="gneE269" numLanes="5" spreadType="right"/>
+    <edge id="-gneE269" from="gneJ478" to="3629600001" priority="6" numLanes="2" speed="13.89" spreadType="right" shape="3460.17,3792.06 3472.42,3802.21">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="gneE269.20" numLanes="5" spreadType="right"/>
+    <edge id="-gneE269.20" from="53142130" to="gneJ478" priority="6" numLanes="2" speed="13.89" spreadType="right" shape="3432.45,3775.90 3454.22,3787.82 3460.17,3792.06">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="gneE272" numLanes="4" spreadType="right"/>
+    <edge id="-gneE272" from="gneJ477" to="53142130" priority="7" numLanes="2" speed="13.89" spreadType="right" shape="3376.14,3740.74 3400.20,3754.05 3412.01,3760.32 3432.45,3775.90">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="gneE272.65" numLanes="4" spreadType="right"/>
+    <edge id="-gneE272.65" from="53142127" to="gneJ477" priority="7" numLanes="2" speed="13.89" spreadType="right" shape="3345.19,3724.21 3376.14,3740.74">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="gneE64" numLanes="4" spreadType="right"/>
+    <edge id="-gneE64" from="5321433108" to="53142127" priority="4" numLanes="2" speed="13.89" spreadType="right" shape="3309.65,3706.77 3345.19,3724.21">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="gneE489" numLanes="3" spreadType="right"/>
+    <edge id="-gneE489" from="53135841" to="5321433108" priority="4" numLanes="2" speed="13.89" spreadType="right" shape="3292.76,3697.25 3309.65,3706.77">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="gneE488" numLanes="3" spreadType="right"/>
+    <edge id="-gneE488" from="53114260" to="53135841" priority="4" numLanes="2" speed="13.89" spreadType="right" shape="3265.27,3675.96 3292.76,3697.25">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="gneE487" numLanes="3" spreadType="right"/>
+    <edge id="-gneE487" from="2235761308" to="53114260" priority="4" numLanes="2" speed="13.89" spreadType="right" shape="3196.26,3635.44 3265.27,3675.96">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+    <edge id="635483971" numLanes="3" spreadType="right"/>
+    <edge id="-635483971" from="53018668" to="2235761308" priority="4" numLanes="2" speed="8.94" spreadType="right" shape="3181.72,3628.18 3196.26,3635.44">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+</edges>

@@ -1,0 +1,5 @@
+<additional>
+    <!-- Alaskan Way & Columbia St (northbound): on Alaskan Way just before the right turn onto Columbia St.
+         The GTFS coordinate is closer to the Columbia St lanes, so gtfs2pt would otherwise put it there. -->
+    <busStop id="gtfs_1559" lane="gneE143_1" startPos="40.00" endPos="53.00" friendlyPos="true" name="Alaskan Way &amp; Columbia St"/>
+</additional>

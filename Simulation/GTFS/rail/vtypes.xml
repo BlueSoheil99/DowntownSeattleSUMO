@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-06-23 12:39:32.840276 by Eclipse SUMO gtfs2pt.py v1_26_0+0000-fa7df22d7f1
+<!-- generated on 2026-10-03 22:45:20.223544 by Eclipse SUMO gtfs2pt.py v1_27_1+0000-7717f2379d9
 <configuration>
     <gtfs value="gtfs data/rail_gtfs_downtown.zip"/>
     <date value="20260329"/>
     <modes value="tram"/>
+    <vtype-output value="rail/vtypes.xml"/>
     <verbose value="True"/>
-    <network value="soheil_seattle_merged.net.xml"/>
+    <network value="soheil_seattle_merged_pedspeed.net.xml"/>
+    <route-output value="rail/gtfs_pt_vehicles.add.xml"/>
+    <additional-output value="rail/gtfs_pt_stops.add.xml"/>
     <repair value="True"/>
 </configuration>
 -->

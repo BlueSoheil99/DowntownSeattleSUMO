@@ -1,0 +1,59 @@
+<tlLogics>
+    <tlLogic id="53018668" type="actuated" programID="0" offset="32">
+        <phase duration="37" state="rrGGGGGrrg" minDur="5" maxDur="50"/>
+        <phase duration="5"  state="rrGGGGrrrg"/>
+        <phase duration="3"  state="rryyyyrrry"/>
+        <phase duration="37" state="ggrrrrrGGr" minDur="5" maxDur="50"/>
+        <phase duration="5"  state="ggrrrrrrrr"/>
+        <phase duration="3"  state="yyrrrrrrrr"/>
+        <param key="detector-gap" value="2.0"/>
+        <param key="file" value="NULL"/>
+        <param key="freq" value="300"/>
+        <param key="max-gap" value="3.0"/>
+        <param key="passing-time" value="2.0"/>
+        <param key="show-detectors" value="false"/>
+        <param key="vTypes" value=""/>
+    </tlLogic>
+    <connection from="gneE143" to="-635483971" fromLane="1" toLane="1" tl="53018668" linkIndex="9"/>
+    <tlLogic id="53142127" type="actuated" programID="0" offset="5">
+        <phase duration="37" state="rrrrrrrGGggGGGrGrr"/>
+        <phase duration="5"  state="rrrrrrrGGggGGrrrrr"/>
+        <phase duration="3"  state="rrrrrrryyyyyyrrrrr"/>
+        <phase duration="37" state="gGgGgGgrrrrrrrGrGG"/>
+        <phase duration="5"  state="gGgGgGgrrrrrrrrrrG"/>
+        <phase duration="3"  state="yyyyyyyrrrrrrrrrry"/>
+        <param key="detector-gap" value="2.0"/>
+        <param key="file" value="NULL"/>
+        <param key="freq" value="300"/>
+        <param key="max-gap" value="3.0"/>
+        <param key="passing-time" value="2.0"/>
+        <param key="show-detectors" value="false"/>
+        <param key="vTypes" value=""/>
+    </tlLogic>
+    <connection from="-gneE64" to="-gneE272.65" fromLane="1" toLane="1" tl="53142127" linkIndex="17"/>
+    <tlLogic id="53142130" type="actuated" programID="0" offset="32">
+        <phase duration="37" state="GGgGgrrrrrrrGrGG"/>
+        <phase duration="5"  state="GGgGgrrrrrrrrrrG"/>
+        <phase duration="3"  state="yyyyyrrrrrrrrrry"/>
+        <phase duration="37" state="rrrrrgGgGGGGrGrr"/>
+        <phase duration="5"  state="rrrrrgGgGGGrrrrr"/>
+        <phase duration="3"  state="rrrrryyyyyyrrrrr"/>
+        <param key="detector-gap" value="2.0"/>
+        <param key="file" value="NULL"/>
+        <param key="freq" value="300"/>
+        <param key="max-gap" value="3.0"/>
+        <param key="passing-time" value="2.0"/>
+        <param key="show-detectors" value="false"/>
+        <param key="vTypes" value=""/>
+    </tlLogic>
+    <connection from="-gneE272" to="-gneE269.20" fromLane="1" toLane="1" tl="53142130" linkIndex="15"/>
+    <tlLogic id="gneJ133" type="static" programID="0" offset="30">
+        <phase duration="37" state="rrrrrGGggGGGrGrr"/>
+        <phase duration="5"  state="rrrrrGGggGGrrrrr"/>
+        <phase duration="3"  state="rrrrryyyyyyrrrrr"/>
+        <phase duration="37" state="gGGGgrrrrrrrGrGg"/>
+        <phase duration="5"  state="gGGGgrrrrrrrrrrg"/>
+        <phase duration="3"  state="yyyyyrrrrrrrrrry"/>
+    </tlLogic>
+    <connection from="-370819917#1" to="gneE279" fromLane="1" toLane="2" tl="gneJ133" linkIndex="15"/>
+</tlLogics>
