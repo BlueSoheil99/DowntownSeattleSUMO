@@ -5,7 +5,7 @@
 
 <additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
     <!-- StoppingPlaces -->
-    <busStop id="1000" lane="-22760470#0_1" startPos="19.86" endPos="36.85" friendlyPos="true"/>
+    <!-- <busStop id="1000" lane="-22760470#0_1" startPos="19.86" endPos="36.85" friendlyPos="true"/>
     <busStop id="1010" lane="6439301#17_1" startPos="11.18" endPos="31.18" friendlyPos="true"/>
     <busStop id="10210" lane="-393047813#0_1" startPos="1.36" endPos="12.80" friendlyPos="true"/>
     <busStop id="10225" lane="-428087138#0_1" startPos="11.84" endPos="31.84" friendlyPos="true"/>
@@ -274,7 +274,7 @@
     <busStop id="996" lane="-679636490#0.55_1" startPos="50.00" endPos="70.00" friendlyPos="true"/>
     <busStop id="99603" lane="144691574#6.2193_1" startPos="21.73" endPos="41.73"/>
     <busStop id="99610" lane="371527759#0.3598_1" startPos="116.00" endPos="136.00"/>
-    <busStop id="997" lane="332946371#3_1" startPos="21.94" endPos="41.94" friendlyPos="true"/>
+    <busStop id="997" lane="332946371#3_1" startPos="21.94" endPos="41.94" friendlyPos="true"/> -->
     <!-- TAZs -->
     <taz id="426" shape="4414.31,6097.42 4415.87,5632.66 4648.25,5632.66 4654.49,6102.09 4414.31,6097.42 4414.31,6097.42" color="blue">
         <tazSource id="-158882505#0" weight="4.00"/>

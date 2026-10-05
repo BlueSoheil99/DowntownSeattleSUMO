@@ -1,0 +1,5 @@
+September 29th: Sorted BUS lines into Downtown and not See GTFS/bus/BT_seattle_Buslines
+October 1st: Added a few C line stops manually
+October 2nd: reviewed GTFS to sumo pipeling
+October 3rd: Added Windows workspace block to seattle_sumo_gtfsData_setup, Added dedupe function to seattle_sumo_gtfsData_setup that is called after bus stop creation, added eastbound bus lane to columbia ave between Alskan way and 3rd ave, removed extra stops added in forMFD_Taz_with_pseudo.add.xml
+October 4th: Created Transit only SUMO file so that each bus line can be tested indivually to help with simulation speed during debugging/ route cleanup
