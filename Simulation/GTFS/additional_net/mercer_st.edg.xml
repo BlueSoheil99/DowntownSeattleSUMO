@@ -1,0 +1,123 @@
+<edges>
+    <edge id="370823242" from="53194995" to="544353836" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="810.43,6300.97 817.87,6304.01 828.36,6304.97 841.64,6300.79 855.98,6293.40">
+        <lane index="0" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="370823243" from="544353836" to="3745076004" priority="7" type="highway.secondary" numLanes="1" speed="11.18" shape="855.98,6293.40 826.68,6312.50 818.85,6317.52 800.98,6329.24 760.18,6356.08">
+        <lane index="0" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="393063428" from="544353838" to="544353836" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="911.47,6260.22 881.72,6278.01 855.98,6293.40">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-393063428" from="544353836" to="544353838" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="855.98,6293.40 881.72,6278.01 911.47,6260.22">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="6469959" from="53201875" to="544353838" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1156.27,6084.29 1137.30,6102.30 1102.94,6144.79 1099.30,6148.85 1091.85,6155.68 1079.16,6164.31 1074.33,6167.56 1011.72,6203.01 947.83,6239.48 911.47,6260.22">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-6469959" from="544353838" to="53201875" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="911.47,6260.22 947.83,6239.48 1011.72,6203.01 1074.33,6167.56 1079.16,6164.31 1091.85,6155.68 1099.30,6148.85 1102.94,6144.79 1137.30,6102.30 1156.27,6084.29">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="991817715" from="53201875" to="53199163" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1156.27,6084.29 1160.21,6081.84 1169.84,6079.63 1172.38,6079.37 1178.85,6079.39 1191.80,6079.69 1200.68,6079.79">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-991817715" from="53199163" to="53201875" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1200.68,6079.79 1191.80,6079.69 1178.85,6079.39 1172.38,6079.37 1169.84,6079.63 1160.21,6081.84 1156.27,6084.29">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="6448598#0" from="53199163" to="53129913" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1200.68,6079.79 1208.28,6079.86 1249.45,6079.58 1290.37,6079.73 1297.15,6079.75">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-6448598#0" from="53129913" to="53199163" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1297.15,6079.75 1290.37,6079.73 1249.45,6079.58 1208.28,6079.86 1200.68,6079.79">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="6448598#1" from="53129913" to="53082539" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1297.15,6079.75 1306.37,6079.78 1349.38,6079.96 1364.57,6080.04 1375.80,6080.11 1387.03,6080.17 1396.35,6080.21">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-6448598#1" from="53082539" to="53129913" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1396.35,6080.21 1387.03,6080.17 1375.80,6080.11 1364.57,6080.04 1349.38,6079.96 1306.37,6079.78 1297.15,6079.75">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="991817717" from="53082539" to="53146313" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1396.35,6080.21 1405.63,6080.25 1445.39,6080.59 1458.12,6080.56 1485.56,6080.70 1494.60,6080.77">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-991817717" from="53146313" to="53082539" priority="7" type="highway.secondary" numLanes="2" speed="11.18" shape="1494.60,6080.77 1485.56,6080.70 1458.12,6080.56 1445.39,6080.59 1405.63,6080.25 1396.35,6080.21">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="67135998#0" from="53146313" to="53196084" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="1494.60,6080.77 1504.46,6080.76 1535.53,6080.71 1544.92,6080.70 1553.47,6080.70 1583.04,6080.65 1593.35,6080.65">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-67135998#0" from="53196084" to="53146313" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="1593.35,6080.65 1583.04,6080.65 1553.47,6080.70 1544.92,6080.70 1535.53,6080.71 1504.46,6080.76 1494.60,6080.77">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="67135998#1" from="53196084" to="53091661" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="1593.35,6080.65 1601.88,6080.64 1642.65,6080.59 1658.61,6080.58 1660.26,6080.58 1679.66,6080.57 1690.81,6080.57">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-67135998#1" from="53091661" to="53196084" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="1690.81,6080.57 1679.66,6080.57 1660.26,6080.58 1658.61,6080.58 1642.65,6080.59 1601.88,6080.64 1593.35,6080.65">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="460421474" from="53091661" to="53091662" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="1690.81,6080.57 1694.87,6080.58 1698.01,6080.59 1712.54,6080.64 1740.19,6080.75 1744.57,6080.77 1774.44,6080.91 1780.45,6080.93 1790.00,6080.97">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-460421474" from="53091662" to="53091661" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="1790.00,6080.97 1780.45,6080.93 1774.44,6080.91 1744.57,6080.77 1740.19,6080.75 1712.54,6080.64 1698.01,6080.59 1694.87,6080.58 1690.81,6080.57">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="370823239#0" from="53091662" to="30343850" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="1790.00,6080.97 1797.89,6080.94 1850.51,6080.78 1877.60,6080.70 1886.95,6080.66">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-370823239#0" from="30343850" to="53091662" priority="7" type="highway.secondary" numLanes="3" speed="11.18" shape="1886.95,6080.66 1877.60,6080.70 1850.51,6080.78 1797.89,6080.94 1790.00,6080.97">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="998780651" from="4273566036" to="53091662" priority="7" type="highway.secondary" numLanes="4" speed="13.41" spreadType="center" shape="1789.77,6050.21 1790.00,6080.97">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="2" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+        <lane index="3" allow="pedestrian"/>
+    </edge>
+    <edge id="-22759220#9">
+        <split pos="507.66" id="53194995"/>
+    </edge>
+    <edge id="22759220#9">
+        <split pos="391.64" id="53194995" idBefore="22759220#9.0" idAfter="22759220#9.391"/>
+        <split pos="466.22" id="3745076004" idBefore="22759220#9.391" idAfter="22759220#9"/>
+    </edge>
+    <edge id="6441317#12">
+        <split pos="137.63" id="53196084"/>
+    </edge>
+    <edge id="-6441317#12">
+        <split pos="163.74" id="53196084"/>
+    </edge>
+    <edge id="6397899#3">
+        <split pos="45.64" id="30343850"/>
+    </edge>
+    <edge id="-6397899#3">
+        <split pos="184.30" id="30343850"/>
+    </edge>
+</edges>

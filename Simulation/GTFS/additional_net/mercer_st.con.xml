@@ -1,0 +1,24 @@
+<connections>
+    <!-- existing streets that dead-ended at Mercer St keep their loaded connections, so their turns are added explicitly -->
+    <!-- 4th Ave W -->
+    <connection from="22759219#5" to="-6448598#0" fromLane="1" toLane="1"/>
+    <connection from="22759219#5" to="6448598#1" fromLane="1" toLane="1"/>
+    <delete from="22759219#5" to="-22759219#5" fromLane="1" toLane="1"/>
+    <!-- 3rd Ave W (continues north of Mercer) -->
+    <connection from="682341627#1" to="-6448598#1" fromLane="1" toLane="1"/>
+    <connection from="682341627#1" to="991817717" fromLane="1" toLane="1"/>
+    <delete from="682341627#1" to="-682341627#1" fromLane="1" toLane="1"/>
+    <connection from="-682341627#2" to="-6448598#1" fromLane="0" toLane="1"/>
+    <connection from="-682341627#2" to="991817717" fromLane="0" toLane="1"/>
+    <delete from="-682341627#2" to="682341627#2" fromLane="0" toLane="0"/>
+    <!-- 2nd Ave W -->
+    <connection from="6398028#10" to="-991817717" fromLane="1" toLane="1"/>
+    <connection from="6398028#10" to="67135998#0" fromLane="1" toLane="1"/>
+    <delete from="6398028#10" to="-6398028#10" fromLane="1" toLane="1"/>
+    <!-- 1st Ave N (one-way northbound) continues up to Mercer -->
+    <connection from="263689012" to="998780651" fromLane="1" toLane="1"/>
+    <connection from="263689012" to="998780651" fromLane="2" toLane="2"/>
+    <!-- 1st Ave W was split at Mercer: the crosswalk at Republican now crosses the southern piece -->
+    <crossing node="53155882" edges="6441317#12 -6441317#12" discard="true"/>
+    <crossing node="53155882" edges="6441317#12 -6441317#12.163" priority="0" width="4.00"/>
+</connections>

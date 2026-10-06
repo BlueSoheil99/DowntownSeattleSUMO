@@ -1,0 +1,15 @@
+<nodes>
+    <node id="53201875" x="1156.27" y="6084.29" type="priority"/>
+    <node id="53199163" x="1200.68" y="6079.79" type="priority"/>
+    <node id="53196084" x="1593.35" y="6080.65" type="traffic_light"/>
+    <node id="53091662" x="1790.00" y="6080.97" type="traffic_light"/>
+    <node id="30343850" x="1886.95" y="6080.66" type="traffic_light"/>
+    <node id="544353838" x="911.47" y="6260.22" type="priority"/>
+    <node id="544353836" x="855.98" y="6293.40" type="priority"/>
+    <node id="53194995" x="810.43" y="6300.97" type="priority"/>
+    <node id="3745076004" x="760.18" y="6356.08" type="priority"/>
+    <node id="53082539" type="traffic_light"/>
+    <node id="53146313" type="traffic_light"/>
+    <node id="53091661" type="traffic_light"/>
+    <node id="4273566036" type="priority"/>
+</nodes>

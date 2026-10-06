@@ -165,11 +165,48 @@ The rail/tram import looked much cleaner. The KCM bus import has real mapping an
 - **Only adjust stop-matching radius after checking geometry.** A larger radius can help, but it can also map stops to wrong edges.
 - **Consider importing fuller KCM trips first, then limiting demand or simulation area later**, instead of aggressively clipping the GTFS before running `gtfs2pt.py`.
 
-### Network patch: eastbound Columbia St bus lane
-The source map predates the 2019 Columbia St changes and only had Columbia St westbound, so northbound C Line buses looped around the block and stop 1559 was merged into 1558.
-`soheil_seattle_merged.net.xml` now includes an eastbound bus-only lane on Columbia St from Alaskan Way to 3rd Ave (edges `-635483971` … `-370819917#1`), and the south sidewalk was moved from the westbound edges onto it. The patch lives in `columbia_eb_bus.edg.xml` / `.con.xml` / `.tll.xml`. The signal programs at Alaskan Way, 1st, 2nd and 3rd Ave are the originals plus one link per new bus movement.
-**If `soheil_seattle_merged.net.xml` is ever regenerated, reapply the patch**, then rerun the ped-speed cell in `seattle_sumo_network_setup.ipynb`:
+---------------------
+
+# Updates (October 2026)
+
+## SUMO version: nightly build
+`seattle_sumo_gtfsData_setup.ipynb` now runs gtfs2pt from a SUMO **nightly build**, `v1_27_1+0902-aab68b732de` (downloaded 2026-10-05), because it has gtfs2pt fixes that are not in the 1.27.1 release:
+- #18237: duplicate busStop ids with `--use-gtfs-stopids`. The release writes e.g. `gtfs_1610` twice and sumo fails with "probably declared twice"; the nightly names the extra copy `gtfs_1610#1`. Because of this the old `dedupe_pt_stops` clean-up step was removed from the notebook, so **the notebook needs the nightly (or the next release)**.
+- #18291: stale `resources/` cache reused after the network changes.
+- #18238: trips with the same stops but different timing get their own route, so a line now has one route per timetable variant (e.g. 17 D Line routes for 5 stop patterns). Each vehicle's `line` is then `D_Line`, `D_Line#1`, ... instead of `D Line`. The ridership person flows (`lines="..."`) still use the plain name, so passengers only board the first variant. **Open issue** for the ridership simulation.
+
+Setup (Windows):
+- Download https://sumo.dlr.de/daily/sumo-win64-git.zip (the "Windows 64-bit zip" on https://sumo.dlr.de/docs/Downloads.php#nightly_snapshots), unzip it (e.g. to `C:\Users\<you>\sumo-nightly\sumo-win64-git`) and point `NIGHTLY_HOME` in the notebook's "FOR WINDOWS" cell at it. `USE_NIGHTLY = True` uses it; if the folder isn't found the cell says so and falls back to the installed release. The installed release is left as it is.
+- The SUMO installer sets a machine-wide `PYTHONPATH` to the release's `tools` folder, which wins over `SUMO_HOME`. The setup cell overrides `PYTHONPATH` and `PATH` for the kernel and for the `!python` gtfs2pt calls, so restart the kernel and run the setup cell first.
+- The nightly names its `resources/gtfs/` cache files after the network file's path. Pass the network as a short relative name (as the notebook does), otherwise Windows' 260-character path limit can be hit.
+- To open files in the nightly GUI, run `sumo-gui.exe` from the nightly's `bin` folder (start-menu shortcuts still open the release).
+
+## Bus stop snapping (`snap_gtfs_stops_to_network`)
+gtfs2pt puts each stop on whichever route edge is closest to the GTFS coordinate. That goes wrong at junctions (the cross street is closer, so the bus loops around to reach it), at the network boundary (a stop beyond the network snaps onto a `pseudo*` edge) and on opposite sides of the same street. The notebook cell right after the bus filtering cell fixes the filtered zip **before** gtfs2pt runs. For every stop:
+1. The direction of travel comes from `shapes.txt`, at the stop's `shape_dist_traveled` (falls back to the nearest shape segment if that is missing). This matters for loops: the G Line passes Madison St & Terry Ave in both directions about 10 m apart.
+2. Candidate edges allow buses, are within 35 m and head within 45 deg of the travel direction. `pseudo*` boundary edges and motorway mainlines don't count.
+3. Candidate found: the stop coordinate is moved onto the nearest one, kept 7 m from the edge ends so it can't snap onto the neighbouring edge at the junction.
+4. No real bus edge at all within 35 m: the stop is outside the network and is removed from the timetable, so the trip ends at the previous stop (trips left with fewer than 2 stops are removed).
+5. Real edges nearby but none in the travel direction: the stop is left unchanged and printed as a WARNING. This usually means a network direction or permission problem worth fixing rather than hiding.
+6. Stops pinned in `bus/patched_stops.add.xml` are left to the pin (commented-out pins don't count). The file currently has no active pins (stop 1559 is handled by snapping) but must stay, since gtfs2pt is called with `--patched-stops`.
+
+The cell rewrites `gtfs data/kcm_google_transit_downtown.zip` in place, so always run the filtering cell before it. Run order: setup cell, bus filtering, snapping, bus gtfs2pt. Delete `resources/` and `fcd/` after any network change.
+
+## Network patches (`additional_net/`)
+The source map predates some street changes and stops at W Republican St, so several bus lines were routed around missing streets. All hand-made network patches are kept in `additional_net/` and have been applied to `soheil_seattle_merged.net.xml`; `soheil_seattle_merged_pedspeed.net.xml` was then regenerated with the ped-speed cell in `seattle_sumo_network_setup.ipynb` (which also writes `additional_net/ped_speed_patch.edg.xml`).
+
+| Patch | Files | What it adds |
+|---|---|---|
+| Columbia St eastbound bus lane | `columbia_eb_bus.edg.xml`, `.con.xml`, `.tll.xml` | Bus-only eastbound lane on Columbia St from Alaskan Way to 3rd Ave (edges `-635483971` ... `-370819917#1`; the 2019 change is missing from the map), with the south sidewalk moved from the westbound edges onto it. Fixes the northbound C Line looping around the block. The signal programs at Alaskan Way, 1st, 2nd and 3rd Ave are the originals plus one link per new bus movement. |
+| Mercer St, Elliott Ave W to Warren Ave N | `mercer_st.nod.xml`, `.edg.xml`, `.con.xml`, `mercer_st_pass2.con.xml` | From current OSM geometry: W Mercer Pl, with the ramp off southeast-bound Elliott and the link back onto northwest-bound Elliott (priority junction, Elliott keeps priority), and W Mercer St / Mercer St (1 lane each way west of 2nd Ave W, 2 each way east of it, sidewalks, 25 mph). Connects 4th/3rd/2nd/1st Ave W, Queen Anne Ave N (southbound) and 1st Ave N (northbound, extended 30 m). Default signals at 3rd Ave W, 2nd Ave W, 1st Ave W, Queen Anne Ave N, 1st Ave N and Warren Ave N. Fixes the D Line's misplaced stops and U-turn. Elliott, 1st Ave W and Warren Ave N are split where they meet it; the Elliott pieces at the network boundary keep their original ids (`22759220#9`, `-22759220#9`) because they are TAZ sources/sinks. |
+| Small connection repairs | `network_fixes.con.xml` | 3rd Ave northbound from Wall St to Vine St (`370785080#0`) had no outgoing connections at Vine St, so the northbound D Line detoured via Wall St and Vine St. |
+
+Related: `clean corrected inputs/correct_Alaskan_new_signal_additional_columbia_eb.add.xml` is a copy of the signal additional with the Columbia St programs extended to match. `gtfs_ridership_vehicular.sumocfg` and `gtfs_transit_only.sumocfg` use it; the original is still used by the configs on the older network.
+
+**If `soheil_seattle_merged.net.xml` is ever regenerated, reapply the patches in this order** (run from this folder), then rerun the ped-speed cell. Mercer St needs two passes: the second removes a connection that only exists after Elliott is split. Existing edges keep their stored connections when edges are added next to them, so turns from former dead ends are listed explicitly in the `.con.xml` files.
 ```
-netconvert -s soheil_seattle_merged.net.xml -e columbia_eb_bus.edg.xml -x columbia_eb_bus.con.xml -i columbia_eb_bus.tll.xml --no-turnarounds -o soheil_seattle_merged.net.xml
+netconvert -s soheil_seattle_merged.net.xml -e additional_net/columbia_eb_bus.edg.xml -x additional_net/columbia_eb_bus.con.xml -i additional_net/columbia_eb_bus.tll.xml --no-turnarounds -o soheil_seattle_merged.net.xml
+netconvert -s soheil_seattle_merged.net.xml -n additional_net/mercer_st.nod.xml -e additional_net/mercer_st.edg.xml -x additional_net/mercer_st.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
+netconvert -s soheil_seattle_merged.net.xml -x additional_net/mercer_st_pass2.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
+netconvert -s soheil_seattle_merged.net.xml -x additional_net/network_fixes.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
 ```
-`bus/patched_stops.add.xml` pins stop 1559 to Alaskan Way just before the turn. Its GTFS coordinate is closer to Columbia St, so gtfs2pt would otherwise place it there.

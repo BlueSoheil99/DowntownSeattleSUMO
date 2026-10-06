@@ -1,0 +1,5 @@
+<connections>
+    <!-- second pass: no hairpin from northwest-bound Elliott back onto the W Mercer Pl ramp
+         (this connection is only generated after Elliott is split, so it can't be deleted in the first pass) -->
+    <delete from="22759220#9.0" to="370823242"/>
+</connections>
