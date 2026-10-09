@@ -1,0 +1,4 @@
+<nodes>
+    <!-- Belmont Ave E & Bellevue Pl E (OSM node 53118280, all-way stop) -->
+    <node id="53118280" x="3998.30" y="6384.25" type="allway_stop"/>
+</nodes>

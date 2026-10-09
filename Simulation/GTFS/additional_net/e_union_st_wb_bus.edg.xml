@@ -1,0 +1,9 @@
+<edges>
+    <!-- E Union St westbound, 12th Ave/E Madison St -> 11th Ave (OSM way 337673341: one-way, 1 lane, bus only).
+         The network stopped at E Madison St, so westbound route 2 detoured via Madison, Seneca St and 10th Ave.
+         Lane 0 sidewalk, lane 1 bus only, as on the Columbia St bus lane. -->
+    <edge id="337673341" from="53189942" to="3447400929" priority="6" type="highway.tertiary" numLanes="2" speed="11.18" spreadType="center" shape="4701.44,4799.95 4687.28,4806.45 4663.00,4811.42 4660.71,4811.88 4635.96,4811.84">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" allow="bus"/>
+    </edge>
+</edges>

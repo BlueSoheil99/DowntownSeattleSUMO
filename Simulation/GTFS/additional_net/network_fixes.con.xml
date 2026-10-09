@@ -4,4 +4,7 @@
     <connection from="370785080#0" to="370785080#1" fromLane="1" toLane="1"/>
     <connection from="370785080#0" to="370785080#1" fromLane="2" toLane="2"/>
     <connection from="370785080#0" to="243329197#8" fromLane="1" toLane="1"/>
+    <!-- E John St westbound at 10th Ave E (node 53149373): only the sidewalk continued straight, so westbound
+         route 8 turned off John St and looped back; continue straight on E John St -->
+    <connection from="-337668916#0" to="-6463013" fromLane="1" toLane="1"/>
 </connections>

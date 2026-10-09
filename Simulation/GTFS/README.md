@@ -169,17 +169,23 @@ The rail/tram import looked much cleaner. The KCM bus import has real mapping an
 
 # Updates (October 2026)
 
-## SUMO version: nightly build
-`seattle_sumo_gtfsData_setup.ipynb` now runs gtfs2pt from a SUMO **nightly build**, `v1_27_1+0902-aab68b732de` (downloaded 2026-10-05), because it has gtfs2pt fixes that are not in the 1.27.1 release:
-- #18237: duplicate busStop ids with `--use-gtfs-stopids`. The release writes e.g. `gtfs_1610` twice and sumo fails with "probably declared twice"; the nightly names the extra copy `gtfs_1610#1`. Because of this the old `dedupe_pt_stops` clean-up step was removed from the notebook, so **the notebook needs the nightly (or the next release)**.
+## SUMO version: 1.28.0
+`seattle_sumo_gtfsData_setup.ipynb` runs gtfs2pt from **SUMO 1.28.0** (released 2026-10-08). From 2026-10-05 to 2026-10-08 it used a nightly build (`v1_27_1+0902-aab68b732de`) for gtfs2pt fixes that were not in 1.27.1; all of them are in 1.28.0:
+- #18237: duplicate busStop ids with `--use-gtfs-stopids`. 1.27.1 writes e.g. `gtfs_1610` twice and sumo fails with "probably declared twice"; 1.28 names the extra copy `gtfs_1610#1` (with a warning). This is why the old `dedupe_pt_stops` clean-up step was removed, so **the notebook needs 1.28.0 or newer**. (With the stop snapping the current lines no longer produce such duplicates, even on 1.27.1, but the fix is there if a new line does.)
 - #18291: stale `resources/` cache reused after the network changes.
 - #18238: trips with the same stops but different timing get their own route, so a line now has one route per timetable variant (e.g. 17 D Line routes for 5 stop patterns). Each vehicle's `line` is then `D_Line`, `D_Line#1`, ... instead of `D Line`. The ridership person flows (`lines="..."`) still use the plain name, so passengers only board the first variant. **Open issue** for the ridership simulation.
 
+1.28 does not change how gtfs2pt places stops, so the stop snapping cell below is still needed. Checked on 2026-10-08: bus (C, D, E, G, H, 2, 4, 7, 8, 36) and rail outputs from 1.28.0 are identical to the nightly's. 1.28 also reads GTFS route type 109 as `train` now (#18292); our 1 and 2 Line are route type 0 (tram), so the rail import is unaffected.
+
 Setup (Windows):
-- Download https://sumo.dlr.de/daily/sumo-win64-git.zip (the "Windows 64-bit zip" on https://sumo.dlr.de/docs/Downloads.php#nightly_snapshots), unzip it (e.g. to `C:\Users\<you>\sumo-nightly\sumo-win64-git`) and point `NIGHTLY_HOME` in the notebook's "FOR WINDOWS" cell at it. `USE_NIGHTLY = True` uses it; if the folder isn't found the cell says so and falls back to the installed release. The installed release is left as it is.
-- The SUMO installer sets a machine-wide `PYTHONPATH` to the release's `tools` folder, which wins over `SUMO_HOME`. The setup cell overrides `PYTHONPATH` and `PATH` for the kernel and for the `!python` gtfs2pt calls, so restart the kernel and run the setup cell first.
-- The nightly names its `resources/gtfs/` cache files after the network file's path. Pass the network as a short relative name (as the notebook does), otherwise Windows' 260-character path limit can be hit.
-- To open files in the nightly GUI, run `sumo-gui.exe` from the nightly's `bin` folder (start-menu shortcuts still open the release).
+- Install SUMO 1.28.0 (or newer) with the Windows installer from https://sumo.dlr.de/docs/Downloads.php, and uninstall older versions so there is only one (the 1.28 installer goes to `C:\Program Files (x86)\SUMO`, not the old `...\Eclipse\Sumo` folder). The installer sets the machine-wide `SUMO_HOME`; both notebooks' Windows setup code reads it (fallback `C:\Program Files (x86)\SUMO`).
+- `SUMO_VERSION` in the GTFS notebook's "FOR WINDOWS" cell: `"installed"` (default) or `"nightly"`, for trying a future nightly build: unzip https://sumo.dlr.de/daily/sumo-win64-git.zip and point `NIGHTLY_HOME` at the folder (falls back to the installed SUMO if it isn't there). Restart the kernel after switching. The cell prints the SUMO version it ended up with.
+- The SUMO installer adds its `tools` folder to a machine-wide `PYTHONPATH`, which wins over `SUMO_HOME`, and uninstalling an old version may leave its entries in `PATH`/`PYTHONPATH`. The GTFS setup cell overrides `PYTHONPATH` and `PATH` for the kernel and for the `!python` gtfs2pt calls, so restart the kernel and run the setup cell first. To clean up the system itself: Start → "Edit the system environment variables" → Environment Variables, and remove entries for SUMO folders that no longer exist.
+- gtfs2pt names its `resources/gtfs/` cache files after the network file's path. Pass the network as a short relative name (as the notebook does), otherwise Windows' 260-character path limit can be hit.
+- Mac: the "FOR MAC" cell still points at the 1.27.1 framework; install 1.28.0 and change the version in its path (not tested yet).
+
+## Line review order (ridership ranking)
+The non-rapid lines are reviewed in order of ridership inside the simulated area. `bus/DT_buslines_ridership_ranking.csv` lists each line in `bus/DT_seattle_Buslines.txt` (downtown, Capitol Hill and edge groups) with `route_daily` (all boardings on the route per weekday), `area_daily` (boardings at stops inside the bus filter bbox, the sort key) and `area_AM` (same, 5–9 AM). Data: the latest period (`253` = 2025 Q3) of `../ridership/data/routeData/kcm/<route>/<period>/ridershipData.csv` (Git LFS; needs `git lfs pull`). Regenerate from `Simulation/` with `python ridership/rank_lines_by_ridership.py`. The bbox is a rectangle, not the network outline, so the numbers are approximate.
 
 ## Bus stop snapping (`snap_gtfs_stops_to_network`)
 gtfs2pt puts each stop on whichever route edge is closest to the GTFS coordinate. That goes wrong at junctions (the cross street is closer, so the bus loops around to reach it), at the network boundary (a stop beyond the network snaps onto a `pseudo*` edge) and on opposite sides of the same street. The notebook cell right after the bus filtering cell fixes the filtered zip **before** gtfs2pt runs. For every stop:
@@ -187,8 +193,9 @@ gtfs2pt puts each stop on whichever route edge is closest to the GTFS coordinate
 2. Candidate edges allow buses, are within 35 m and head within 45 deg of the travel direction. `pseudo*` boundary edges and motorway mainlines don't count.
 3. Candidate found: the stop coordinate is moved onto the nearest one, kept 7 m from the edge ends so it can't snap onto the neighbouring edge at the junction.
 4. No real bus edge at all within 35 m: the stop is outside the network and is removed from the timetable, so the trip ends at the previous stop (trips left with fewer than 2 stops are removed).
-5. Real edges nearby but none in the travel direction: the stop is left unchanged and printed as a WARNING. This usually means a network direction or permission problem worth fixing rather than hiding.
-6. Stops pinned in `bus/patched_stops.add.xml` are left to the pin (commented-out pins don't count). The file currently has no active pins (stop 1559 is handled by snapping) but must stay, since gtfs2pt is called with `--patched-stops`.
+5. Only cross streets nearby (no road of any kind heading in the travel direction): the street the bus runs on is not in the network, so the stop is removed the same way (printed as `dropped ... (street not in the network, only cross streets nearby)`). Example: route 36's 12th Ave S stops, which otherwise land on S Weller St / S Jackson St.
+6. A road in the travel direction exists but no bus edge does: the stop is left unchanged and printed as a WARNING. This usually means a network direction or permission problem worth fixing rather than hiding.
+7. Stops pinned in `bus/patched_stops.add.xml` are left to the pin (commented-out pins don't count). The file currently has no active pins (stop 1559 is handled by snapping) but must stay, since gtfs2pt is called with `--patched-stops`.
 
 The cell rewrites `gtfs data/kcm_google_transit_downtown.zip` in place, so always run the filtering cell before it. Run order: setup cell, bus filtering, snapping, bus gtfs2pt. Delete `resources/` and `fcd/` after any network change.
 
@@ -199,7 +206,9 @@ The source map predates some street changes and stops at W Republican St, so sev
 |---|---|---|
 | Columbia St eastbound bus lane | `columbia_eb_bus.edg.xml`, `.con.xml`, `.tll.xml` | Bus-only eastbound lane on Columbia St from Alaskan Way to 3rd Ave (edges `-635483971` ... `-370819917#1`; the 2019 change is missing from the map), with the south sidewalk moved from the westbound edges onto it. Fixes the northbound C Line looping around the block. The signal programs at Alaskan Way, 1st, 2nd and 3rd Ave are the originals plus one link per new bus movement. |
 | Mercer St, Elliott Ave W to Warren Ave N | `mercer_st.nod.xml`, `.edg.xml`, `.con.xml`, `mercer_st_pass2.con.xml` | From current OSM geometry: W Mercer Pl, with the ramp off southeast-bound Elliott and the link back onto northwest-bound Elliott (priority junction, Elliott keeps priority), and W Mercer St / Mercer St (1 lane each way west of 2nd Ave W, 2 each way east of it, sidewalks, 25 mph). Connects 4th/3rd/2nd/1st Ave W, Queen Anne Ave N (southbound) and 1st Ave N (northbound, extended 30 m). Default signals at 3rd Ave W, 2nd Ave W, 1st Ave W, Queen Anne Ave N, 1st Ave N and Warren Ave N. Fixes the D Line's misplaced stops and U-turn. Elliott, 1st Ave W and Warren Ave N are split where they meet it; the Elliott pieces at the network boundary keep their original ids (`22759220#9`, `-22759220#9`) because they are TAZ sources/sinks. |
-| Small connection repairs | `network_fixes.con.xml` | 3rd Ave northbound from Wall St to Vine St (`370785080#0`) had no outgoing connections at Vine St, so the northbound D Line detoured via Wall St and Vine St. |
+| Small connection repairs | `network_fixes.con.xml` | 3rd Ave northbound from Wall St to Vine St (`370785080#0`) had no outgoing connections at Vine St, so the northbound D Line detoured via Wall St and Vine St. E John St westbound at 10th Ave E (`-337668916#0` → `-6463013`): only the sidewalk continued straight, so westbound route 8 turned off and looped back. |
+| E Union St westbound bus block | `e_union_st_wb_bus.edg.xml`, `.con.xml` | The one-way, bus-only block of E Union St from 12th Ave / E Madison St to 11th Ave (OSM way 337673341, edge `337673341`: lane 0 sidewalk, lane 1 bus). The network stopped at Madison, so westbound route 2 detoured via Madison, Seneca St and 10th Ave. No signals involved. |
+| Belmont Ave E / Bellevue Pl E | `belmont_bellevue_pl.nod.xml`, `.edg.xml`, `.con.xml` | The two short streets joining the north end of Summit Ave E to the north end of Bellevue Ave E: Belmont Ave E (OSM way 621088606, edges `±621088606`) and Bellevue Pl E (way 51476458, edges `±51476458`), two-way, 1 lane each way + sidewalk, 25 mph, all-way stop where they meet (node `53118280`). Both street ends were dead ends, so the northbound route 3 made a U-turn at the top of Summit, came back via Mercer St and made another U-turn on Bellevue Ave E. The dead-end U-turns are deleted; Summit and Bellevue Ave E edges keep their ids (they are TAZ sources/sinks). First patch built with SUMO 1.28 netconvert (no other changes to the network). |
 
 Related: `clean corrected inputs/correct_Alaskan_new_signal_additional_columbia_eb.add.xml` is a copy of the signal additional with the Columbia St programs extended to match. `gtfs_ridership_vehicular.sumocfg` and `gtfs_transit_only.sumocfg` use it; the original is still used by the configs on the older network.
 
@@ -209,4 +218,37 @@ netconvert -s soheil_seattle_merged.net.xml -e additional_net/columbia_eb_bus.ed
 netconvert -s soheil_seattle_merged.net.xml -n additional_net/mercer_st.nod.xml -e additional_net/mercer_st.edg.xml -x additional_net/mercer_st.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
 netconvert -s soheil_seattle_merged.net.xml -x additional_net/mercer_st_pass2.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
 netconvert -s soheil_seattle_merged.net.xml -x additional_net/network_fixes.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
+netconvert -s soheil_seattle_merged.net.xml -e additional_net/e_union_st_wb_bus.edg.xml -x additional_net/e_union_st_wb_bus.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
+netconvert -s soheil_seattle_merged.net.xml -n additional_net/belmont_bellevue_pl.nod.xml -e additional_net/belmont_bellevue_pl.edg.xml -x additional_net/belmont_bellevue_pl.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
 ```
+
+## Reviewed bus lines and through-routed lines
+All numbered downtown KCM lines were reviewed one by one (October 2026) and run together with
+`KEEP_ROUTES = ["4","7","8","36","2","40","70","62","14","1","5","49","13","11","3","150","10","12","124","21","101","132","28","131","27","24","33","125","102","322","256","17","57","56","113"]`
+(0 snapping warnings, 3458 vehicles). Route 121 has no trips in the feed; 105 has no stops in the area. The rapid lines C, D, E, G, H were reviewed separately; add them to the list for a full simulation.
+
+Things that look like errors but match GTFS:
+- **Through-routed lines.** KCM publishes one bus run as two lines that hand over at a downtown stop: the bus ends one trip and starts the next (other line number) at the same stop and minute (same `block_id`). Inside the network this shows up as one direction of a line ending early, or missing entirely when its only in-area stop is the hand-over stop (the trip is then removed by snapping, `< 2 stops`). Review/run the partners together. Weekday hand-overs among the lines above (trips per day, 05:00-12:00 in brackets):
+
+  | From | To | At | Trips |
+  |---|---|---|---|
+  | 5 (to downtown) | 21 (Westwood Village) | Wall St & 5th Ave | 68 (25) |
+  | 21 (to downtown) | 5 (Shoreline/Greenwood) | 4th Ave S & S Royal Brougham Way | 67 (26) |
+  | 14 (to downtown) | 1 (Kinnear) | S Jackson St & 12th Ave S | 63 (25) |
+  | 1 (to downtown) | 14 (Mount Baker) | 3rd Ave & Cedar St | 64 (24) |
+  | 28 (to downtown) | 132 / 131 (Burien) | Wall St & 5th Ave | 37 (14) / 6 (6) |
+  | 131 / 132 (to downtown) | 28 (Carkeek Park) | 4th Ave S & S Royal Brougham Way | 36 (14) / 6 (0) |
+  | 24 / 33 (to downtown) | 124 (Tukwila) | 3rd Ave & Cedar St | 34 (13) / 27 (13) |
+  | 124 (to downtown) | 24 / 33 (Magnolia) | 4th Ave S & S Royal Brougham Way | 34 (14) / 27 (11) |
+  | 2 (to downtown) | 13 (SPU) | Seneca St & 8th Ave | 34 (10) |
+  | 13 (to downtown) | 2 (Madrona) | 3rd Ave & Cedar St | 31 (12) |
+  | 33 (to downtown) | 27 (Colman Park) | 3rd Ave & Cedar St | 1 (1) |
+
+  So the groups are 1+14, 5+21, 2+13, 24+33+124, 28+131+132 (+27).
+- **Peak-direction commuter lines** (101, 102, 113, 150, 322, ...) run into downtown in the morning and out in the afternoon, so one direction is missing in a 05:00-12:00 run. Their afternoon stops (e.g. route 113 on 2nd Ave) still appear in the simulation because stops are loaded for all generated trips.
+- **Schedule changes since the feed** (SPR26, June-August 2026): live maps can differ, e.g. route 62 now ends at S Washington St & 3rd Ave S instead of 5th Ave S.
+- Route 125 has one late-evening trip that loops the block at 3rd Ave & Pike St (gtfs2pt "detour" warning); that is its real turnaround.
+
+## Known limitations (to consider later)
+- **Buses appear and disappear at the ends of their trips.** gtfs2pt makes one SUMO vehicle per GTFS trip, so a bus is inserted at its first stop and removed after its last one. At the network edge that is realistic (the bus drives in or out of the area), but inside the network it is not: e.g. on route 10 a bus appears one stop ahead of where another bus is about to disappear, when in reality it is the same bus. Through-routed lines do the same (northbound route 14 ends at S Jackson St & 12th Ave S and the same bus continues as route 1). Options for later: chain the trips that GTFS assigns to the same bus (`block_id`; gtfs2pt has a `--join-blocks` option for this, not tried yet), and/or route buses to a depot when they finish. This would carry delays from one trip into the next, which is more realistic. Noted on 2026-10-09; nothing changed yet.
+- **Between stops, buses take the shortest path, not the GTFS shape.** gtfs2pt (without `--osm-routes`) builds each route from the stop positions only and joins consecutive stops by the shortest path through the network; `shapes.txt` is not used for the route (our snapping cell only uses it for the direction of travel). Where two stops are far apart this can differ from the real street: e.g. southbound route 21 runs express from 3rd Ave S & S Main St to 1st Ave S & S Atlantic St and the simulated bus takes 1st Ave S instead of 4th Ave S / Edgar Martinez Dr S. Stops and timetable are unaffected. Possible fix later: a step after gtfs2pt that re-routes each stop-to-stop leg by map-matching the GTFS shape onto the bus network (also one of the requests drafted for the SUMO developers). Noted on 2026-10-09.

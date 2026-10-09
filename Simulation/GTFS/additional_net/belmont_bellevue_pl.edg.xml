@@ -1,0 +1,22 @@
+<edges>
+    <!-- Belmont Ave E from the north end of Summit Ave E to Bellevue Pl E (OSM way 621088606) and Bellevue Pl E to the
+         north end of Bellevue Ave E (OSM way 51476458). Both ends were dead ends, so the northbound route 3 made a U-turn
+         at the top of Summit, drove round via Mercer St and made another U-turn at the top of Bellevue Ave E.
+         Two-way, 1 lane each way + sidewalk, 25 mph. -->
+    <edge id="621088606" from="53118279" to="53118280" priority="6" type="highway.tertiary" numLanes="2" speed="11.18" spreadType="right" shape="4048.81,6308.55 4027.11,6341.81 4002.02,6378.84 3998.30,6384.25">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-621088606" from="53118280" to="53118279" priority="6" type="highway.tertiary" numLanes="2" speed="11.18" spreadType="right" shape="3998.30,6384.25 4002.02,6378.84 4027.11,6341.81 4048.81,6308.55">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="51476458" from="53118280" to="53108493" priority="6" type="highway.tertiary" numLanes="2" speed="11.18" spreadType="right" shape="3998.30,6384.25 3991.45,6381.33 3956.90,6366.67">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+    <edge id="-51476458" from="53108493" to="53118280" priority="6" type="highway.tertiary" numLanes="2" speed="11.18" spreadType="right" shape="3956.90,6366.67 3991.45,6381.33 3998.30,6384.25">
+        <lane index="0" allow="pedestrian"/>
+        <lane index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship cable_car subway"/>
+    </edge>
+</edges>

@@ -1,0 +1,14 @@
+<connections>
+    <!-- top of Summit Ave E (node 53118279): Summit <-> Belmont instead of the dead-end U-turn -->
+    <delete from="6479778#7" to="-6479778#7"/>
+    <connection from="6479778#7" to="621088606" fromLane="0" toLane="0"/>
+    <connection from="6479778#7" to="621088606" fromLane="1" toLane="1"/>
+    <connection from="-621088606" to="-6479778#7" fromLane="0" toLane="0"/>
+    <connection from="-621088606" to="-6479778#7" fromLane="1" toLane="1"/>
+    <!-- top of Bellevue Ave E (node 53108493): Bellevue Ave E <-> Bellevue Pl E instead of the dead-end U-turn -->
+    <delete from="-6366765#0" to="6366765#0"/>
+    <connection from="51476458" to="6366765#0" fromLane="0" toLane="0"/>
+    <connection from="51476458" to="6366765#0" fromLane="1" toLane="1"/>
+    <connection from="-6366765#0" to="-51476458" fromLane="0" toLane="0"/>
+    <connection from="-6366765#0" to="-51476458" fromLane="1" toLane="1"/>
+</connections>
