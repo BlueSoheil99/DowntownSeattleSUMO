@@ -33,7 +33,8 @@
 
     <processing>
         <extrapolate-departpos value="true"/>
-        <threads value="4"/>
+        <!-- single-threaded: with bus riders, threads 4 made SUMO 1.28 crash, hang or write corrupted output -->
+        <threads value="1"/>
         <ignore-junction-blocker value="60"/>
         <ignore-route-errors value="true"/>
         <ignore-accidents value="true"/>
@@ -49,7 +50,7 @@
         <device.rerouting.probability value="0.7"/>
         <device.rerouting.period value="300"/>
         <device.rerouting.with-taz value="true"/>
-        <device.rerouting.threads value="4"/>
+        <device.rerouting.threads value="0"/>
     </routing>
 
     <report>

@@ -17,9 +17,13 @@
                 GTFS/bus/gtfs_pt_vehicles.add.xml"/>
 
 
+        <!-- bus riders from ridership/ridership_personflows.py (2025 Q3 ridership, AM + MID, all 40 downtown lines) -->
         <route-files value= "adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V3.rou.xml,
-                             ridership/kcm_personflows_253_AM_with_alighting.rou.xml"/>
+                             ridership/kcm_riders_253_AM_MID.rou.xml"/>
 
+<!--        older person flows (ridership_generation.py, routes 24/33/70/8 only), kept for reference:
+            <route-files value= "adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V3.rou.xml,
+                             ridership/kcm_personflows_253_AM_with_alighting.rou.xml"/>-->
 <!--        <route-files value= "ridership/kcm_personflows_253_AM_with_alighting.rou.xml"/>-->
 
     </input>
@@ -37,7 +41,8 @@
 
     <processing>
         <extrapolate-departpos value="true"/>
-        <threads value="4"/>
+        <!-- single-threaded: with the bus riders, threads 4 made SUMO 1.28 crash, hang or write corrupted output -->
+        <threads value="1"/>
         <ignore-junction-blocker value="60"/>
         <ignore-route-errors value="true"/>
         <ignore-accidents value="true"/>
@@ -53,7 +58,7 @@
         <device.rerouting.probability value="0.7"/>
         <device.rerouting.period value="300"/>
         <device.rerouting.with-taz value="true"/>
-        <device.rerouting.threads value="4"/>
+        <device.rerouting.threads value="0"/>
     </routing>
 
     <report>
