@@ -58,6 +58,12 @@
         <device.rerouting.probability value="0.7"/>
         <device.rerouting.period value="300"/>
         <device.rerouting.with-taz value="true"/>
+        <!-- pre-period 0: don't reroute cars while they wait to be inserted (SUMO default: every 60 s).
+             REQUIRED: without it, runs with the car demand crash (segfault, no SUMO error) between about 07:13 and 08:11.
+             Cause (SUMO bug): a TAZ trip (fromTaz only) waiting to be inserted is rerouted, with-taz gives it a route
+             starting on a different source edge of the TAZ, but SUMO still inserts it on the old edge; two such cars crash SUMO.
+             With pre-period 0 the full 05:00-12:00 run finishes (lab server, 2026-10-20); car results are nearly unchanged. -->
+        <device.rerouting.pre-period value="0"/>
         <device.rerouting.threads value="0"/>
     </routing>
 

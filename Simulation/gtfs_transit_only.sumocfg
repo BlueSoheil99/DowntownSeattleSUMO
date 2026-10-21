@@ -50,6 +50,11 @@
         <device.rerouting.probability value="0.7"/>
         <device.rerouting.period value="300"/>
         <device.rerouting.with-taz value="true"/>
+        <!-- pre-period 0: don't reroute cars while they wait to be inserted (SUMO default: every 60 s).
+             Kept the same as gtfs_ridership_vehicular.sumocfg: runs with the car demand crash without it (SUMO bug with
+             TAZ trips and with-taz, see that file). This config has no TAZ trips, so the crash can't happen here; the setting is kept
+             so that the two configs match if car demand is added. -->
+        <device.rerouting.pre-period value="0"/>
         <device.rerouting.threads value="0"/>
     </routing>
 
