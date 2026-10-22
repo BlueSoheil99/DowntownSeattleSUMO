@@ -13,9 +13,12 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 - Ask before making destructive changes (deleting files, regenerating the network, force-pushing).
 
 ## 2. Project status snapshot
-- What works right now, and how to run it (exact commands, config file names, OS notes: I work on Windows and Mac).
-- What's broken, partly done, or untested.
-- The most recent task we were working on, and the next 3–5 concrete steps.
+Keep this section under about 1,500 characters. The SessionStart hook prints only the file's title line and this section (the context preview cuts hook output at ~2 KB), so it must stand on its own. Put run commands and other detail in sections 3–6. In this order:
+- **Now:** 3–5 lines: the current task, what we're waiting on (lab runs, replies, user decisions), and the very next step.
+- **Sessions:** the primary home session's name (this session's; check with `ListAgents`), the lab session (`lab-server_sumo`) and what is outstanding with it. Rule: the lab replies to whichever session sent the request, so a new primary session messages the lab with its name, and the old session forwards anything that reaches it.
+- **Uncommitted / pending:** local changes not yet committed, and questions I haven't answered yet.
+- **Works:** one or two lines (what runs, the config to use).
+- **Next steps:** 3–5 concrete steps, one line each.
 
 ## 3. Repo structure
 An annotated tree of the important directories and files, one line on what each is for. Point out which files are generated (and by which script) versus edited by hand.
@@ -36,4 +39,4 @@ Design choices we made and the reasons for them, naming conventions, coordinate/
 
 ## 8. Open questions and known issues
 
-Keep it dense and factual: bullet points, exact file paths, and exact commands. Where you're unsure about something, mark it **[UNVERIFIED]** rather than guessing. Aim to keep HANDOFF.md under about 9,000 characters (it gets injected into context automatically, and anything much longer is truncated to a preview). If you need more detail, move it into README or the working log and point to it.
+Keep it dense and factual: bullet points, exact file paths, and exact commands. Where you're unsure about something, mark it **[UNVERIFIED]** rather than guessing. Aim to keep HANDOFF.md under about 9,000 characters (the new session reads the whole file itself). If you need more detail, move it into README or the working log and point to it. Before saving, check that nothing important lives only in this conversation or in a temporary scratchpad folder (test files, methods, environments); copy it into the repo or describe it, since scratchpads disappear with the session.

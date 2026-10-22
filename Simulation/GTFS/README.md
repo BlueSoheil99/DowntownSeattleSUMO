@@ -222,6 +222,8 @@ netconvert -s soheil_seattle_merged.net.xml -e additional_net/e_union_st_wb_bus.
 netconvert -s soheil_seattle_merged.net.xml -n additional_net/belmont_bellevue_pl.nod.xml -e additional_net/belmont_bellevue_pl.edg.xml -x additional_net/belmont_bellevue_pl.con.xml --no-turnarounds -o soheil_seattle_merged.net.xml
 ```
 
+**Drafts (not applied):** `additional_net/drafts/signal_3rd_james_90s.diff` lengthens phase 0 of signals `764028198` and `53221905` so both run 90 s cycles at 3rd Ave & James St (tested on a copy 2026-10-21: teleports 101 -> 71). It edits a copy of the signal file, not the network; the apply command is in the file's header.
+
 ## Reviewed bus lines and through-routed lines
 All numbered downtown KCM lines were reviewed one by one (October 2026) and run together with
 `KEEP_ROUTES = ["4","7","8","36","2","40","70","62","14","1","5","49","13","11","3","150","10","12","124","21","101","132","28","131","27","24","33","125","102","322","256","17","57","56","113"]`
@@ -316,6 +318,7 @@ Riders for the 1 and 2 Line, generated for every trip that starts or ends at a d
 - **Data:** Sound Transit's system performance tracker (Power BI dashboard on soundtransit.org, Ridership → Link). Settings used: plot axis Station, Avg Boardings per Day, Day Type Weekday, April + May 2026. The 38 station values were read on 2026-10-22 into the CSV.
   - The values are station totals, both lines combined.
   - Sound Transit publishes **boardings only**: no alightings, no direction, no time of day, no origin-destination pairs. There's no download; the numbers have to be read from the dashboard.
+  - **Faster than reading by hand (found 2026-10-22):** the public dashboard can be queried directly. In the browser's dev tools on the embedded report, watch for a POST to `https://wabi-west-us-c-primary-api.analysis.windows.net/public/reports/querydata` (header `X-PowerBI-ResourceKey: 2f5a6cce-53bc-491a-ac36-6e63236af4ec`, dataset `2cbf69f2-7934-4f12-be1c-04b168bf861b`). Copy one captured request body and change the query to: entity "Link ridership data", select `StationName` and the measure `AvgBoardings`, filter `Date.MonthName` in the wanted months and `ScheduleMap = 'Weekday'`. This reproduced `data/link/link_station_boardings_2026-04_2026-05.csv` exactly. The key and IDs are the dashboard's public embed values and may change when Sound Transit republishes it. No script yet; worth writing one if periods are updated often.
   - Marymoor Village has boardings but isn't in the model's rail network.
 - **Method:**
   - **Alightings = boardings at every station** over the day.
@@ -338,7 +341,7 @@ Both GTFS configs set `<device.rerouting.pre-period value="0"/>` in `<routing>`.
 - Reported to the SUMO developers on 2026-10-22: eclipse-sumo/sumo#18408 (network, TAZs and demand offered on request).
 
 ## Route check vs GTFS shapes (`check_bus_routes_vs_shapes.py`)
-This checks every generated bus route against the path-accurate GTFS shape of its trips, and the per-line trip counts. It's analysis only and changes nothing. Run it from this folder with `python check_bus_routes_vs_shapes.py`. It needs pandas, numpy, shapely ≥ 2.0 and pyproj; SUMO's sumolib comes from `SUMO_HOME/tools`. It takes about 5-20 s. Outputs go to `route_check/` (generated, not committed): `route_check_trips.csv`, `route_check_lines.csv`, `route_check_flagged_patterns.csv`, `route_check_summary.md` and `flagged_geojson/` (shape vs route per flagged pattern; open them in QGIS or geojson.io).
+This checks every generated bus route against the path-accurate GTFS shape of its trips, and the per-line trip counts. It's analysis only and changes nothing. Run it from this folder with `python check_bus_routes_vs_shapes.py`. It needs pandas, numpy, shapely ≥ 2.0 and pyproj; SUMO's sumolib comes from `SUMO_HOME/tools`. Anaconda on the home PC lacks shapely and pyproj; a separate venv works (used 2026-10: Python 3.14, numpy 2.5, shapely 2.2, pyproj 3.8): `C:\Users\dahh2\anaconda3\python.exe -m venv <folder>`, then `<folder>\Scripts\python.exe -m pip install pandas numpy shapely pyproj`, and run the script with that python. It takes about 5-20 s. Outputs go to `route_check/` (generated, not committed): `route_check_trips.csv`, `route_check_lines.csv`, `route_check_flagged_patterns.csv`, `route_check_summary.md` and `flagged_geojson/` (shape vs route per flagged pattern; open them in QGIS or geojson.io).
 - **Method.** The route (bus-lane shapes of its edges) and the shape are both clipped to the first and last served stop and sampled every 5 m. A sample more than 25 m from the other line is "off". A trip is **flagged** when the longest continuous off stretch is longer than 100 m, or when more than 5% of the route is off. Each flag gets a cause label:
   - geometry offset: never more than 50 m off, so the same street drawn differently
   - terminus

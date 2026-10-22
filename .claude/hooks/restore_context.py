@@ -1,13 +1,20 @@
-"""SessionStart hook: print HANDOFF.md and the tail of the working log so a new or reset context can resume.
+"""SessionStart hook: print a short digest of HANDOFF.md and the working log so a new or reset context can resume.
 
 Registered in .claude/settings.json for startup, compact and clear. Standard library only; never raises.
+
+Claude Code shows only the first ~2 KB of hook output in context (the rest goes to a file), so this prints:
+  1. the HANDOFF.md title and section 2 (status, sessions, next steps), verbatim
+  2. the header lines of the newest Work_Done.txt entries (not the indented detail lines)
+  3. a pointer to the full files, which CLAUDE.md tells the session to read
 """
 import os
+import re
 import sys
 
-LOG_TAIL_LINES = 40
-LOG_TAIL_CHARS = 6000   # log lines are long (up to ~900 chars); keep the injected text small
 WORK_LOG = os.path.join("Simulation", "Work_Done.txt")
+LOG_HEADERS = 3          # newest dated entries to list
+HEADER_CHARS = 110       # log header lines are long; cut each one
+SECTION2_WARN = 1800     # warn when section 2 alone would push the digest past the preview
 
 
 def repo_root():
@@ -22,38 +29,59 @@ def read(path):
         return f.read()
 
 
+def section2(text):
+    """Title line plus '## 2. ...' up to the next '## ' heading."""
+    lines = text.splitlines()
+    title = lines[0] if lines and lines[0].startswith("#") else ""
+    m = re.search(r"^## 2\..*?(?=^## |\Z)", text, flags=re.S | re.M)
+    return title, (m.group(0).rstrip() if m else None)
+
+
+def log_headers(text):
+    """Non-indented, non-empty lines = dated entry headers ('October 22nd: ...')."""
+    heads = [l.rstrip() for l in text.splitlines() if re.match(r"^\S", l)]
+    out = []
+    for h in heads[-LOG_HEADERS:]:
+        out.append(h if len(h) <= HEADER_CHARS else h[:HEADER_CHARS].rstrip() + "...")
+    return out
+
+
 def main():
     try:
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     except Exception:
         pass
-    print("Session started or context was reset (new session, compaction, or /clear). "
-          "Current handoff and recent log follow.")
     root = repo_root()
+    print("Session started or context was reset. Digest below; READ the full HANDOFF.md, README.md "
+          "and Simulation/Work_Done.txt before continuing (see CLAUDE.md).")
 
-    print("\n===== HANDOFF.md =====")
     try:
         path = os.path.join(root, "HANDOFF.md")
         if os.path.exists(path):
-            print(read(path).rstrip())
+            title, s2 = section2(read(path))
+            if title:
+                print(title)
+            if s2:
+                print(s2)
+                if len(s2) > SECTION2_WARN:
+                    print(f"[hook] HANDOFF section 2 is {len(s2)} chars; trim it to ~1,500 at the next /handoff.")
+            else:
+                print("[hook] HANDOFF.md has no '## 2.' section; read the whole file.")
         else:
-            print(f"HANDOFF.md is missing (looked in {root}).")
+            print(f"[hook] HANDOFF.md is missing (looked in {root}).")
     except Exception as e:
-        print(f"HANDOFF.md could not be read: {e}")
+        print(f"[hook] HANDOFF.md could not be read: {e}")
 
-    print(f"\n===== {WORK_LOG.replace(os.sep, '/')} (last lines, up to {LOG_TAIL_LINES} lines / "
-          f"{LOG_TAIL_CHARS} characters) =====")
     try:
         path = os.path.join(root, WORK_LOG)
         if os.path.exists(path):
-            lines = read(path).splitlines()[-LOG_TAIL_LINES:]
-            while len(lines) > 1 and len("\n".join(lines)) > LOG_TAIL_CHARS:
-                lines.pop(0)
-            print("\n".join(lines))
+            print("Newest Work_Done.txt entries (headers only):")
+            for h in log_headers(read(path)):
+                print("- " + h)
         else:
-            print(f"Working log is missing (looked for {path}).")
+            print(f"[hook] Working log is missing (looked for {path}).")
     except Exception as e:
-        print(f"Working log could not be read: {e}")
+        print(f"[hook] Working log could not be read: {e}")
 
 
 if __name__ == "__main__":

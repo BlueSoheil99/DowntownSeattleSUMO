@@ -1,5 +1,5 @@
 # HANDOFF: Downtown Seattle SUMO digital twin (2026-10-22)
-Repo `BlueSoheil99/DowntownSeattleSUMO`, branch `main`, HEAD `fe0d81f` = origin. Details: `Simulation/GTFS/README.md` (main technical doc), `Simulation/ridership/readme.md`, dated log `Simulation/Work_Done.txt`.
+Repo `BlueSoheil99/DowntownSeattleSUMO`, branch `main`, HEAD `8fa720a` = origin. Details: `Simulation/GTFS/README.md` (main technical doc), `Simulation/ridership/readme.md`, dated log `Simulation/Work_Done.txt`.
 
 ## 1. Role
 You are a lab/research assistant helping build a digital twin of downtown Seattle in SUMO with multiple transit modes. Your responsibilities:
@@ -11,19 +11,20 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims never write to `Simulation/new output/`).
 
 ## 2. Project status snapshot
-**Works:** cars (PSRC 2018 TAZ demand, ~206k trips) + 40 KCM bus lines + Link 1/2 Line + bus riders + Link riders, 05:00-12:00, step 0.1 s.
-- Run from `Simulation/`: `sumo -c gtfs_ridership_vehicular.sumocfg` (full) or `sumo -c gtfs_transit_only.sumocfg` (no cars/riders). GUI: `& "C:\Program Files (x86)\SUMO\bin\sumo-gui.exe" -c ...` (PowerShell). Full run ~2 h on the lab server, single-threaded.
-- Bus boardings 0.97 x ridership (31/33 big lines within 10%); bus routes 94% on the GTFS shape.
-**Lab server:** session `lab-server_sumo` (Remote Control; `ListAgents` then `SendMessage`), git clone `C:\Users\dharoot\Documents\iUTS_Projects\DT_Seattle_SUMO_git` at fe0d81f; its notes in `lab_notes/`. Use it for long runs.
-**Most recent work:** Link riders (fe0d81f); rail modularity test on the lab (5 Link periods 2022-2025 all ran; 2 needed one-line fixes); W2 full run with Link riders running on the lab, results pending.
+**Now:** handoff fixes done (hook prints this section only; `/handoff` caps it; old session's scratchpad items saved), uncommitted. Waiting on the lab's W2 full run (Link riders), ETA ~16:00 lab time 2026-10-22. Next: log W2 results.
+**Sessions:** primary home = `HOME_DTS_Current`; old `HOME_DTS_OLD_03` forwards anything it receives. Lab = `lab-server_sumo` (Remote Control; replies to the sender, so a new primary messages it with its name). Outstanding with the lab: W2 report.
+**Uncommitted / pending:** files in section 5 "uncommitted". User hasn't answered: implement the robustness fixes (step 2) now?
+**Works:** cars + 40 KCM bus lines + Link 1/2 Line + bus and Link riders, 05:00-12:00. `sumo -c gtfs_ridership_vehicular.sumocfg` from `Simulation/` (details section 6).
 **Next steps:**
-1. Collect W2 results from the lab (Link rides, train loads, bus/car changes vs W_vtypes).
-2. Robustness fixes from both modularity tests (Work_Done Oct 22): stop when the filter keeps 0 lines; normalise line names ("1-Line"); `load_gtfs` skip unparseable files + `dtype=str`; write only standard GTFS columns in both filter cells; station alias table in `rail_personflows.py`; check sim date has trips per line. Test on a copy.
-3. 3rd Ave & James St bus hotspot: signals `53221905`/`764028198` to 90 s (tested on copy: teleports 101->71), hold buses only at GTFS timepoints (untested).
+1. Log W2 results (Link rides, train loads, bus/car vs W_vtypes) in Work_Done.txt.
+2. Robustness fixes from the modularity tests (list in Work_Done Oct 22). Test on a copy.
+3. 3rd Ave & James St hotspot: signal draft `GTFS/additional_net/drafts/signal_3rd_james_90s.diff` (teleports 101->71); timepoint-only holding untested.
 4. Shape-based bus routing after gtfs2pt (108 trips off-shape, 4 places).
-5. Report draft for the research write-up.
+5. Report draft.
 
-## 3. Repo structure (Simulation/)
+## 3. Repo structure
+- Root: `CLAUDE.md` (working rules), `HANDOFF.md` (this), `.claude/commands/handoff.md` (`/handoff`), `.claude/hooks/restore_context.py` + `.claude/settings.json` (SessionStart hook: prints the HANDOFF title, section 2 and the newest Work_Done headers, under the ~2 KB preview, on startup/compact/clear; runs `python`, Mac likely needs `python3` in `.claude/settings.local.json` **[UNVERIFIED]**). `docs/`: archived older handoffs.
+Under `Simulation/`:
 - `scenario.json` + `scenario.py` (H): scenario settings (bus feed, sim date, ridership period, lines; `rail` section). `SUMO_SCENARIO` env selects another file.
 - `gtfs_ridership_vehicular.sumocfg`, `gtfs_transit_only.sumocfg` (H): GTFS configs. `clean_reformed_Seattle.sumocfg`, `fullDayTests.sumocfg`: older car-only configs, don't break.
 - `adjusted_alaskanway_..._V3.rou.xml` (G, Soheil's demand notebooks): car demand. `Demand generation/`: those notebooks.
@@ -44,6 +45,8 @@ Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims nev
 - **Check:** `GTFS/check_bus_routes_vs_shapes.py` (needs shapely, pyproj).
 
 ## 5. Change history (newest first; full log in Work_Done.txt)
+- Uncommitted (2026-10-22): hook digest (`.claude/hooks/restore_context.py`), `.claude/commands/handoff.md`, this file, `docs/HANDOFF_2026-10-20_full.md` (old 38.8 KB handoff), `Simulation/GTFS/additional_net/drafts/signal_3rd_james_90s.diff`, Power BI query and route-check venv notes in `Simulation/GTFS/README.md`, Work_Done.txt.
+- `8fa720a` handoff automation; CLAUDE.md and HANDOFF.md now tracked.
 - `fe0d81f` Link riders, weekday rail date 2026-04-22, rail scenario section, `--original-lines` for rail.
 - `1d75d16` scenario.json/scenario.py; coverage and missing-line warnings.
 - `30b4bbc` bus schedule -> KCM FAL25 (2025-10-15), matching ridership period 253.
@@ -53,8 +56,11 @@ Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims nev
 - `28e1f84` bus riders; single-threaded. `6ee46ab`, `a3337d4`, `358818f`: line reviews; network patches (Columbia EB bus lane, Mercer St, E Union St, Belmont/Bellevue Pl, connection fixes).
 
 ## 6. SUMO technical notes
+- Run from `Simulation/`: `sumo -c gtfs_ridership_vehicular.sumocfg` (full; PSRC 2018 TAZ demand ~206k trips, step 0.1 s) or `sumo -c gtfs_transit_only.sumocfg` (no cars/riders). GUI: `& "C:\Program Files (x86)\SUMO\bin\sumo-gui.exe" -c ...` (PowerShell). Full run ~2 h on the lab, single-threaded. Last check: bus boardings 0.97 x ridership (31/33 big lines within 10%), bus routes 94% on the GTFS shape.
+- Lab clone: `C:\Users\dharoot\Documents\iUTS_Projects\DT_Seattle_SUMO_git` (at fe0d81f), notes in `lab_notes/`. Talk to it via `ListAgents` then `SendMessage`.
 - SUMO 1.28.0, `C:\Program Files (x86)\SUMO` (SUMO_HOME). Lab: same. Mac **[UNVERIFIED]**.
-- Python: home `C:\Users\dahh2\anaconda3\python.exe` (pandas, rtree; gtfs2pt needs rtree on PATH). Don't pip-install sumolib/traci. Route check needs shapely+pyproj (not in anaconda).
+- Python: home `C:\Users\dahh2\anaconda3\python.exe` (pandas, rtree; gtfs2pt needs rtree on PATH). Don't pip-install sumolib/traci. Route check needs shapely+pyproj (not in anaconda): make a venv, see GTFS README "Route check".
+- Link boardings come from Sound Transit's Power BI dashboard; query method in GTFS README "Link riders".
 - Keep `pre-period 0` in configs (else segfault ~07:13-08:11). Multithreading with riders crashes: `threads 1`.
 - Git Bash mangles comma-separated `C:/` path lists: `MSYS_NO_PATHCONV=1`. SUMO doesn't create output folders.
 - `*.csv` goes to Git LFS (`.gitattributes`). Work_Done.txt and READMEs are CRLF.
@@ -72,4 +78,5 @@ Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims nev
 - W99 car-following params ignored (Krauss runs).
 - Marymoor Village has no trainStop; terminus layover boarding issue (Northgate/Angle Lake in older feeds).
 - Lab's 2025-04 Link boardings look off (Northgate 3,503, Stadium 6,804).
-- GitHub: #18341 (bug, open), #18342 (feature, open), #18408 (crash, open).
+- GitHub: #18341 (bug, open; user replied 2026-10-22 with --stops results), #18342 (feature, open), #18408 (crash, open).
+- SessionStart hook: exec-form `args` support in this Claude Code version **[UNVERIFIED]**; fallback is a single-string `command`.
