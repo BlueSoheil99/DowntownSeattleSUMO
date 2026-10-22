@@ -259,6 +259,103 @@ Both GTFS configs set `<device.rerouting.pre-period value="0"/>` in `<routing>`.
 - Validated on the lab server on 2026-10-20 with two full 05:00-12:00 runs: the full config (cars + buses + trains + riders) and cars + transit without riders. Both finished with exit code 0. Car results up to 07:23 are nearly unchanged (mean trip 311.4 s vs 312.4 s). Bus boardings were 0.97 x ridership with cars (0.99 transit-only), median rider wait 4.9 min. Details in `../Work_Done.txt` (October 19th-20th and October 20th).
 - Not yet reported to the SUMO developers.
 
+## Route check vs GTFS shapes (`check_bus_routes_vs_shapes.py`)
+This checks every generated bus route against the path-accurate GTFS shape of its trips, and the per-line trip counts. It's analysis only and changes nothing. Run it from this folder with `python check_bus_routes_vs_shapes.py`. It needs pandas, numpy, shapely ≥ 2.0 and pyproj; SUMO's sumolib comes from `SUMO_HOME/tools`. It takes about 5-20 s. Outputs go to `route_check/` (generated, not committed): `route_check_trips.csv`, `route_check_lines.csv`, `route_check_flagged_patterns.csv`, `route_check_summary.md` and `flagged_geojson/` (shape vs route per flagged pattern; open them in QGIS or geojson.io).
+- **Method.** The route (bus-lane shapes of its edges) and the shape are both clipped to the first and last served stop and sampled every 5 m. A sample more than 25 m from the other line is "off". A trip is **flagged** when the longest continuous off stretch is longer than 100 m, or when more than 5% of the route is off. Each flag gets a cause label:
+  - geometry offset: never more than 50 m off, so the same street drawn differently
+  - terminus
+  - missing street: no bus edge along the shape
+  - snapping: near a moved stop that now lies off the shape
+  - otherwise, shortest path instead of shape
+
+  The network has no street names (netconvert ran without `--output.street-names`), so off stretches are named after nearby KCM stops.
+- **Metrics from Kaiser & Schmaus 2026** (SUMO User Conference, gtfs2pt route reconstruction; PDF in `Seattle_Sumo/Relevent_Papers/`): trips planned vs generated per line (their Table 1), RNS/RIS stop-sequence ratios, and "route matches the shape" as our version of their ISE. Our feed has shapes, so the shape is the reference. They had to compare two methods with each other instead.
+- **Results (2026-10-21, 05:00-12:00):**
+  - 1,763 trips checked, 232 flagged.
+  - 124 of the flagged trips are a geometry offset on Alaskan Way near Columbia St: C Line both directions and H Line southbound, 20-38 m off for about 150 m. That's the rebuilt waterfront street vs the network geometry, not a different street.
+  - **108 trips (6.1%) take a different street than the real route.** All are gtfs2pt's shortest path between two stops with no stop in between. None is caused by the snapping or by a missing street.
+    - southbound **21**: 1st Ave S instead of 4th Ave S / Edgar Martinez Dr S (25 trips, 1,280 m)
+    - northbound **H Line, 21, 56, 57, 113** after Alaskan Way & Columbia St: Alaskan Way → Marion St → 3rd Ave instead of the Columbia St bus lane → 3rd Ave (59 trips, 440 m, one block over). These trips don't stop at 3rd Ave & Marion St, so nothing holds them to Columbia St; the C Line and 125 stop there and stay on Columbia St. Whether Marion St is really open eastbound from Alaskan Way is **[UNVERIFIED]**.
+    - southbound **125**: 4th Ave / Pike St instead of 3rd Ave / Virginia St / Pine St (15 trips, 265 m)
+    - **3** toward Madrona: Union St / 4th Ave / 5th Ave instead of 3rd Ave / Pike St / Pine St (9 trips, 395 m)
+  - Match ratio 0.939 without the artifacts (0.868 raw).
+  - **Trip counts:** 1,831 planned vs 1,763 generated. All 68 missing trips are expected:
+    - 40 through-routed trips with fewer than 2 stops in the network (route 14: 26, route 131: 14)
+    - 28 where a stop inside the bbox falls in the window but the first network stop doesn't
+  - **Stop sequences:** RIS = 1 for every trip. gtfs2pt kept every snapped stop, in order.
+- **The paper's route method vs our stop snapping.** They fix different things.
+  - **Our snapping** decides *where each stop is*: the edge heading the way the bus travels, or dropped if it's off the network. gtfs2pt then joins the stops by the shortest path. The check shows the snapping does its part: no flag comes from it, no stop was lost or reordered, and every missing trip has an expected cause.
+  - **The paper** decides *how the bus gets from stop to stop*, and also which stop of a station to use:
+    - streets no bus uses in OSM get a 3600 s weight, and U-turns +3600 s
+    - the line's OSM route relation is passed as via points
+    - a Dijkstra over all candidate stops picks the shortest whole trip
+    - a leg that passes another station of the trip without stopping is rejected
+
+    That targets exactly the 108 remaining wrong-street trips.
+  - **Downsides for us:**
+    1. It needs OSM bus data (which streets buses use, route relations) mapped onto our network. Our network is an older, hand-edited OSM import with split and `gneE*` edges and no street names, so that is the same mapping problem that stopped us using gtfs2pt `--stops` (#18341).
+    2. It doesn't use GTFS shapes, because Magdeburg's feed has none. Ours has path-accurate shapes, which are a better reference than OSM relations; the paper itself found OSM missing a current diversion.
+    3. The stop clustering by name isn't needed here: `--use-gtfs-stopids` already gives one stop per GTFS stop.
+    4. It replaces gtfs2pt's routing with its own pipeline: duarouter per stop pair plus a SciPy Dijkstra. Its results were only spot-checked against reality.
+    5. "Shortest whole trip" can still pick the wrong street where buses use both streets (4th vs 3rd Ave for route 125 and 3) unless the OSM via points are right.
+  - **Worth taking from it:**
+    - the validation metrics (done here)
+    - the rule that a leg must not pass another stop of the same trip without stopping
+    - possibly the U-turn penalty
+  - **Simplest fix for our 4 places:** a step after gtfs2pt that re-routes each stop-to-stop leg along the GTFS shape, either by map-matching the shape onto bus edges or by passing via edges taken from the shape. Rerun this check afterwards; the target is 0 real deviations. Not done yet.
+
+## Bus and train types, stop lengths (vType cells, October 2026)
+gtfs2pt always writes `type="bus"` / `type="tram"`, the mode name, and makes every bus stop 13 m and every tram stop 60 m long. Two cells after the gtfs2pt cells replace that. Run them after gtfs2pt, Link cell first:
+- **Link vType cell:**
+  - writes `rail/tram.add.xml`
+  - defines `assign_vtypes()` and `lengthen_stops()`
+  - sets each train's type from `vtype_by_line.csv`
+  - makes train stops 120 m (Link platforms are 380-400 ft)
+- **Bus vType cell:**
+  - writes `bus/bus.add.xml`
+  - sets each bus's type from `vtype_by_line.csv`
+  - sets bus stop lengths
+
+`bus/bus.add.xml` and `rail/tram.add.xml` are now generated by these cells. Edit the cells, not the files.
+
+| vType | Length | personCapacity | sumo-gui color | Lines (from the table) |
+|---|---|---|---|---|
+| `rapidride60` | 18.3 m | 115 | orange | C, D, E, G, H |
+| `trolley60` | 18.3 m | 115 | blue | 7, part of 36 |
+| `trolley40` | 12.2 m | 80 | blue | 1, 2, 3, 4, 10, 13, 14, 49, part of 36 |
+| `bus60` | 18.3 m | 115 | green | 5, 8, 17, 21, 24, 27, 28, 33, 40, 57, 62, 70, 101, 102, 113, 124, 131, 132, 150, part of 256 |
+| `bus40` | 12.2 m | 80 | purple | 11, 12, 56, 125, part of 256 |
+| `bus` (old default) | 12 m | SUMO default (85) | grey | lines not in the table (now 322) |
+| `link4` / `link3` / `link2` | 117 / 87.5 / 58 m | 776 / 582 / 388 | line color: 1 Line green, 2 Line blue | 1 Line `link4`, 2 Line `link3` |
+| `tram` (old default) | 40 m | SUMO default | red | lines not in the table |
+
+- **Line → type table** (`vtype_by_line.csv`): columns `mode, line, vtypes, color, n_observed, source, note`.
+  - Mixed lines list shares, e.g. `trolley40:0.64;trolley60:0.36`. They are split by GTFS `block_id`: one block is one physical vehicle for the day, so all its trips get the same type. The seed is fixed.
+  - Lines missing from the table keep the default type, with a printed warning, so changing `KEEP_ROUTES` can't break the run.
+  - Rail lines are matched without their `#n` suffix.
+  - Riders match on `line`, not `type`, so the rider file is unaffected.
+- **Where the bus types come from:** a King County Metro GTFS-realtime vehicle-positions snapshot (2026-10-21 16:04, 698 buses). The feed is public, no key needed: `https://s3.amazonaws.com/kcm-alerts-realtime-prod/vehiclepositions.pb`; the terms require the attribution "Transit scheduling, geographic, and real-time data provided by permission of King County". Each vehicle's fleet number (`vehicle.id`) is mapped to a model with the KCM fleet roster (Wikipedia "King County Metro fleet"; 8000-8299 are XDE60). It's one afternoon, so mixed lines and route 70 (all hybrids that day, normally trolley) need more data. A logger for a week of weekday mornings would firm it up.
+- **Link:** 95 ft (29 m) cars, normal capacity 194 riders (up to 74 seats), 55 mph. The 1 Line runs 3-4 cars (4 used). The 2 Line's train length is **[UNVERIFIED]** (3 used).
+- **Drawing cars and articulated buses.** sumo-gui draws trains as separate cars that follow curves, and `bus/flexible` buses as two sections. This only happens when vehicles are shown as **simple shapes**: View Settings → Vehicles → "Show as" = simple shapes. Car length, locomotive length and gap are vType `<param>`s (`carriageLength`, `locomotiveLength`, `carriageGap`), not attributes; SUMO silently ignores them as attributes. Link uses 28.5 m cars with a 1 m gap. Articulated buses use SUMO's default 8.25 m sections.
+- **Capacities:** the bus `personCapacity` values (80 / 115) are planning values and haven't been checked against KCM figures. Driving parameters are the same as the old `bus` type, so only size and capacity change.
+- **Bus stop lengths.** Neither GTFS nor OSM give the length of a bus zone, so it comes from how busy the stop is: the most buses scheduled in one hour.
+
+  | Peak buses per hour | Stop length | Fits |
+  |---|---|---|
+  | up to 12 | 20 m | one 60 ft bus |
+  | 13-40 | 40 m | two |
+  | over 40 | 60 m | three (the 13 busiest stops, all on 3rd Ave) |
+
+  SUMO lets several buses stop and board at once when they fit. The front of each stop (where the bus halts) is kept and the stop grows backwards; where the lane is too short it moves forward instead (93 stops, up to 32 m). Stop ids and lanes don't change. Five stops that gtfs2pt put on tiny lanes stay 0.2-6 m long (e.g. 1370).
+- **Transit-only test, 05:00-12:00** (new types and stops vs the old 12 m `bus`):
+  - bus trip time +2.2% (RapidRide +0.9%, 60 ft trolleys +7%); trains unchanged
+  - teleports 10 → 101, almost all at the 3rd Ave & James St stop block (`gneE177`)
+  - with 13 m stops the increase was +5.3% and 91 teleports
+
+  A copy of the signal file with the two signals below set to 90 s gave +0.7% and 71 teleports. **That signal change is not applied.**
+
 ## Known limitations (to consider later)
+- **Signal timing on 3rd Ave near James St.** In the signal file (programID 2), 3rd & James (`53221905`) runs an 85 s cycle. The stand-alone pedestrian crossing between James St and Yesler Way (`764028198`) runs 87 s, with a fixed 32 s pedestrian-only phase every cycle. Eleven of the twelve other 3rd Ave signals up to Pine St run 90 s. Where the timings came from isn't documented; ask Soheil, or request the 3rd Ave timing plans from SDOT Traffic Signal Operations. Tested on a copy only (see above).
+- **Buses hold at every stop.** gtfs2pt makes every bus wait at every stop until its scheduled time (`until`). KCM's GTFS marks timepoints (`stop_times.timepoint`), and 3rd & James, Cherry and Marion are never timepoints. Holding only at timepoints is untested.
 - **Buses appear and disappear at the ends of their trips.** gtfs2pt makes one SUMO vehicle per GTFS trip, so a bus is inserted at its first stop and removed after its last one. At the network edge that is realistic (the bus drives in or out of the area), but inside the network it is not: e.g. on route 10 a bus appears one stop ahead of where another bus is about to disappear, when in reality it is the same bus. Through-routed lines do the same (northbound route 14 ends at S Jackson St & 12th Ave S and the same bus continues as route 1). Options for later: chain the trips that GTFS assigns to the same bus (`block_id`; gtfs2pt has a `--join-blocks` option for this, not tried yet), and/or route buses to a depot when they finish. This would carry delays from one trip into the next, which is more realistic. Noted on 2026-10-09; nothing changed yet.
-- **Between stops, buses take the shortest path, not the GTFS shape.** gtfs2pt (without `--osm-routes`) builds each route from the stop positions only and joins consecutive stops by the shortest path through the network; `shapes.txt` is not used for the route (our snapping cell only uses it for the direction of travel). Where two stops are far apart this can differ from the real street: e.g. southbound route 21 runs express from 3rd Ave S & S Main St to 1st Ave S & S Atlantic St and the simulated bus takes 1st Ave S instead of 4th Ave S / Edgar Martinez Dr S. Stops and timetable are unaffected. Possible fix later: a step after gtfs2pt that re-routes each stop-to-stop leg by map-matching the GTFS shape onto the bus network (also one of the requests drafted for the SUMO developers). Noted on 2026-10-09.
+- **Between stops, buses take the shortest path, not the GTFS shape.** gtfs2pt (without `--osm-routes`) builds each route from the stop positions only and joins consecutive stops by the shortest path through the network; `shapes.txt` is not used for the route (our snapping cell only uses it for the direction of travel). Where two stops are far apart this can differ from the real street: e.g. southbound route 21 runs express from 3rd Ave S & S Main St to 1st Ave S & S Atlantic St and the simulated bus takes 1st Ave S instead of 4th Ave S / Edgar Martinez Dr S. Stops and timetable are unaffected. Possible fix later: a step after gtfs2pt that re-routes each stop-to-stop leg by map-matching the GTFS shape onto the bus network (also one of the requests drafted for the SUMO developers). Noted on 2026-10-09. Measured on 2026-10-21 with `check_bus_routes_vs_shapes.py`: 108 of 1,763 trips (4 places: routes 21, 125, 3, and H/21/56/57/113 via Marion St); see "Route check vs GTFS shapes" above.
