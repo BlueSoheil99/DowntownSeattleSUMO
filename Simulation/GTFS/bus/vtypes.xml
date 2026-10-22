@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-10-21 17:13:51.158615 by Eclipse SUMO gtfs2pt.py v1_28_0+0000-daf91b55789
+<!-- generated on 2026-10-22 02:37:09.371101 by Eclipse SUMO gtfs2pt.py v1_28_0+0000-daf91b55789
 <configuration>
     <gtfs value="gtfs data/kcm_google_transit_downtown.zip"/>
-    <date value="20260617"/>
+    <date value="20251015"/>
     <modes value="bus"/>
     <vtype-output value="bus/vtypes.xml"/>
     <original-lines value="True"/>

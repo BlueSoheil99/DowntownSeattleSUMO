@@ -37,7 +37,7 @@ NET_FILE = "soheil_seattle_merged_pedspeed.net.xml"
 VEHICLE_FILE = "bus/gtfs_pt_vehicles.add.xml"
 STOP_FILE = "bus/gtfs_pt_stops.add.xml"
 DOWNTOWN_ZIP = "gtfs data/kcm_google_transit_downtown.zip"   # filtered + snapped feed
-FULL_ZIP = "gtfs data/kcm_google_transit.zip"                # unfiltered feed, for planned counts
+FULL_ZIP = "gtfs data/kcm_google_transit_FAL25.zip"          # unfiltered feed (FAL25), for planned counts
 OUT_DIR = "route_check"
 
 # same lines and bounding box as the filtering cell in seattle_sumo_gtfsData_setup.ipynb
@@ -48,7 +48,7 @@ KEEP_ROUTES = ["C Line", "D Line", "E Line", "G Line", "H Line",
 LAT_MIN, LAT_MAX = 47.58, 47.65
 LON_MIN, LON_MAX = -122.37, -122.30
 
-DATE = 20260617             # gtfs2pt --date
+DATE = 20251015             # gtfs2pt --date (FAL25 feed)
 WEEKDAY = "wednesday"       # weekday of DATE
 WINDOW = (5 * 3600, 12 * 3600)
 

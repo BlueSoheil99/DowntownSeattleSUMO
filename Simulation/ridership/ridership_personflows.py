@@ -39,7 +39,7 @@ import xml.etree.ElementTree as ET
 BUS_VEHICLES = "../GTFS/bus/gtfs_pt_vehicles.add.xml"
 BUS_STOPS = "../GTFS/bus/gtfs_pt_stops.add.xml"
 RIDERSHIP_ROOT = "data/routeData/kcm"               # Git LFS (git lfs pull)
-SERVICE_CHANGE = "253"                           # 2025 Q3; newest available for all downtown lines
+SERVICE_CHANGE = "253"                           # Aug 30, 2025 - Mar 27, 2026 (matches the FAL25 bus schedule); newest available
 PERIODS = {"AM": (5 * 3600, 9 * 3600), "MID": (9 * 3600, 15 * 3600)}   # ridership time-of-day periods (s)
 SIM_WINDOW = (5 * 3600, 12 * 3600)               # only generate riders inside this window
 OUTPUT = "kcm_riders_253_AM_MID.rou.xml"

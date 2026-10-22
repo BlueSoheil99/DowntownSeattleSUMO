@@ -246,11 +246,37 @@ Things that look like errors but match GTFS:
 
   So the groups are 1+14, 5+21, 2+13, 24+33+124, 28+131+132 (+27).
 - **Peak-direction commuter lines** (101, 102, 113, 150, 322, ...) run into downtown in the morning and out in the afternoon, so one direction is missing in a 05:00-12:00 run. Their afternoon stops (e.g. route 113 on 2nd Ave) still appear in the simulation because stops are loaded for all generated trips.
-- **Schedule changes since the feed** (SPR26, June-August 2026): live maps can differ, e.g. route 62 now ends at S Washington St & 3rd Ave S instead of 5th Ave S.
+- **Schedule changes since the feed:** live maps can differ, e.g. route 62 now ends at S Washington St & 3rd Ave S instead of 5th Ave S. The lines were reviewed with the summer 2026 feed (SPR26). The bus pipeline now uses the fall 2025 feed (FAL25, see "Bus schedule and ridership" below), which is the same as SPR26 inside the network apart from trip counts and one E Line stop.
 - Route 125 has one late-evening trip that loops the block at 3rd Ave & Pike St (gtfs2pt "detour" warning); that is its real turnaround.
 
 ## Bus riders (ridership)
 Riders for all 40 lines come from `../ridership/ridership_personflows.py`; see the "Current method" section of `../ridership/readme.md`. For this the bus gtfs2pt cell uses `--original-lines`, so every bus of a route has the plain route name as `line` (`8`, `C_Line`). `KEEP_ROUTES` now lists the rapid lines and the 35 numbered lines. Both GTFS configs run single-threaded (`threads 1`, `device.rerouting.threads 0`), because with riders SUMO 1.28 crashed, hung or corrupted its output when multithreaded.
+
+## Bus schedule and ridership: same service period (October 2026)
+**Best practice: only update the bus schedule (GTFS) when ridership for the same service period is available, and only update the ridership when a matching schedule is available. Change them together.** The riders are generated per stop, direction and time of day from the ridership data and tied to the buses of the schedule. A schedule from another period has different trips, stops and terminals, so riders get lost or mismatched.
+
+| | File / setting | Period |
+|---|---|---|
+| Bus schedule (current) | `gtfs data/kcm_google_transit_FAL25.zip` (KCM feed FAL25-159.1), sim date **2025-10-15** (Wednesday) | 2025-09-08 to 2026-03-27 |
+| Bus ridership (current) | `../ridership/data/routeData/kcm/<route>/253/` | 253 = Aug 30, 2025 - Mar 27, 2026 |
+| Bus schedule (previous) | `gtfs data/kcm_google_transit_SPR26.zip` (feed SPR26-160.5), sim date 2026-06-17 | 2026-06-08 to 2026-08-28 |
+
+- **Where FAL25 comes from:** KCM's own feed as saved by the Internet Archive on 2025-10-07: `https://web.archive.org/web/20251007123721id_/http://metro.kingcounty.gov/GTFS/google_transit.zip`. Transitland has all past KCM versions, but downloading them needs a paid API plan.
+- **Ridership:** from the seattleTransitRidership repo, which uses KCM stop-level data shared by Seattle Transit Blog. Period 253 is its newest stop-level period (checked 2026-10-22); newer periods would have to be requested from KCM. Period dates are in that repo's `backend/app/config.py`.
+- **Test before switching** (transit-only with riders, 05:00-12:00, on a copy; details in `../Work_Done.txt`, October 22nd):
+
+  | | SPR26 schedule | FAL25 schedule |
+  |---|---|---|
+  | Buses in the day's file | 4,518 | 4,466 |
+  | Stops | 230 | 230 (the same stops) |
+  | Boardings vs ridership | 0.973 | 0.973 |
+  | Lines with >100 boardings within ±10% | 28 of 33 | 31 of 33 |
+  | Rider wait, median | 4.4 min | 4.4 min |
+- **To switch a feed:**
+  1. Set `INPUT_ZIP` in the filter cell and `--date` in the bus gtfs2pt cell; also `FULL_ZIP` and `DATE` in `check_bus_routes_vs_shapes.py`.
+  2. Rerun the notebook, then `../ridership/ridership_personflows.py`, after setting `SERVICE_CHANGE` to the matching period.
+  3. Recommit the reference set (below).
+- **Python:** gtfs2pt needs a Python with `rtree`, e.g. Anaconda. Make sure the `python` on PATH, which the notebook's `!python` uses, is that one.
 
 ## Crash fix: `device.rerouting.pre-period 0` (October 2026)
 Both GTFS configs set `<device.rerouting.pre-period value="0"/>` in `<routing>`. **Don't remove it:** without it, every run with the car demand crashes (segmentation fault, no SUMO error message) between about 07:13 and 08:11 simulated time, at the same step every time.
@@ -270,7 +296,7 @@ This checks every generated bus route against the path-accurate GTFS shape of it
 
   The network has no street names (netconvert ran without `--output.street-names`), so off stretches are named after nearby KCM stops.
 - **Metrics from Kaiser & Schmaus 2026** (SUMO User Conference, gtfs2pt route reconstruction; PDF in `Seattle_Sumo/Relevent_Papers/`): trips planned vs generated per line (their Table 1), RNS/RIS stop-sequence ratios, and "route matches the shape" as our version of their ISE. Our feed has shapes, so the shape is the reference. They had to compare two methods with each other instead.
-- **Results (2026-10-21, 05:00-12:00):**
+- **Results (05:00-12:00):** first run 2026-10-21 on the SPR26 schedule; rerun 2026-10-22 on FAL25 (2025-10-15) with the same flags and the same 108 wrong-street trips. FAL25: 1,739 trips checked, 1,809 planned, 70 missing (40 with fewer than 2 network stops, 30 at the edge of the time window), match ratio 0.938 without artifacts. The numbers below are the SPR26 run.
   - 1,763 trips checked, 232 flagged.
   - 124 of the flagged trips are a geometry offset on Alaskan Way near Columbia St: C Line both directions and H Line southbound, 20-38 m off for about 150 m. That's the rebuilt waterfront street vs the network geometry, not a different street.
   - **108 trips (6.1%) take a different street than the real route.** All are gtfs2pt's shortest path between two stops with no stop in between. None is caused by the snapping or by a missing street.
@@ -355,7 +381,7 @@ gtfs2pt always writes `type="bus"` / `type="tram"`, the mode name, and makes eve
   A copy of the signal file with the two signals below set to 90 s gave +0.7% and 71 teleports. **That signal change is not applied.**
 
 ## Generated transit files in git (reference set)
-The project rule is to keep generated files out of git, but the transit inputs for the current 40 bus lines are committed as a reference set, so a fresh clone can run both GTFS configs without rerunning the notebook first. They were committed on 2026-10-22 and match a clean regeneration on the lab server.
+The project rule is to keep generated files out of git, but the transit inputs for the current 40 bus lines are committed as a reference set, so a fresh clone can run both GTFS configs without rerunning the notebook first. They were first committed on 2026-10-22 from the SPR26 feed, matching a clean regeneration on the lab server. They were regenerated the same day from the FAL25 feed.
 - `bus/gtfs_pt_vehicles.add.xml`, `bus/gtfs_pt_stops.add.xml`, `bus/bus.add.xml`, `bus/vtypes.xml`
 - `rail/gtfs_pt_vehicles.add.xml`, `rail/gtfs_pt_stops.add.xml`, `rail/tram.add.xml`, `rail/vtypes.xml`
 - `gtfs data/kcm_google_transit_downtown.zip` (the filtered and snapped feed)

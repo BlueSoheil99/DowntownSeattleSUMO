@@ -3,7 +3,7 @@
 # Run from Simulation/: python ridership/rank_lines_by_ridership.py  ->  GTFS/bus/DT_buslines_ridership_ranking.csv
 import zipfile, io, pandas as pd, os
 base = "ridership/data/routeData/kcm"
-with zipfile.ZipFile("GTFS/gtfs data/kcm_google_transit.zip") as z:
+with zipfile.ZipFile("GTFS/gtfs data/kcm_google_transit_FAL25.zip") as z:
     stops = pd.read_csv(z.open("stops.txt"), usecols=["stop_id","stop_lat","stop_lon"])
 stops["stop_id"] = stops["stop_id"].astype(str)
 inbox = set(stops[(stops.stop_lat.between(47.58,47.65)) & (stops.stop_lon.between(-122.37,-122.30))].stop_id)

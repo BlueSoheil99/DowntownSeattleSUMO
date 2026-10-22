@@ -40,7 +40,7 @@ Three kinds of riders:
 - Bus trip times unchanged vs no riders (−2 s on average).
 
 **Limits.**
-- 2025 Q3 ridership vs summer 2026 timetable: 120 origin stops have no bus continuing from them in the time window and get no riders.
+- Schedule and ridership now come from the same service period: ridership 253 (Aug 30, 2025 - Mar 27, 2026) with the KCM fall 2025 schedule (FAL25, sim date 2025-10-15; since 2026-10-22). Only update one of them when matching data for the other exists (see the GTFS README, "Bus schedule and ridership"). With the summer 2026 timetable used before, 120 origin stops had no bus continuing from them in the time window and got no riders; 161 entries are skipped in both cases (see the `_skipped.csv`).
 - Lines with only a handful of riders (17, 56, 57, 113, 256, 322) have noisy ratios.
 - SUMO's default boarding time is short, so dwell times barely depend on load. A `boardingDuration` on the bus vType would be a later refinement.
 - No light rail ridership in the data (the `st` folder has express buses only).
@@ -84,7 +84,7 @@ data/routeData/kcm/<route>/<service_period>/ridershipData.csv
 where:
 
 * `route` represents the bus route number/name
-* `service_period` represents the service change period (e.g., `253` = 2025 Q3)
+* `service_period` represents the service change period (e.g., `253` = Aug 30, 2025 - Mar 27, 2026)
 
 The ridership files contain:
 
