@@ -24,6 +24,8 @@ weighted by departingLoad at the last stop in the network (the load that leaves 
 Replaces the older bus_stop_extract.py / ridership_process.py / ridership_generation.py chain (kept for reference).
 
 Usage: run from Simulation/ridership/:  python ridership_personflows.py   (paths and options below)
+The ridership period and the output names come from the scenario (Simulation/scenario.json, see scenario.py).
+At the start it prints which bus lines have ridership for the period; buses of lines without it run empty.
 Run the simulation single-threaded (threads 1, device.rerouting.threads 0): with these riders, SUMO 1.28 crashed,
 hung or wrote corrupted output when run with several threads.
 """
@@ -33,18 +35,24 @@ import math
 import os
 import random
 import re
+import sys
 import xml.etree.ElementTree as ET
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))   # Simulation/ (scenario.py)
+import scenario  # noqa: E402
+
+SIM = scenario.load()
 
 # ---------------- configuration ----------------
 BUS_VEHICLES = "../GTFS/bus/gtfs_pt_vehicles.add.xml"
 BUS_STOPS = "../GTFS/bus/gtfs_pt_stops.add.xml"
 RIDERSHIP_ROOT = "data/routeData/kcm"               # Git LFS (git lfs pull)
-SERVICE_CHANGE = "253"                           # Aug 30, 2025 - Mar 27, 2026 (matches the FAL25 bus schedule); newest available
+SERVICE_CHANGE = SIM["ridership_period"]           # from scenario.json; must match the bus feed's service period
 PERIODS = {"AM": (5 * 3600, 9 * 3600), "MID": (9 * 3600, 15 * 3600)}   # ridership time-of-day periods (s)
 SIM_WINDOW = (5 * 3600, 12 * 3600)               # only generate riders inside this window
-OUTPUT = "kcm_riders_253_AM_MID.rou.xml"
-SUMMARY = "kcm_riders_253_AM_MID_summary.csv"
-SKIPPED = "kcm_riders_253_AM_MID_skipped.csv"
+OUTPUT = SIM["rider_prefix"] + ".rou.xml"         # kcm_riders_<period>_AM_MID.rou.xml
+SUMMARY = SIM["rider_prefix"] + "_summary.csv"
+SKIPPED = SIM["rider_prefix"] + "_skipped.csv"
 ENTERING_RIDERS = True                           # riders already on board when a bus enters the network
 EXITING_RIDERS = True                            # riders who stay on until the bus leaves the network
 ARRIVE_BEFORE_BUS = (60, 300)                    # exiting riders reach their stop this many s before the bus
@@ -111,10 +119,24 @@ def load_ridership(line):
 
 ridership = {}
 skipped = []
-for line in sorted({v["line"] for v in vehicles}):
+buses_per_line = collections.Counter(v["line"] for v in vehicles)
+for line in sorted(buses_per_line):
     ridership[line] = load_ridership(line)
     if ridership[line] is None:
-        skipped.append((line, "", "", "no ridership file for period %s" % SERVICE_CHANGE))
+        skipped.append((line, "", "", "no ridership file for period %s (%d buses run without riders)"
+                        % (SERVICE_CHANGE, buses_per_line[line])))
+
+# ridership coverage: which bus lines have ridership for this period, which scenario lines have no buses
+no_ridership = [l for l in sorted(buses_per_line) if ridership[l] is None]
+no_buses = [l for l in SIM["keep_lines"] if l not in buses_per_line]
+print("ridership coverage, period %s: %d of %d bus lines have ridership (%d of %d buses)" % (
+    SERVICE_CHANGE, len(buses_per_line) - len(no_ridership), len(buses_per_line),
+    sum(n for l, n in buses_per_line.items() if ridership[l] is not None), len(vehicles)))
+if no_ridership:
+    print("  WARNING: no ridership file, these buses run without riders: "
+          + ", ".join("%s (%d)" % (l, buses_per_line[l]) for l in no_ridership))
+if no_buses:
+    print("  WARNING: scenario lines with no buses in %s: %s" % (BUS_VEHICLES, ", ".join(no_buses)))
 
 
 def direction_of(line, stop_ids):
@@ -137,6 +159,8 @@ def direction_of(line, stop_ids):
 groups = collections.defaultdict(list)
 stop_copy = collections.defaultdict(collections.Counter)   # (line, dir, base id) -> busStop ids used
 for v in vehicles:
+    if ridership[v["line"]] is None:
+        continue                     # already logged once per line above
     st = routes[v["route"]]["stops"]
     d = direction_of(v["line"], [base_id(s) for s, _ in st])
     if d is None:

@@ -1,9 +1,11 @@
 # Ranks the downtown bus lines in GTFS/bus/DT_seattle_Buslines.txt by ridership inside the bus filter bbox
 # (sum of dailyBoardings in the latest period of ridership/data/routeData/kcm/<route>/<period>/ridershipData.csv).
 # Run from Simulation/: python ridership/rank_lines_by_ridership.py  ->  GTFS/bus/DT_buslines_ridership_ranking.csv
-import zipfile, io, pandas as pd, os
+import zipfile, io, pandas as pd, os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))   # Simulation/ (scenario.py)
+import scenario
 base = "ridership/data/routeData/kcm"
-with zipfile.ZipFile("GTFS/gtfs data/kcm_google_transit_FAL25.zip") as z:
+with zipfile.ZipFile(scenario.load()["bus_feed_path"]) as z:   # stop locations from the scenario's bus feed
     stops = pd.read_csv(z.open("stops.txt"), usecols=["stop_id","stop_lat","stop_lon"])
 stops["stop_id"] = stops["stop_id"].astype(str)
 inbox = set(stops[(stops.stop_lat.between(47.58,47.65)) & (stops.stop_lon.between(-122.37,-122.30))].stop_id)

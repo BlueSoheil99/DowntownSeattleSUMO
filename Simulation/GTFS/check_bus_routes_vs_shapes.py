@@ -30,6 +30,11 @@ SUMO_HOME = os.environ.get("SUMO_HOME", r"C:\Program Files (x86)\SUMO")
 sys.path.insert(0, os.path.join(SUMO_HOME, "tools"))
 import sumolib  # noqa: E402  (SUMO's own copy, never pip-install it)
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))   # Simulation/ (scenario.py)
+import scenario  # noqa: E402
+
+SIM = scenario.load()
+
 # ==============================
 # CONFIG
 # ==============================
@@ -37,19 +42,16 @@ NET_FILE = "soheil_seattle_merged_pedspeed.net.xml"
 VEHICLE_FILE = "bus/gtfs_pt_vehicles.add.xml"
 STOP_FILE = "bus/gtfs_pt_stops.add.xml"
 DOWNTOWN_ZIP = "gtfs data/kcm_google_transit_downtown.zip"   # filtered + snapped feed
-FULL_ZIP = "gtfs data/kcm_google_transit_FAL25.zip"          # unfiltered feed (FAL25), for planned counts
+FULL_ZIP = SIM["bus_feed_path"]                              # unfiltered scenario feed, for planned counts
 OUT_DIR = "route_check"
 
-# same lines and bounding box as the filtering cell in seattle_sumo_gtfsData_setup.ipynb
-KEEP_ROUTES = ["C Line", "D Line", "E Line", "G Line", "H Line",
-               "4", "7", "8", "36", "2", "40", "70", "62", "14", "1", "5", "49", "13", "11", "3", "150", "10",
-               "12", "124", "21", "101", "132", "28", "131", "27", "24", "33", "125", "102", "322", "256", "17",
-               "57", "56", "113"]
+# lines from the scenario (same as the notebook's filter cell); same bounding box as that cell
+KEEP_ROUTES = SIM["keep_routes"]
 LAT_MIN, LAT_MAX = 47.58, 47.65
 LON_MIN, LON_MAX = -122.37, -122.30
 
-DATE = 20251015             # gtfs2pt --date (FAL25 feed)
-WEEKDAY = "wednesday"       # weekday of DATE
+DATE = int(SIM["gtfs_date"])  # the scenario's sim date (gtfs2pt --date)
+WEEKDAY = SIM["weekday"]
 WINDOW = (5 * 3600, 12 * 3600)
 
 STEP_M = 5.0                # sample spacing along route / shape

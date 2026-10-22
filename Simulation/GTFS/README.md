@@ -272,10 +272,32 @@ Riders for all 40 lines come from `../ridership/ridership_personflows.py`; see t
   | Boardings vs ridership | 0.973 | 0.973 |
   | Lines with >100 boardings within ±10% | 28 of 33 | 31 of 33 |
   | Rider wait, median | 4.4 min | 4.4 min |
-- **To switch a feed:**
-  1. Set `INPUT_ZIP` in the filter cell and `--date` in the bus gtfs2pt cell; also `FULL_ZIP` and `DATE` in `check_bus_routes_vs_shapes.py`.
-  2. Rerun the notebook, then `../ridership/ridership_personflows.py`, after setting `SERVICE_CHANGE` to the matching period.
-  3. Recommit the reference set (below).
+- **To switch a feed:** edit `../scenario.json` (below), rerun the notebook, then `../ridership/ridership_personflows.py`, and recommit the reference set (below).
+
+### Scenario file (`Simulation/scenario.json`)
+The scenario is set in one file. Since 2026-10-22 it is read by the notebook's filter and bus gtfs2pt cells, `../ridership/ridership_personflows.py`, `check_bus_routes_vs_shapes.py` and `../ridership/rank_lines_by_ridership.py`, through `../scenario.py`. Before that, the same settings lived in four places.
+
+| Key | Meaning | Now |
+|---|---|---|
+| `name` | label | `FAL25_253` |
+| `bus_feed` | full KCM GTFS zip, relative to `scenario.json` | `GTFS/gtfs data/kcm_google_transit_FAL25.zip` |
+| `sim_date` | simulated day, `YYYY-MM-DD`; gtfs2pt `--date` and the weekday are derived from it | `2025-10-15` |
+| `ridership_period` | ridership service change (folder under `ridership/data/routeData/kcm/<route>/`) | `253` |
+| `ridership_period_dates` | optional `[first, last]` day of the period, for a warning check | `2025-08-30` to `2026-03-27` |
+| `keep_routes` | bus lines (GTFS `route_short_name`) | the 40 lines |
+
+- The rider files are named after the period: `kcm_riders_<period>_AM_MID.rou.xml` (+ `_summary.csv`, `_skipped.csv`). If you change the period, point `gtfs_ridership_vehicular.sumocfg` at the new file name. That's the one setting not taken from the scenario.
+- **Another scenario without editing the file:** set the environment variable `SUMO_SCENARIO` to another JSON file, e.g. for tests or the multi-period runs. Its paths are relative to that file.
+- **Warnings:**
+
+  | Where | Warns about |
+  |---|---|
+  | `scenario.py` | a feed file that doesn't exist; a weekend sim date (the ridership is weekday ridership); a sim date outside `ridership_period_dates`; duplicate lines |
+  | filter cell | lines missing from the feed (left out); lines with no trip on the sim date; a feed with no service on that day |
+  | rider script | a coverage table: which bus lines have ridership for the period, and how many buses run without riders; scenario lines with no buses |
+
+  Lines without ridership are now logged once per line in `_skipped.csv`, with their bus count. Before, every bus of the line got a misleading "no matching ridership direction" row.
+- **Python:** the notebook adds `Simulation/` to `sys.path` to import `scenario.py`. The scripts do it themselves.
 - **Python:** gtfs2pt needs a Python with `rtree`, e.g. Anaconda. Make sure the `python` on PATH, which the notebook's `!python` uses, is that one.
 
 ## Crash fix: `device.rerouting.pre-period 0` (October 2026)

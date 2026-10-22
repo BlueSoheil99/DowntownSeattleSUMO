@@ -1,0 +1,19 @@
+{
+  "_about": [
+    "Scenario settings shared by GTFS/seattle_sumo_gtfsData_setup.ipynb (filter and bus gtfs2pt cells),",
+    "ridership/ridership_personflows.py, GTFS/check_bus_routes_vs_shapes.py and ridership/rank_lines_by_ridership.py.",
+    "Loaded with scenario.py. Paths are relative to this file. To use another file, set the environment variable",
+    "SUMO_SCENARIO to its path. Best practice: change bus_feed and ridership_period together (same service period).",
+    "After changing anything here: rerun the notebook, then ridership_personflows.py (see the GTFS README)."
+  ],
+  "name": "FAL25_253",
+  "bus_feed": "GTFS/gtfs data/kcm_google_transit_FAL25.zip",
+  "_bus_feed": "KCM feed FAL25-159.1, valid 2025-09-08 to 2026-03-27 (Internet Archive copy from 2025-10-07)",
+  "sim_date": "2025-10-15",
+  "ridership_period": "253",
+  "ridership_period_dates": ["2025-08-30", "2026-03-27"],
+  "keep_routes": ["C Line", "D Line", "E Line", "G Line", "H Line",
+                  "4", "7", "8", "36", "2", "40", "70", "62", "14", "1", "5", "49", "13", "11", "3", "150", "10",
+                  "12", "124", "21", "101", "132", "28", "131", "27", "24", "33", "125", "102", "322", "256", "17",
+                  "57", "56", "113"]
+}
