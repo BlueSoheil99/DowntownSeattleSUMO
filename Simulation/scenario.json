@@ -15,5 +15,23 @@
   "keep_routes": ["C Line", "D Line", "E Line", "G Line", "H Line",
                   "4", "7", "8", "36", "2", "40", "70", "62", "14", "1", "5", "49", "13", "11", "3", "150", "10",
                   "12", "124", "21", "101", "132", "28", "131", "27", "24", "33", "125", "102", "322", "256", "17",
-                  "57", "56", "113"]
+                  "57", "56", "113"],
+  "rail": {
+    "_about": [
+      "Link light rail. Read by the notebook's rail filter and rail gtfs2pt cells and ridership/rail_personflows.py.",
+      "Rail may use another period than the buses (the 2 Line has run through downtown only since 2026-03-28),",
+      "but its schedule and ridership should match each other."
+    ],
+    "feed": "GTFS/gtfs data/rail_gtfs.zip",
+    "_feed": "Sound Transit SC-Spring-2026.9, valid 2026-04-14 to 2026-08-28",
+    "sim_date": "2026-04-22",
+    "lines": ["1 Line", "2 Line"],
+    "ridership_file": "ridership/data/link/link_station_boardings_2026-04_2026-05.csv",
+    "_ridership_file": "Sound Transit system performance tracker (Power BI), Link, Avg Boardings per Day, Weekday, Apr + May 2026, by station; read 2026-10-22",
+    "ridership_label": "2026-04_05",
+    "ridership_dates": ["2026-04-01", "2026-05-31"],
+    "downtown_stations": ["Capitol Hill", "Westlake", "Symphony", "Pioneer Square", "Int'l Dist/Chinatown", "Stadium", "SODO"],
+    "time_of_day_share": {"AM": 0.190, "MID": 0.348},
+    "_time_of_day_share": "ASSUMPTION: share of daily boardings in AM (05-09) and MID (09-15), taken from KCM bus ridership period 253 (all lines); Sound Transit publishes no time of day"
+  }
 }

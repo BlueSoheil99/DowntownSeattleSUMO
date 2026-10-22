@@ -8,6 +8,9 @@ Keys from the file: name, bus_feed, sim_date (YYYY-MM-DD), ridership_period, kee
 optional ridership_period_dates [first, last].
 Derived: bus_feed_path (absolute), gtfs_date (YYYYMMDD, for gtfs2pt --date), weekday ("wednesday"),
 keep_lines (route names as SUMO lines, "C Line" -> "C_Line"), rider_prefix ("kcm_riders_253_AM_MID").
+Optional "rail" section (Link): feed, sim_date, lines, ridership_file, ridership_label, ridership_dates,
+downtown_stations, time_of_day_share; derived feed_path, gtfs_date, weekday, keep_lines, ridership_path,
+rider_prefix ("link_riders_2026-04_05_AM_MID").
 """
 import datetime
 import json
@@ -45,10 +48,34 @@ def load(path=None, verbose=True):
             warnings.append(f"sim_date {date} is outside ridership period {s['ridership_period']} ({a} to {b})")
     if len(set(s["keep_routes"])) != len(s["keep_routes"]):
         warnings.append("keep_routes has duplicates")
+
+    # Link light rail (optional section)
+    r = s.get("rail")
+    if r:
+        base = os.path.dirname(path)
+        rdate = datetime.date.fromisoformat(r["sim_date"])
+        r["feed_path"] = os.path.normpath(os.path.join(base, r["feed"]))
+        r["gtfs_date"] = rdate.strftime("%Y%m%d")
+        r["weekday"] = WEEKDAYS[rdate.weekday()]
+        r["keep_lines"] = [l.replace(" ", "_") for l in r["lines"]]
+        r["ridership_path"] = os.path.normpath(os.path.join(base, r["ridership_file"]))
+        r["rider_prefix"] = f"link_riders_{r['ridership_label']}_AM_MID"
+        for k in ("feed_path", "ridership_path"):
+            if not os.path.exists(r[k]):
+                warnings.append(f"rail {k[:-5]} not found: {r[k]}")
+        if rdate.weekday() >= 5:
+            warnings.append(f"rail sim_date {rdate} is a {r['weekday']}; the Link ridership is weekday ridership")
+        if r.get("ridership_dates"):
+            a, b = (datetime.date.fromisoformat(x) for x in r["ridership_dates"])
+            if not a <= rdate <= b:
+                warnings.append(f"rail sim_date {rdate} is outside the rail ridership dates ({a} to {b})")
     s["warnings"] = warnings
     if verbose:
         print(f"scenario {s['name']}: feed {os.path.basename(s['bus_feed_path'])}, sim date {date} ({s['weekday']}), "
               f"ridership period {s['ridership_period']}, {len(s['keep_routes'])} lines  [{path}]")
+        if r:
+            print(f"  rail: feed {os.path.basename(r['feed_path'])}, sim date {r['sim_date']} ({r['weekday']}), "
+                  f"ridership {r['ridership_label']}, {len(r['downtown_stations'])} downtown stations")
         for w in warnings:
             print("  WARNING:", w)
     return s

@@ -298,7 +298,37 @@ The scenario is set in one file. Since 2026-10-22 it is read by the notebook's f
 
   Lines without ridership are now logged once per line in `_skipped.csv`, with their bus count. Before, every bus of the line got a misleading "no matching ridership direction" row.
 - **Python:** the notebook adds `Simulation/` to `sys.path` to import `scenario.py`. The scripts do it themselves.
-- **Python:** gtfs2pt needs a Python with `rtree`, e.g. Anaconda. Make sure the `python` on PATH, which the notebook's `!python` uses, is that one.
+- **Rail section (`"rail"`, since 2026-10-22):** read by the notebook's rail filter and rail gtfs2pt cells and by `../ridership/rail_personflows.py`. Rail may use a different period from the buses, but its schedule and ridership should match each other.
+
+  | Key | Meaning | Now |
+  |---|---|---|
+  | `feed` | Sound Transit GTFS zip | `GTFS/gtfs data/rail_gtfs.zip` (SC-Spring-2026.9, 2026-04-14 to 2026-08-28) |
+  | `sim_date` | rail simulated day; rail gtfs2pt `--date` | `2026-04-22` (Wednesday; it used to be Sunday 2026-03-29) |
+  | `lines` | Link lines | `1 Line`, `2 Line` |
+  | `ridership_file` | average weekday boardings per station | `ridership/data/link/link_station_boardings_2026-04_2026-05.csv` |
+  | `ridership_label`, `ridership_dates` | label for file names; months the boardings cover | `2026-04_05`; 2026-04-01 to 2026-05-31 |
+  | `downtown_stations` | stations in the study area | Capitol Hill, Westlake, Symphony, Pioneer Square, Int'l Dist/Chinatown, Stadium, SODO |
+  | `time_of_day_share` | share of daily boardings in AM / MID (**assumption**, see below) | 0.190 / 0.348 |
+- **gtfs2pt Python:** gtfs2pt needs a Python with `rtree`, e.g. Anaconda. Make sure the `python` on PATH, which the notebook's `!python` uses, is that one.
+
+## Link riders (`../ridership/rail_personflows.py`, October 2026)
+Riders for the 1 and 2 Line, generated for every trip that starts or ends at a downtown station. Run from `Simulation/ridership/` with `python rail_personflows.py`, after the rail gtfs2pt and Link vType cells. The output is `link_riders_<label>_AM_MID.rou.xml`, plus `_summary.csv` and `_skipped.csv`. `gtfs_ridership_vehicular.sumocfg` loads it; the transit-only config has no riders.
+- **Data:** Sound Transit's system performance tracker (Power BI dashboard on soundtransit.org, Ridership → Link). Settings used: plot axis Station, Avg Boardings per Day, Day Type Weekday, April + May 2026. The 38 station values were read on 2026-10-22 into the CSV.
+  - The values are station totals, both lines combined.
+  - Sound Transit publishes **boardings only**: no alightings, no direction, no time of day, no origin-destination pairs. There's no download; the numbers have to be read from the dashboard.
+  - Marymoor Village has boardings but isn't in the model's rail network.
+- **Method:**
+  - **Alightings = boardings at every station** over the day.
+  - **Destinations by gravity:** riders boarding at station o go to every station a train of the day reaches after o, in proportion to that station's alightings. Trips per weekday o → d = B_o × A_d / Σ A over the stations reachable from o.
+  - **Time of day:** the KCM bus shares (AM 05-09: 19.0% of daily boardings, MID 09-15: 34.8%), spread evenly within each period.
+  - **Riders:** personFlows with random arrivals, waiting on the origin platform for any train of a line serving both stations, only while such trains run. Train lines are plain names (`1_Line`, `2_Line`), because the rail gtfs2pt cell now uses `--original-lines`.
+- **Result (rail date 2026-04-22, 531 trains, 836 flows):** about 36,500 Link riders expected 05:00-12:00. That's 14,500 from downtown, 15,100 to downtown and 7,000 within downtown.
+  - Test run 05:00-08:00 with bus + Link riders, transit only: 12,495 Link rides finished by 08:00, out of 14,363 riders who had started by then; the rest were still riding at 08:00. Wait median 3.2 min, mean 5.4 min.
+- **To revisit (needs official data):**
+  1. **Alightings.** Alightings = boardings ignores the commute direction: more riders arrive downtown in the morning and leave in the afternoon. Replace with Sound Transit alighting / origin-destination data, or ORCA-based data, when available.
+  2. **Time of day.** The profile is borrowed from KCM buses.
+  3. **Through riders.** Trips between two stations outside downtown that pass through it (e.g. U District → SeaTac) are not generated, so trains through downtown carry fewer riders than in reality.
+  4. **June.** June 2026 (World Cup) was left out of the boardings on purpose.
 
 ## Crash fix: `device.rerouting.pre-period 0` (October 2026)
 Both GTFS configs set `<device.rerouting.pre-period value="0"/>` in `<routing>`. **Don't remove it:** without it, every run with the car demand crashes (segmentation fault, no SUMO error message) between about 07:13 and 08:11 simulated time, at the same step every time.
@@ -408,6 +438,7 @@ The project rule is to keep generated files out of git, but the transit inputs f
 - `rail/gtfs_pt_vehicles.add.xml`, `rail/gtfs_pt_stops.add.xml`, `rail/tram.add.xml`, `rail/vtypes.xml`
 - `gtfs data/kcm_google_transit_downtown.zip` (the filtered and snapped feed)
 - `../ridership/kcm_riders_253_AM_MID.rou.xml`
+- `../ridership/link_riders_2026-04_05_AM_MID.rou.xml` (Link riders, added 2026-10-22, with the rail files regenerated for the weekday rail date)
 
 If `KEEP_ROUTES`, the network, the snapping, the vType cells or the rider script change, regenerate them (notebook, then `ridership_personflows.py`) and commit them together with the change. `gtfs data/rail_gtfs_downtown.zip` is tracked from earlier, and regenerating it only changes zip metadata. The rider summary and skipped CSVs are not committed (`*.csv` goes to Git LFS).
 

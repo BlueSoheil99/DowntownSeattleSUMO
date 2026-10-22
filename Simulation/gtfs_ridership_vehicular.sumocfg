@@ -17,9 +17,12 @@
                 GTFS/bus/gtfs_pt_vehicles.add.xml"/>
 
 
-        <!-- bus riders from ridership/ridership_personflows.py (2025 Q3 ridership, AM + MID, all 40 downtown lines) -->
+        <!-- bus riders from ridership/ridership_personflows.py (KCM ridership period 253, AM + MID, all 40 downtown lines);
+             Link riders from ridership/rail_personflows.py (Sound Transit station boardings Apr-May 2026, downtown stations).
+             The file names follow the periods in scenario.json; update them here if the periods change. -->
         <route-files value= "adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V3.rou.xml,
-                             ridership/kcm_riders_253_AM_MID.rou.xml"/>
+                             ridership/kcm_riders_253_AM_MID.rou.xml,
+                             ridership/link_riders_2026-04_05_AM_MID.rou.xml"/>
 
 <!--        older person flows (ridership_generation.py, routes 24/33/70/8 only), kept for reference:
             <route-files value= "adjusted_alaskanway_od2trips_psrc_vehicle_trips_converted_taz_calibrated_V3.rou.xml,
