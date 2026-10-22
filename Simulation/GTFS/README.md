@@ -257,7 +257,7 @@ Both GTFS configs set `<device.rerouting.pre-period value="0"/>` in `<routing>`.
 - Cause (a SUMO bug, present in 1.27.1 and 1.28.0): the car demand has TAZ trips with only `fromTaz` (no `from` edge). A car that waits to be inserted is rerouted every 60 s by default (`pre-period`). With `device.rerouting.with-taz` the new route can start on a different source edge of the TAZ, but SUMO still inserts the car on the old edge, so it sits on an edge that isn't in its route. Two such cars together crash SUMO.
 - `pre-period 0` turns off rerouting before insertion. Rerouting while driving (probability 0.7, every 300 s) is unchanged.
 - Validated on the lab server on 2026-10-20 with two full 05:00-12:00 runs: the full config (cars + buses + trains + riders) and cars + transit without riders. Both finished with exit code 0. Car results up to 07:23 are nearly unchanged (mean trip 311.4 s vs 312.4 s). Bus boardings were 0.97 x ridership with cars (0.99 transit-only), median rider wait 4.9 min. Details in `../Work_Done.txt` (October 19th-20th and October 20th).
-- Not yet reported to the SUMO developers.
+- Reported to the SUMO developers on 2026-10-22: eclipse-sumo/sumo#18408 (network, TAZs and demand offered on request).
 
 ## Route check vs GTFS shapes (`check_bus_routes_vs_shapes.py`)
 This checks every generated bus route against the path-accurate GTFS shape of its trips, and the per-line trip counts. It's analysis only and changes nothing. Run it from this folder with `python check_bus_routes_vs_shapes.py`. It needs pandas, numpy, shapely ≥ 2.0 and pyproj; SUMO's sumolib comes from `SUMO_HOME/tools`. It takes about 5-20 s. Outputs go to `route_check/` (generated, not committed): `route_check_trips.csv`, `route_check_lines.csv`, `route_check_flagged_patterns.csv`, `route_check_summary.md` and `flagged_geojson/` (shape vs route per flagged pattern; open them in QGIS or geojson.io).
@@ -353,6 +353,15 @@ gtfs2pt always writes `type="bus"` / `type="tram"`, the mode name, and makes eve
   - with 13 m stops the increase was +5.3% and 91 teleports
 
   A copy of the signal file with the two signals below set to 90 s gave +0.7% and 71 teleports. **That signal change is not applied.**
+
+## Generated transit files in git (reference set)
+The project rule is to keep generated files out of git, but the transit inputs for the current 40 bus lines are committed as a reference set, so a fresh clone can run both GTFS configs without rerunning the notebook first. They were committed on 2026-10-22 and match a clean regeneration on the lab server.
+- `bus/gtfs_pt_vehicles.add.xml`, `bus/gtfs_pt_stops.add.xml`, `bus/bus.add.xml`, `bus/vtypes.xml`
+- `rail/gtfs_pt_vehicles.add.xml`, `rail/gtfs_pt_stops.add.xml`, `rail/tram.add.xml`, `rail/vtypes.xml`
+- `gtfs data/kcm_google_transit_downtown.zip` (the filtered and snapped feed)
+- `../ridership/kcm_riders_253_AM_MID.rou.xml`
+
+If `KEEP_ROUTES`, the network, the snapping, the vType cells or the rider script change, regenerate them (notebook, then `ridership_personflows.py`) and commit them together with the change. `gtfs data/rail_gtfs_downtown.zip` is tracked from earlier, and regenerating it only changes zip metadata. The rider summary and skipped CSVs are not committed (`*.csv` goes to Git LFS).
 
 ## Known limitations (to consider later)
 - **Signal timing on 3rd Ave near James St.** In the signal file (programID 2), 3rd & James (`53221905`) runs an 85 s cycle. The stand-alone pedestrian crossing between James St and Yesler Way (`764028198`) runs 87 s, with a fixed 32 s pedestrian-only phase every cycle. Eleven of the twelve other 3rd Ave signals up to Pine St run 90 s. Where the timings came from isn't documented; ask Soheil, or request the 3rd Ave timing plans from SDOT Traffic Signal Operations. Tested on a copy only (see above).

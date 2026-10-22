@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-10-03 22:48:54.094528 by Eclipse SUMO gtfs2pt.py v1_27_1+0000-7717f2379d9
+<!-- generated on 2026-10-21 17:21:58.185657 by Eclipse SUMO gtfs2pt.py v1_28_0+0000-daf91b55789
 <configuration>
     <gtfs value="gtfs data/kcm_google_transit_downtown.zip"/>
     <date value="20260617"/>
     <modes value="bus"/>
     <vtype-output value="bus/vtypes.xml"/>
+    <original-lines value="True"/>
     <verbose value="True"/>
     <network value="soheil_seattle_merged_pedspeed.net.xml"/>
     <route-output value="bus/gtfs_pt_vehicles.add.xml"/>
@@ -17,103 +18,267 @@
 -->
 
 <additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
-    <busStop id="gtfs_19380" lane="-22759220#9_1" startPos="537.22" endPos="550.22" friendlyPos="true" name="Elliott Ave W &amp; W Roy St"/>
-    <busStop id="gtfs_19390" lane="-22759220#9_1" startPos="780.31" endPos="793.31" friendlyPos="true" name="Elliott Ave W &amp; W Mercer St"/>
-    <busStop id="gtfs_19410" lane="-484636423#0_1" startPos="16.70" endPos="29.70" friendlyPos="true" name="Elliott Ave W &amp; W Harrison St"/>
-    <busStop id="gtfs_19420" lane="-428294123_1" startPos="4.58" endPos="17.58" friendlyPos="true" name="Western Ave W &amp; Elliott Ave W"/>
-    <busStop id="gtfs_2244" lane="332473707#2_1" startPos="0.64" endPos="13.64" friendlyPos="true" name="Denny Way &amp; 2nd Ave N"/>
-    <busStop id="gtfs_2220" lane="-456673731_1" startPos="31.92" endPos="44.92" friendlyPos="true" name="3rd Ave &amp; Cedar St"/>
-    <busStop id="gtfs_30635" lane="-456673729#0_1" startPos="11.81" endPos="24.81" friendlyPos="true" name="4th Ave S &amp; S Royal Brougham Way"/>
-    <busStop id="gtfs_619" lane="gneE407_1" startPos="41.85" endPos="54.85" friendlyPos="true" name="4th Ave S &amp; S Jackson St"/>
-    <busStop id="gtfs_531" lane="gneE174.23_1" startPos="50.31" endPos="63.31" friendlyPos="true" name="3rd Ave &amp; James St"/>
-    <busStop id="gtfs_548" lane="-532864853#2_1" startPos="56.46" endPos="69.46" friendlyPos="true" name="3rd Ave &amp; Madison St"/>
-    <busStop id="gtfs_570" lane="370819899#0.32_1" startPos="80.33" endPos="93.33" friendlyPos="true" name="3rd Ave &amp; Union St"/>
-    <busStop id="gtfs_590" lane="465991370#0_1" startPos="23.66" endPos="36.66" friendlyPos="true" name="3rd Ave &amp; Pine St"/>
-    <busStop id="gtfs_600" lane="399134509#1_1" startPos="68.14" endPos="81.14" friendlyPos="true" name="3rd Ave &amp; Virginia St"/>
-    <busStop id="gtfs_605" lane="-462696721#1_1" startPos="40.28" endPos="53.28" friendlyPos="true" name="3rd Ave &amp; Bell St"/>
-    <busStop id="gtfs_1690" lane="370785080#1_1" startPos="34.42" endPos="47.42" friendlyPos="true" name="3rd Ave &amp; Vine St"/>
-    <busStop id="gtfs_20829" lane="-332473707#1_1" startPos="34.65" endPos="47.65" friendlyPos="true" name="Denny Way &amp; 2nd Ave N"/>
-    <busStop id="gtfs_19440" lane="-292244977_1" startPos="24.52" endPos="37.52" friendlyPos="true" name="Denny Way &amp; Queen Anne Ave N"/>
-    <busStop id="gtfs_19460" lane="428294123_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Western Ave W &amp; Elliott Ave W"/>
-    <busStop id="gtfs_19470" lane="649725824#1_1" startPos="14.85" endPos="27.85" friendlyPos="true" name="Elliott Ave W &amp; 4th Ave W"/>
-    <busStop id="gtfs_19480" lane="22759220#1_1" startPos="10.63" endPos="23.63" friendlyPos="true" name="Elliott Ave W &amp; 6th Ave W"/>
-    <busStop id="gtfs_19490" lane="22759220#9_1" startPos="166.00" endPos="179.00" friendlyPos="true" name="Elliott Ave W &amp; W Mercer St"/>
-    <busStop id="gtfs_19500" lane="22759220#9_1" startPos="338.22" endPos="351.22" friendlyPos="true" name="Elliott Ave W &amp; W Mercer Pl"/>
-    <busStop id="gtfs_400" lane="370819890#2_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="3rd Ave &amp; Bell St"/>
-    <busStop id="gtfs_420" lane="-621319687#1_1" startPos="92.50" endPos="105.50" friendlyPos="true" name="3rd Ave &amp; Virginia St"/>
-    <busStop id="gtfs_433" lane="-532243339#2_1" startPos="64.26" endPos="77.26" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
-    <busStop id="gtfs_468" lane="421777784#1_1" startPos="51.50" endPos="64.50" friendlyPos="true" name="3rd Ave &amp; Seneca St"/>
-    <busStop id="gtfs_490" lane="gneE274_1" startPos="55.11" endPos="68.11" friendlyPos="true" name="3rd Ave &amp; Cherry St"/>
-    <busStop id="gtfs_515" lane="452330584_1" startPos="50.09" endPos="63.09" friendlyPos="true" name="3rd Ave S &amp; S Main St"/>
-    <busStop id="gtfs_10210" lane="-393047815#1_1" startPos="7.46" endPos="20.46" friendlyPos="true" name="Fairview Ave N &amp; Mercer St"/>
-    <busStop id="gtfs_10225" lane="-428087138#0_1" startPos="4.69" endPos="17.69" friendlyPos="true" name="Fairview Ave N &amp; Thomas St"/>
-    <busStop id="gtfs_10240" lane="gneE33_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Boren Ave &amp; Virginia St"/>
-    <busStop id="gtfs_940" lane="240576145#3_1" startPos="94.11" endPos="107.11" friendlyPos="true" name="Stewart St &amp; 9th Ave"/>
-    <busStop id="gtfs_950" lane="428087142#2_1" startPos="16.23" endPos="29.23" friendlyPos="true" name="Stewart St &amp; 7th Ave"/>
-    <busStop id="gtfs_430" lane="-460423529#1_1" startPos="72.48" endPos="85.48" friendlyPos="true" name="3rd Ave &amp; Pine St"/>
-    <busStop id="gtfs_450" lane="-671432782#1_1" startPos="38.50" endPos="51.50" friendlyPos="true" name="3rd Ave &amp; Union St"/>
-    <busStop id="gtfs_480" lane="532864853#0_1" startPos="56.83" endPos="69.83" friendlyPos="true" name="3rd Ave &amp; Marion St"/>
-    <busStop id="gtfs_500" lane="gneE177_1" startPos="54.85" endPos="67.85" friendlyPos="true" name="3rd Ave &amp; James St"/>
+    <busStop id="gtfs_1530" lane="gneE402_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
+    <busStop id="gtfs_1610" lane="gneE173_1" startPos="0.00" endPos="42.36" friendlyPos="true" name="Prefontaine Pl S &amp; Yesler Way"/>
+    <busStop id="gtfs_538" lane="gneE282_1" startPos="13.01" endPos="73.01" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
+    <busStop id="gtfs_558" lane="-421777784#2_1" startPos="7.77" endPos="67.77" friendlyPos="true" name="3rd Ave &amp; Seneca St"/>
+    <busStop id="gtfs_575" lane="532243339#0_1" startPos="41.47" endPos="101.47" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
+    <busStop id="gtfs_600" lane="399134509#1_1" startPos="21.14" endPos="81.14" friendlyPos="true" name="3rd Ave &amp; Virginia St"/>
+    <busStop id="gtfs_605" lane="-462696721#1_1" startPos="0.00" endPos="60.00" friendlyPos="true" name="3rd Ave &amp; Bell St"/>
+    <busStop id="gtfs_1690" lane="370785080#1_1" startPos="7.42" endPos="47.42" friendlyPos="true" name="3rd Ave &amp; Vine St"/>
+    <busStop id="gtfs_2320" lane="370823231#0_1" startPos="9.91" endPos="29.91" friendlyPos="true" name="1st Ave &amp; Broad St"/>
+    <busStop id="gtfs_2330" lane="428294477_1" startPos="0.89" endPos="40.89" friendlyPos="true" name="1st Ave N &amp; Denny Way"/>
+    <busStop id="gtfs_2360" lane="456124866_1" startPos="0.00" endPos="18.15" friendlyPos="true" name="1st Ave N &amp; Republican St"/>
+    <busStop id="gtfs_2370" lane="-460421474_1" startPos="36.13" endPos="76.13" friendlyPos="true" name="Mercer St &amp; Queen Anne Ave N"/>
+    <busStop id="gtfs_2672" lane="460421475#1_1" startPos="6.55" endPos="46.55" friendlyPos="true" name="Queen Anne Ave N &amp; W Mercer St"/>
+    <busStop id="gtfs_2180" lane="263689011#8_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="Queen Anne Ave N &amp; W Harrison St"/>
+    <busStop id="gtfs_2200" lane="259277268#0_1" startPos="8.72" endPos="48.72" friendlyPos="true" name="Queen Anne Ave N &amp; W John St"/>
+    <busStop id="gtfs_2244" lane="332473707#2_1" startPos="0.00" endPos="31.39" friendlyPos="true" name="Denny Way &amp; 2nd Ave N"/>
+    <busStop id="gtfs_2220" lane="-456673731_1" startPos="4.92" endPos="44.92" friendlyPos="true" name="3rd Ave &amp; Cedar St"/>
+    <busStop id="gtfs_3600" lane="-460425666#1_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="S Jackson St &amp; 12th Ave S"/>
+    <busStop id="gtfs_1500" lane="-15257627#1.57_1" startPos="0.00" endPos="31.64" friendlyPos="true" name="S Jackson St &amp; 8th Ave S"/>
+    <busStop id="gtfs_1510" lane="gneE381_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="S Jackson St &amp; Maynard Ave S"/>
+    <busStop id="gtfs_400" lane="370819890#2_1" startPos="0.00" endPos="45.42" friendlyPos="true" name="3rd Ave &amp; Bell St"/>
+    <busStop id="gtfs_420" lane="-621319687#1_1" startPos="43.18" endPos="103.18" friendlyPos="true" name="3rd Ave &amp; Virginia St"/>
+    <busStop id="gtfs_430" lane="-460423529#1_1" startPos="25.48" endPos="85.48" friendlyPos="true" name="3rd Ave &amp; Pine St"/>
+    <busStop id="gtfs_450" lane="-671432782#1_1" startPos="0.00" endPos="60.00" friendlyPos="true" name="3rd Ave &amp; Union St"/>
+    <busStop id="gtfs_480" lane="532864853#0_1" startPos="9.83" endPos="69.83" friendlyPos="true" name="3rd Ave &amp; Marion St"/>
+    <busStop id="gtfs_500" lane="gneE177_1" startPos="0.85" endPos="60.85" friendlyPos="true" name="3rd Ave &amp; James St"/>
+    <busStop id="gtfs_515" lane="452330584_1" startPos="0.00" endPos="60.00" friendlyPos="true" name="3rd Ave S &amp; S Main St"/>
     <busStop id="gtfs_1471" lane="164242787#1_1" startPos="0.00" endPos="3.89" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
-    <busStop id="gtfs_1610" lane="gneE173_1" startPos="29.36" endPos="42.36" friendlyPos="true" name="Prefontaine Pl S &amp; Yesler Way"/>
-    <busStop id="gtfs_538" lane="gneE282_1" startPos="60.01" endPos="73.01" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
-    <busStop id="gtfs_558" lane="-421777784#2_1" startPos="61.76" endPos="74.76" friendlyPos="true" name="3rd Ave &amp; Seneca St"/>
-    <busStop id="gtfs_575" lane="532243339#0_1" startPos="88.47" endPos="101.47" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
-    <busStop id="gtfs_880" lane="512250031#2_1" startPos="14.28" endPos="27.28" friendlyPos="true" name="Virginia St &amp; 6th Ave"/>
-    <busStop id="gtfs_900" lane="22927963#5_1" startPos="8.69" endPos="21.69" friendlyPos="true" name="Virginia St &amp; 9th Ave"/>
-    <busStop id="gtfs_10280" lane="-6496961#2_1" startPos="11.23" endPos="24.23" friendlyPos="true" name="Fairview Ave &amp; Denny Way"/>
-    <busStop id="gtfs_10305" lane="179222048#1_1" startPos="3.62" endPos="16.62" friendlyPos="true" name="Fairview Ave N &amp; Harrison St"/>
-    <busStop id="gtfs_10325" lane="pseudoMercer2_0" startPos="7.67" endPos="20.67" friendlyPos="true" name="Fairview Ave N &amp; Valley St"/>
-    <busStop id="gtfs_1530" lane="gneE402_1" startPos="7.52" endPos="20.52" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
-    <busStop id="gtfs_29260" lane="-337668916#3_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="E Thomas St &amp; 16th Ave E"/>
-    <busStop id="gtfs_29261" lane="-337668916#3_1" startPos="21.69" endPos="34.69" friendlyPos="true" name="E John St &amp; 15th Ave E"/>
-    <busStop id="gtfs_29301" lane="-337668916#2_1" startPos="32.05" endPos="45.05" friendlyPos="true" name="E John St &amp; 12th Ave E"/>
-    <busStop id="gtfs_29262" lane="-6463013_1" startPos="22.52" endPos="35.52" friendlyPos="true" name="E John St &amp; Broadway  E - Bay 2"/>
-    <busStop id="gtfs_29266" lane="-6521205#2_1" startPos="30.63" endPos="43.63" friendlyPos="true" name="E Olive Way &amp; Summit Ave E"/>
-    <busStop id="gtfs_2275" lane="-393047810_1" startPos="37.94" endPos="50.94" friendlyPos="true" name="E Denny Way &amp; Bellevue Ave E"/>
-    <busStop id="gtfs_2291" lane="-338863386#2_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Denny Way &amp; Westlake Ave"/>
-    <busStop id="gtfs_2249" lane="-242288219#1_1" startPos="25.31" endPos="38.31" friendlyPos="true" name="Denny Way &amp; 7th Ave N"/>
-    <busStop id="gtfs_2300" lane="-332200726_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Denny Way &amp; 5th Ave N"/>
-    <busStop id="gtfs_2330" lane="428294477_1" startPos="28.19" endPos="41.19" friendlyPos="true" name="1st Ave N &amp; Denny Way"/>
-    <busStop id="gtfs_2360" lane="456124866_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="1st Ave N &amp; Republican St"/>
-    <busStop id="gtfs_2370" lane="263689012_1" startPos="93.42" endPos="106.42" friendlyPos="true" name="Mercer St &amp; Queen Anne Ave N"/>
-    <busStop id="gtfs_2672" lane="460421475#1_1" startPos="44.74" endPos="57.74" friendlyPos="true" name="Queen Anne Ave N &amp; W Mercer St"/>
-    <busStop id="gtfs_2180" lane="263689011#8_1" startPos="9.64" endPos="22.64" friendlyPos="true" name="Queen Anne Ave N &amp; W Harrison St"/>
-    <busStop id="gtfs_2200" lane="259277268#0_1" startPos="35.73" endPos="48.73" friendlyPos="true" name="Queen Anne Ave N &amp; W John St"/>
-    <busStop id="gtfs_2245" lane="332200726_1" startPos="58.07" endPos="71.07" friendlyPos="true" name="Denny Way &amp; 5th Ave N"/>
-    <busStop id="gtfs_2250" lane="332200724#0_1" startPos="3.83" endPos="16.83" friendlyPos="true" name="Denny Way &amp; Dexter Ave"/>
-    <busStop id="gtfs_2255" lane="338863385#0_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Denny Way &amp; Westlake Ave"/>
-    <busStop id="gtfs_2260" lane="428087113#0_1" startPos="5.65" endPos="18.65" friendlyPos="true" name="Denny Way &amp; Fairview Ave"/>
-    <busStop id="gtfs_2262" lane="360390221#0_1" startPos="4.19" endPos="17.19" friendlyPos="true" name="Denny Way &amp; Stewart St"/>
-    <busStop id="gtfs_2264" lane="436163947#1_1" startPos="13.32" endPos="26.32" friendlyPos="true" name="E Denny Way &amp; Melrose Ave"/>
-    <busStop id="gtfs_29268" lane="6521205#0.19_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="E Olive Way &amp; Summit Ave E"/>
-    <busStop id="gtfs_29270" lane="623536799_1" startPos="10.05" endPos="23.05" friendlyPos="true" name="E John St &amp; Broadway  E - Bay 1"/>
-    <busStop id="gtfs_29277" lane="337668916#3_1" startPos="24.48" endPos="37.48" friendlyPos="true" name="E John St &amp; 12th Ave E"/>
-    <busStop id="gtfs_29273" lane="337668916#3_1" startPos="279.19" endPos="292.19" friendlyPos="true" name="E John St &amp; 15th Ave E"/>
-    <busStop id="gtfs_1561" lane="-537661114_0" startPos="35.04" endPos="48.04" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St">
-        <access friendlyPos="true" lane="-307511472#0_0" pos="11.37" length="111.35"/>
-        <access friendlyPos="true" lane="213928814#0_0" pos="0.28" length="53.21"/>
-        <access friendlyPos="true" lane="307511472#0_0" pos="0.00" length="106.22"/>
-        <access friendlyPos="true" lane="537661114_0" pos="23.34" length="48.77"/>
-        <access friendlyPos="true" lane="537671576_0" pos="89.03" length="70.96"/>
-        <access friendlyPos="true" lane="6384231_0" pos="12.35" length="47.00"/>
-        <access friendlyPos="true" lane="gneE704_0" pos="50.86" length="74.21"/>
-        <access friendlyPos="true" lane="gneE705_0" pos="2.60" length="83.81"/>
-        <access friendlyPos="true" lane="gneE706_0" pos="3.76" length="74.09"/>
-        <access friendlyPos="true" lane="gneE707_0" pos="24.07" length="83.70"/>
+    <busStop id="gtfs_11080" lane="-6415868#6_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="E Pine St &amp; Broadway"/>
+    <busStop id="gtfs_11090" lane="-6415868#2_1" startPos="21.22" endPos="41.22" friendlyPos="true" name="E Pine St &amp; Belmont Ave"/>
+    <busStop id="gtfs_11100" lane="460423539#0_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="E Pine St &amp; Bellevue Ave"/>
+    <busStop id="gtfs_1085" lane="460423550#0_1" startPos="0.00" endPos="36.85" friendlyPos="true" name="Pine St &amp; 9th Ave"/>
+    <busStop id="gtfs_1110" lane="179551718#6_1" startPos="0.00" endPos="32.74" friendlyPos="true" name="Pine St &amp; 5th Ave"/>
+    <busStop id="gtfs_1120" lane="543426333#0_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Pine St &amp; 4th Ave"/>
+    <busStop id="gtfs_1180" lane="465799092#2_1" startPos="0.00" endPos="29.99" friendlyPos="true" name="Pike St &amp; 4th Ave"/>
+    <busStop id="gtfs_1190" lane="428248112#2_1" startPos="0.00" endPos="32.96" friendlyPos="true" name="Pike St &amp; 6th Ave"/>
+    <busStop id="gtfs_1195" lane="585970943#0_1" startPos="3.03" endPos="43.03" friendlyPos="true" name="Pike St &amp; 7th Ave"/>
+    <busStop id="gtfs_11133" lane="489207088#0_1" startPos="0.00" endPos="36.22" friendlyPos="true" name="Pike St &amp; Minor Ave"/>
+    <busStop id="gtfs_11140" lane="6415868#2_1" startPos="36.50" endPos="56.50" friendlyPos="true" name="E Pine St &amp; Summit Ave"/>
+    <busStop id="gtfs_11150" lane="6415868#6_1" startPos="11.75" endPos="31.75" friendlyPos="true" name="E Pine St &amp; Harvard Ave"/>
+    <busStop id="gtfs_11520" lane="332601014#8_1" startPos="63.27" endPos="83.27" friendlyPos="true" name="E Pine St &amp; 12th Ave"/>
+    <busStop id="gtfs_99264" lane="-370826209_0" startPos="58.59" endPos="78.59" friendlyPos="true" name="SODO Busway &amp; S Holgate St"/>
+    <busStop id="gtfs_99267" lane="-370826209.583_1" startPos="50.46" endPos="70.46" friendlyPos="true" name="SODO Busway &amp; S Royal Brougham Way"/>
+    <busStop id="gtfs_30635" lane="-456673729#0_1" startPos="0.00" endPos="36.01" friendlyPos="true" name="4th Ave S &amp; S Royal Brougham Way"/>
+    <busStop id="gtfs_620" lane="428230590_1" startPos="0.00" endPos="17.74" friendlyPos="true" name="4th Ave S &amp; S Jackson St"/>
+    <busStop id="gtfs_640" lane="6522905#6_1" startPos="22.50" endPos="42.50" friendlyPos="true" name="4th Ave &amp; James St"/>
+    <busStop id="gtfs_660" lane="428243943#8_1" startPos="50.62" endPos="70.62" friendlyPos="true" name="4th Ave &amp; Madison St"/>
+    <busStop id="gtfs_691" lane="580425582#0.91_1" startPos="15.17" endPos="35.17" friendlyPos="true" name="4th Ave &amp; Union St"/>
+    <busStop id="gtfs_700" lane="173554614#0_1" startPos="62.00" endPos="82.00" friendlyPos="true" name="4th Ave &amp; Pike St"/>
+    <busStop id="gtfs_1040" lane="622569804#0_1" startPos="0.00" endPos="4.41" friendlyPos="true" name="Olive Way &amp; 6th Ave"/>
+    <busStop id="gtfs_992" lane="6439301#2_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Howell St &amp; 9th Ave"/>
+    <busStop id="gtfs_905" lane="22927964#3_1" startPos="52.65" endPos="72.65" friendlyPos="true" name="Stewart St &amp; Yale Ave N"/>
+    <busStop id="gtfs_940" lane="428087144#2_1" startPos="0.00" endPos="35.53" friendlyPos="true" name="Stewart St &amp; 9th Ave"/>
+    <busStop id="gtfs_950" lane="428087142#2_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="Stewart St &amp; 7th Ave"/>
+    <busStop id="gtfs_970" lane="98243676#0_1" startPos="5.80" endPos="25.80" friendlyPos="true" name="Stewart St &amp; 4th Ave"/>
+    <busStop id="gtfs_300" lane="428244385#0_1" startPos="33.86" endPos="73.86" friendlyPos="true" name="2nd Ave &amp; Pike St"/>
+    <busStop id="gtfs_340" lane="428243312#0_1" startPos="28.05" endPos="68.05" friendlyPos="true" name="2nd Ave &amp; Marion St"/>
+    <busStop id="gtfs_361" lane="gneE238_1" startPos="28.90" endPos="48.90" friendlyPos="true" name="2nd Ave &amp; James St"/>
+    <busStop id="gtfs_390" lane="164241876_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="2nd Ave Ext S &amp; S Jackson St"/>
+    <busStop id="gtfs_99271" lane="398982875_0" startPos="33.23" endPos="53.23" friendlyPos="true" name="SODO Busway &amp; S Royal Brougham Way">
+        <access friendlyPos="true" lane="-370826209.583_0" pos="36.06" length="5.00"/>
+        <access friendlyPos="true" lane="-370826214#2_0" pos="0.00" length="90.96"/>
+        <access friendlyPos="true" lane="-428246463_0" pos="14.91" length="90.98"/>
+        <access friendlyPos="true" lane="-428246473_0" pos="0.00" length="86.97"/>
+        <access friendlyPos="true" lane="-537607366_0" pos="7.99" length="88.07"/>
+        <access friendlyPos="true" lane="164665655#4_0" pos="0.00" length="39.91"/>
+        <access friendlyPos="true" lane="170853848#2_0" pos="44.63" length="23.84"/>
+        <access friendlyPos="true" lane="428246473_0" pos="1.95" length="101.29"/>
+        <access friendlyPos="true" lane="537607366_0" pos="0.00" length="102.30"/>
+        <access friendlyPos="true" lane="gneE695_0" pos="0.00" length="115.16"/>
     </busStop>
-    <busStop id="gtfs_1559" lane="gneE143_1" startPos="40.00" endPos="53.00" friendlyPos="true" name="Alaskan Way &amp; Columbia St"/>
-    <busStop id="gtfs_539" lane="gneE279_1" startPos="43.49" endPos="56.49" friendlyPos="true" name="3rd Ave &amp; Marion St"/>
-    <busStop id="gtfs_18440" lane="534549105#0_1" startPos="98.58" endPos="111.58" friendlyPos="true" name="Blanchard St &amp; 6th Ave"/>
-    <busStop id="gtfs_26690" lane="242288220#0_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Westlake &amp; 9th-Denny"/>
-    <busStop id="gtfs_26715" lane="422748215#0_1" startPos="88.18" endPos="101.18" friendlyPos="true" name="Westlake Ave N &amp; Harrison St"/>
-    <busStop id="gtfs_26730" lane="pseudoMercer4_0" startPos="52.52" endPos="65.52" friendlyPos="true" name="Westlake Ave N &amp; Mercer St"/>
-    <busStop id="gtfs_10328" lane="-331926451_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Valley St &amp; Fairview Ave N"/>
-    <busStop id="gtfs_26641" lane="-546095808#2_1" startPos="0.00" endPos="13.00" friendlyPos="true" name="Westlake &amp; Mercer"/>
-    <busStop id="gtfs_26645" lane="-422748215#2_1" startPos="53.39" endPos="66.39" friendlyPos="true" name="Westlake &amp; Thomas"/>
-    <busStop id="gtfs_26665" lane="-22768013#1_1" startPos="13.43" endPos="26.43" friendlyPos="true" name="Westlake &amp; 9th-Denny"/>
-    <busStop id="gtfs_431" lane="-460425665#2_1" startPos="96.24" endPos="109.24" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
-    <busStop id="gtfs_481" lane="gneE273_1" startPos="54.07" endPos="67.07" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
-    <busStop id="gtfs_1558" lane="gneE487_1" startPos="38.55" endPos="51.55" friendlyPos="true" name="Columbia St &amp; Alaskan Way"/>
-    <busStop id="gtfs_1562" lane="531870054_1" startPos="37.52" endPos="50.52" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St"/>
+    <busStop id="gtfs_29261" lane="-337668916#3_1" startPos="14.70" endPos="34.70" friendlyPos="true" name="E John St &amp; 15th Ave E"/>
+    <busStop id="gtfs_29301" lane="-337668916#2_1" startPos="25.07" endPos="45.07" friendlyPos="true" name="E John St &amp; 12th Ave E"/>
+    <busStop id="gtfs_29262" lane="-6463013_1" startPos="15.52" endPos="35.52" friendlyPos="true" name="E John St &amp; Broadway  E - Bay 2"/>
+    <busStop id="gtfs_29266" lane="-6521205#2_1" startPos="16.63" endPos="36.63" friendlyPos="true" name="E Olive Way &amp; Summit Ave E"/>
+    <busStop id="gtfs_13441" lane="-65588116#3_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Bellevue Ave &amp; E Olive Way"/>
+    <busStop id="gtfs_13460" lane="65588116#2_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Bellevue Ave &amp; E Olive St"/>
+    <busStop id="gtfs_29268" lane="6521205#0.19_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="E Olive Way &amp; Summit Ave E"/>
+    <busStop id="gtfs_29270" lane="623536799_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="E John St &amp; Broadway  E - Bay 1"/>
+    <busStop id="gtfs_29277" lane="337668916#3_1" startPos="17.48" endPos="37.48" friendlyPos="true" name="E John St &amp; 12th Ave E"/>
+    <busStop id="gtfs_29273" lane="337668916#3_1" startPos="272.14" endPos="292.14" friendlyPos="true" name="E John St &amp; 15th Ave E"/>
+    <busStop id="gtfs_250" lane="621378265#0_1" startPos="21.06" endPos="41.06" friendlyPos="true" name="2nd Ave &amp; Bell St"/>
+    <busStop id="gtfs_260" lane="617436202#0_1" startPos="32.09" endPos="52.09" friendlyPos="true" name="2nd Ave &amp; Lenora St"/>
+    <busStop id="gtfs_1558" lane="gneE487_1" startPos="11.54" endPos="51.54" friendlyPos="true" name="Columbia St &amp; Alaskan Way"/>
+    <busStop id="gtfs_1562" lane="531870054_1" startPos="10.00" endPos="50.00" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St"/>
+    <busStop id="gtfs_1561" lane="-537661114_0" startPos="8.07" endPos="48.07" friendlyPos="true" name="Alaskan Way S &amp; S Jackson St">
+        <access friendlyPos="true" lane="-307511472#0_0" pos="11.37" length="96.08"/>
+        <access friendlyPos="true" lane="213928814#0_0" pos="0.00" length="58.91"/>
+        <access friendlyPos="true" lane="307511472#0_0" pos="0.00" length="88.49"/>
+        <access friendlyPos="true" lane="531870054_0" pos="0.00" length="99.33"/>
+        <access friendlyPos="true" lane="537661114_0" pos="23.75" length="10.40"/>
+        <access friendlyPos="true" lane="537671576_0" pos="89.03" length="52.63"/>
+        <access friendlyPos="true" lane="6384231_0" pos="0.00" length="41.11"/>
+        <access friendlyPos="true" lane="gneE704_0" pos="53.45" length="88.53"/>
+        <access friendlyPos="true" lane="gneE706_0" pos="27.85" length="76.73"/>
+        <access friendlyPos="true" lane="gneE707_0" pos="0.00" length="86.32"/>
+    </busStop>
+    <busStop id="gtfs_1559" lane="gneE143_1" startPos="11.88" endPos="51.88" friendlyPos="true" name="Alaskan Way &amp; Columbia St"/>
+    <busStop id="gtfs_548" lane="-532864853#2_1" startPos="29.46" endPos="69.46" friendlyPos="true" name="3rd Ave &amp; Madison St"/>
+    <busStop id="gtfs_570" lane="370819899#0.32_1" startPos="50.62" endPos="90.62" friendlyPos="true" name="3rd Ave &amp; Union St"/>
+    <busStop id="gtfs_21765" lane="623761323_1" startPos="34.61" endPos="54.61" friendlyPos="true" name="6th Ave S &amp; S Royal Brougham Way"/>
+    <busStop id="gtfs_433" lane="-532243339#2_1" startPos="37.27" endPos="77.27" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
+    <busStop id="gtfs_468" lane="421777784#1_1" startPos="4.49" endPos="64.49" friendlyPos="true" name="3rd Ave &amp; Seneca St"/>
+    <busStop id="gtfs_490" lane="gneE274_1" startPos="28.11" endPos="68.11" friendlyPos="true" name="3rd Ave &amp; Cherry St"/>
+    <busStop id="gtfs_21833" lane="-623761323_1" startPos="5.68" endPos="25.68" friendlyPos="true" name="6th Ave S &amp; S Royal Brougham Way"/>
+    <busStop id="gtfs_619" lane="gneE407_1" startPos="14.85" endPos="54.85" friendlyPos="true" name="4th Ave S &amp; S Jackson St"/>
+    <busStop id="gtfs_531" lane="gneE174.23_1" startPos="23.30" endPos="63.30" friendlyPos="true" name="3rd Ave &amp; James St"/>
+    <busStop id="gtfs_590" lane="465991370#0_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="3rd Ave &amp; Pine St"/>
+    <busStop id="gtfs_539" lane="gneE279_1" startPos="36.50" endPos="56.50" friendlyPos="true" name="3rd Ave &amp; Marion St"/>
+    <busStop id="gtfs_481" lane="gneE273_1" startPos="20.08" endPos="60.08" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
+    <busStop id="gtfs_3037" lane="465971496_1" startPos="0.45" endPos="20.45" friendlyPos="true" name="Seneca St &amp; 8th Ave"/>
+    <busStop id="gtfs_1260" lane="37551510#0_1" startPos="40.25" endPos="60.25" friendlyPos="true" name="Seneca St &amp; 6th Ave"/>
+    <busStop id="gtfs_1250" lane="621426666#0_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Seneca St &amp; 4th Ave"/>
+    <busStop id="gtfs_20829" lane="-332473707#1_1" startPos="7.65" endPos="47.65" friendlyPos="true" name="Denny Way &amp; 2nd Ave N"/>
+    <busStop id="gtfs_2690" lane="998780651_1" startPos="0.00" endPos="19.44" friendlyPos="true" name="1st Ave N &amp; Mercer St"/>
+    <busStop id="gtfs_30670" lane="62326648_0" startPos="0.00" endPos="6.39" friendlyPos="true" name="4th Ave S &amp; Edgar Martinez Dr S">
+        <access friendlyPos="true" lane="-332972686_0" pos="0.00" length="39.07"/>
+        <access friendlyPos="true" lane="-340061579_0" pos="0.00" length="68.87"/>
+        <access friendlyPos="true" lane="-427907030_0" pos="0.00" length="90.59"/>
+        <access friendlyPos="true" lane="-55698520#0_0" pos="0.00" length="79.43"/>
+        <access friendlyPos="true" lane="158620922_0" pos="0.00" length="15.07"/>
+        <access friendlyPos="true" lane="159591156_0" pos="218.45" length="15.21"/>
+        <access friendlyPos="true" lane="340061579_0" pos="5.01" length="70.31"/>
+        <access friendlyPos="true" lane="427907030_0" pos="160.13" length="91.55"/>
+        <access friendlyPos="true" lane="8044973_0" pos="93.23" length="51.37"/>
+        <access friendlyPos="true" lane="gneE763_0" pos="3.78" length="36.79"/>
+    </busStop>
+    <busStop id="gtfs_7430" lane="458058813#1_1" startPos="33.09" endPos="73.09" friendlyPos="true" name="Wall St &amp; 5th Ave"/>
+    <busStop id="gtfs_1480" lane="gneE372_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="S Jackson St &amp; Maynard Ave S"/>
+    <busStop id="gtfs_1490" lane="15257627#1_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="S Jackson St &amp; 8th Ave S"/>
+    <busStop id="gtfs_8541" lane="15257627#7_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="S Jackson St &amp; 12th Ave S"/>
+    <busStop id="gtfs_844" lane="332223485#1_1" startPos="36.72" endPos="56.72" friendlyPos="true" name="5th Ave S &amp; S Weller St"/>
+    <busStop id="gtfs_19410" lane="-484636423#0_1" startPos="3.25" endPos="23.25" friendlyPos="true" name="Elliott Ave W &amp; W Harrison St"/>
+    <busStop id="gtfs_19440" lane="-292244977_1" startPos="14.14" endPos="34.14" friendlyPos="true" name="Denny Way &amp; Queen Anne Ave N"/>
+    <busStop id="gtfs_19470" lane="649725824#1_1" startPos="7.85" endPos="27.85" friendlyPos="true" name="Elliott Ave W &amp; 4th Ave W"/>
+    <busStop id="gtfs_102" lane="421777796#4_1" startPos="0.00" endPos="35.28" friendlyPos="true" name="Spring St &amp; 4th Ave"/>
+    <busStop id="gtfs_3150" lane="-540060732#1_1" startPos="24.62" endPos="44.62" friendlyPos="true" name="Seneca St &amp; 8th Ave"/>
+    <busStop id="gtfs_3151" lane="gneE511_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Seneca St &amp; 9th Ave"/>
+    <busStop id="gtfs_3152" lane="-165042063#11_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Seneca St &amp; Boren Ave"/>
+    <busStop id="gtfs_3153" lane="-165042063#6_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Seneca St &amp; Summit Ave"/>
+    <busStop id="gtfs_3154" lane="-165042063#4_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Seneca St &amp; Boylston Ave"/>
+    <busStop id="gtfs_3155" lane="-337673342#3_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="E Union St &amp; Broadway"/>
+    <busStop id="gtfs_3156" lane="395714915_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="E Madison St &amp; 12th Ave"/>
+    <busStop id="gtfs_13262" lane="337673341_1" startPos="0.51" endPos="20.51" friendlyPos="true" name="E Union St &amp; 12th Ave"/>
+    <busStop id="gtfs_3032" lane="337673342#2_1" startPos="26.75" endPos="46.75" friendlyPos="true" name="E Union St &amp; Broadway"/>
+    <busStop id="gtfs_3033" lane="165042063#2_1" startPos="0.00" endPos="2.71" friendlyPos="true" name="Seneca St &amp; Harvard Ave"/>
+    <busStop id="gtfs_3034" lane="165042063#7_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Seneca St &amp; Summit Ave"/>
+    <busStop id="gtfs_3035" lane="165042063#11_1" startPos="6.53" endPos="26.53" friendlyPos="true" name="Seneca St &amp; Boren Ave"/>
+    <busStop id="gtfs_3036" lane="-465797044#3_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Seneca St &amp; Terry Ave"/>
+    <busStop id="gtfs_431" lane="-460425665#2_1" startPos="62.23" endPos="102.23" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
+    <busStop id="gtfs_15201" lane="-427914314_1" startPos="6.15" endPos="26.15" friendlyPos="true" name="1st Ave S &amp; S Atlantic St"/>
+    <busStop id="gtfs_15204" lane="286940848#0_1" startPos="16.86" endPos="36.86" friendlyPos="true" name="Edgar Martinez Dr S &amp; Occidental Ave S"/>
+    <busStop id="gtfs_19380" lane="-22759220#9.507_1" startPos="0.11" endPos="20.11" friendlyPos="true" name="Elliott Ave W &amp; W Roy St"/>
+    <busStop id="gtfs_19390" lane="-22759220#9.507_1" startPos="243.18" endPos="263.18" friendlyPos="true" name="Elliott Ave W &amp; W Mercer St"/>
+    <busStop id="gtfs_19420" lane="-428294123_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Western Ave W &amp; Elliott Ave W"/>
+    <busStop id="gtfs_19460" lane="428294123_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Western Ave W &amp; Elliott Ave W"/>
+    <busStop id="gtfs_19480" lane="22759220#1_1" startPos="3.63" endPos="23.63" friendlyPos="true" name="Elliott Ave W &amp; 6th Ave W"/>
+    <busStop id="gtfs_19490" lane="22759220#9.0_1" startPos="158.98" endPos="178.98" friendlyPos="true" name="Elliott Ave W &amp; W Mercer St"/>
+    <busStop id="gtfs_19500" lane="22759220#9.0_1" startPos="331.19" endPos="351.19" friendlyPos="true" name="Elliott Ave W &amp; W Mercer Pl"/>
+    <busStop id="gtfs_1340" lane="gneE350_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Yesler Way &amp; Prefontaine Pl S"/>
+    <busStop id="gtfs_1350" lane="gneE355_1" startPos="70.71" endPos="90.71" friendlyPos="true" name="Yesler Way &amp; 6th Ave S"/>
+    <busStop id="gtfs_27480" lane="gneE355_1" startPos="180.75" endPos="200.75" friendlyPos="true" name="Yesler Way &amp; 8th Ave S"/>
+    <busStop id="gtfs_27500" lane="425646004#0_1" startPos="43.60" endPos="63.60" friendlyPos="true" name="Yesler &amp; Broadway"/>
+    <busStop id="gtfs_27420" lane="-425646004#4_1" startPos="27.97" endPos="47.97" friendlyPos="true" name="Yesler &amp; Broadway"/>
+    <busStop id="gtfs_27430" lane="gneE354_1" startPos="66.00" endPos="86.00" friendlyPos="true" name="Yesler Way &amp; 8th Ave"/>
+    <busStop id="gtfs_1360" lane="gneE120_1" startPos="23.90" endPos="43.90" friendlyPos="true" name="Yesler Way &amp; 5th Ave"/>
+    <busStop id="gtfs_1370" lane="gneE105.70_1" startPos="0.00" endPos="0.20" friendlyPos="true" name="Yesler Way &amp; 3rd Ave"/>
+    <busStop id="gtfs_6176" lane="367069126.88_1" startPos="0.00" endPos="21.25" friendlyPos="true" name="7th Ave N &amp; Thomas St"/>
+    <busStop id="gtfs_6236" lane="4794449#1_1" startPos="6.68" endPos="46.68" friendlyPos="true" name="7th Ave N &amp; Denny Way"/>
+    <busStop id="gtfs_6237" lane="52840083.93_1" startPos="0.00" endPos="21.61" friendlyPos="true" name="7th Ave N &amp; Harrison St"/>
+    <busStop id="gtfs_12840" lane="-353690159#4_1" startPos="4.87" endPos="24.87" friendlyPos="true" name="E Jefferson St &amp; 12th Ave"/>
+    <busStop id="gtfs_12860" lane="-465971498#1_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Jefferson St &amp; Broadway"/>
+    <busStop id="gtfs_12880" lane="263669002#4_1" startPos="4.08" endPos="24.08" friendlyPos="true" name="Jefferson St &amp; 9th Ave"/>
+    <busStop id="gtfs_12890" lane="gneE530_1" startPos="7.89" endPos="27.89" friendlyPos="true" name="James St &amp; 8th Ave"/>
+    <busStop id="gtfs_1540" lane="gneE199_1" startPos="14.46" endPos="34.46" friendlyPos="true" name="James St &amp; 5th Ave"/>
+    <busStop id="gtfs_1550" lane="gneE154_1" startPos="15.18" endPos="35.18" friendlyPos="true" name="James St &amp; 4th Ave"/>
+    <busStop id="gtfs_1560" lane="gneE157_1" startPos="13.21" endPos="33.21" friendlyPos="true" name="James St &amp; 3rd Ave"/>
+    <busStop id="gtfs_1570" lane="gneE192_1" startPos="4.12" endPos="24.12" friendlyPos="true" name="James St &amp; 5th Ave"/>
+    <busStop id="gtfs_12900" lane="gneE528_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="James St &amp; 8th Ave"/>
+    <busStop id="gtfs_12910" lane="-460419023#1_1" startPos="46.35" endPos="66.35" friendlyPos="true" name="9th Ave &amp; Jefferson St"/>
+    <busStop id="gtfs_12930" lane="6514305#0_1" startPos="11.49" endPos="31.49" friendlyPos="true" name="E Jefferson St &amp; Broadway"/>
+    <busStop id="gtfs_12950" lane="353690159#4_1" startPos="64.59" endPos="84.59" friendlyPos="true" name="E Jefferson St &amp; 12th Ave"/>
+    <busStop id="gtfs_13390" lane="6366765#0_1" startPos="58.97" endPos="78.97" friendlyPos="true" name="Bellevue Ave E &amp; Bellevue Pl E"/>
+    <busStop id="gtfs_13410" lane="6366765#1_1" startPos="83.62" endPos="103.62" friendlyPos="true" name="Bellevue Ave E &amp; E Republican St"/>
+    <busStop id="gtfs_13420" lane="6366765#5_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Bellevue Ave E &amp; E Thomas St"/>
+    <busStop id="gtfs_13430" lane="6366765#11_1" startPos="1.79" endPos="21.79" friendlyPos="true" name="Bellevue Ave E &amp; E Denny Way"/>
+    <busStop id="gtfs_13480" lane="6479778#1_1" startPos="0.00" endPos="18.56" friendlyPos="true" name="Summit Ave E &amp; E Olive Way"/>
+    <busStop id="gtfs_13500" lane="6479778#5_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Summit Ave E &amp; E Harrison St"/>
+    <busStop id="gtfs_13510" lane="6479778#7_1" startPos="5.27" endPos="25.27" friendlyPos="true" name="Summit Ave E &amp; E Mercer St"/>
+    <busStop id="gtfs_4200" lane="460419020#3_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Cedar St &amp; Denny Way"/>
+    <busStop id="gtfs_4220" lane="531925175#0_1" startPos="14.66" endPos="34.66" friendlyPos="true" name="5th Ave N &amp; Broad St"/>
+    <busStop id="gtfs_4230" lane="428342325_1" startPos="9.54" endPos="29.54" friendlyPos="true" name="5th Ave N &amp; Republican St"/>
+    <busStop id="gtfs_4050" lane="-428342325_1" startPos="88.88" endPos="108.88" friendlyPos="true" name="5th Ave N &amp; Republican St"/>
+    <busStop id="gtfs_4070" lane="-531925175#0_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="5th Ave N &amp; Broad St"/>
+    <busStop id="gtfs_4080" lane="-88999331#1_1" startPos="30.69" endPos="50.69" friendlyPos="true" name="5th Ave N &amp; Denny Way"/>
+    <busStop id="gtfs_18388" lane="-585843630#5_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Dexter Ave N &amp; Republican St"/>
+    <busStop id="gtfs_18402" lane="-396290407#1_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Dexter Ave &amp; Denny Way"/>
+    <busStop id="gtfs_6190" lane="462696738#0_1" startPos="3.02" endPos="23.02" friendlyPos="true" name="7th Ave &amp; Blanchard St"/>
+    <busStop id="gtfs_626" lane="531922150#4_1" startPos="0.00" endPos="15.52" friendlyPos="true" name="S Washington St &amp; 5th Ave S"/>
+    <busStop id="gtfs_6220" lane="-391421595_1" startPos="11.14" endPos="31.14" friendlyPos="true" name="7th Ave &amp; Blanchard St"/>
+    <busStop id="gtfs_6240" lane="396290406#2_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Dexter Ave N &amp; Denny Way"/>
+    <busStop id="gtfs_18455" lane="585843630#4_1" startPos="6.13" endPos="26.13" friendlyPos="true" name="Dexter Ave N &amp; Harrison St"/>
+    <busStop id="gtfs_98105" lane="465797210#2_1" startPos="3.37" endPos="23.37" friendlyPos="true" name="Virginia St &amp; 4th Ave"/>
+    <busStop id="gtfs_880" lane="512250031#2_1" startPos="0.00" endPos="34.61" friendlyPos="true" name="Virginia St &amp; 6th Ave"/>
+    <busStop id="gtfs_10210" lane="-393047815#1_1" startPos="0.47" endPos="20.47" friendlyPos="true" name="Fairview Ave N &amp; Mercer St"/>
+    <busStop id="gtfs_10225" lane="-428087138#0_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Fairview Ave N &amp; Thomas St"/>
+    <busStop id="gtfs_10240" lane="gneE33_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Boren Ave &amp; Virginia St"/>
+    <busStop id="gtfs_900" lane="22927963#5_1" startPos="0.00" endPos="34.87" friendlyPos="true" name="Virginia St &amp; 9th Ave"/>
+    <busStop id="gtfs_10280" lane="-6496961#2_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="Fairview Ave &amp; Denny Way"/>
+    <busStop id="gtfs_10305" lane="179222048#1_1" startPos="0.00" endPos="38.16" friendlyPos="true" name="Fairview Ave N &amp; Harrison St"/>
+    <busStop id="gtfs_2275" lane="-393047810_1" startPos="29.85" endPos="49.85" friendlyPos="true" name="E Denny Way &amp; Bellevue Ave E"/>
+    <busStop id="gtfs_2285" lane="-563752576#1_1" startPos="16.72" endPos="36.72" friendlyPos="true" name="Denny Way &amp; Fairview Ave N"/>
+    <busStop id="gtfs_2291" lane="-338863386#2_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Denny Way &amp; Westlake Ave"/>
+    <busStop id="gtfs_2249" lane="-242288219#1_1" startPos="18.30" endPos="38.30" friendlyPos="true" name="Denny Way &amp; 7th Ave N"/>
+    <busStop id="gtfs_2300" lane="-332200726_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Denny Way &amp; 5th Ave N"/>
+    <busStop id="gtfs_2245" lane="332200726_1" startPos="50.63" endPos="70.63" friendlyPos="true" name="Denny Way &amp; 5th Ave N"/>
+    <busStop id="gtfs_2250" lane="332200724#0_1" startPos="0.00" endPos="16.83" friendlyPos="true" name="Denny Way &amp; Dexter Ave"/>
+    <busStop id="gtfs_2255" lane="338863385#0_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Denny Way &amp; Westlake Ave"/>
+    <busStop id="gtfs_2260" lane="428087113#0_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Denny Way &amp; Fairview Ave"/>
+    <busStop id="gtfs_2262" lane="360390221#0_1" startPos="0.00" endPos="17.19" friendlyPos="true" name="Denny Way &amp; Stewart St"/>
+    <busStop id="gtfs_2264" lane="436163947#1_1" startPos="6.32" endPos="26.32" friendlyPos="true" name="E Denny Way &amp; Melrose Ave"/>
+    <busStop id="gtfs_11040" lane="-428314461_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Broadway  E &amp; E Republican St"/>
+    <busStop id="gtfs_11050" lane="-428246433_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Broadway  E &amp; E Thomas St"/>
+    <busStop id="gtfs_11060" lane="-428246437_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Broadway &amp; E Denny Way - Bay 4"/>
+    <busStop id="gtfs_11070" lane="gneE582_1" startPos="126.79" endPos="146.79" friendlyPos="true" name="Broadway &amp; E Pine St"/>
+    <busStop id="gtfs_11180" lane="428246434_1" startPos="0.00" endPos="14.66" friendlyPos="true" name="Broadway  E &amp; E John St - Bay 3"/>
+    <busStop id="gtfs_11190" lane="428098983_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Broadway  E &amp; E Harrison St"/>
+    <busStop id="gtfs_11200" lane="428098985_1" startPos="10.51" endPos="30.51" friendlyPos="true" name="Broadway  E &amp; E Mercer St"/>
+    <busStop id="gtfs_26641" lane="-428341305_1" startPos="5.77" endPos="45.77" friendlyPos="true" name="Westlake &amp; Mercer"/>
+    <busStop id="gtfs_26645" lane="-422748215#2_1" startPos="26.39" endPos="66.39" friendlyPos="true" name="Westlake &amp; Thomas"/>
+    <busStop id="gtfs_26665" lane="-22768013#1_1" startPos="0.00" endPos="26.43" friendlyPos="true" name="Westlake &amp; 9th-Denny"/>
+    <busStop id="gtfs_18440" lane="512249710#1_1" startPos="0.00" endPos="34.86" friendlyPos="true" name="Blanchard St &amp; 6th Ave"/>
+    <busStop id="gtfs_26690" lane="242288220#0_1" startPos="0.00" endPos="28.05" friendlyPos="true" name="Westlake &amp; 9th-Denny"/>
+    <busStop id="gtfs_26715" lane="422748215#0_1" startPos="61.18" endPos="101.18" friendlyPos="true" name="Westlake Ave N &amp; Harrison St"/>
+    <busStop id="gtfs_14038" lane="-6448598#1_1" startPos="12.87" endPos="32.87" friendlyPos="true" name="W Mercer St &amp; 3rd Ave W"/>
+    <busStop id="gtfs_13910" lane="6448598#1_1" startPos="58.55" endPos="78.55" friendlyPos="true" name="W Mercer St &amp; 3rd Ave W"/>
+    <busStop id="gtfs_1710" lane="gneE126_1" startPos="26.17" endPos="46.17" friendlyPos="true" name="Terrace St &amp; 5th Ave"/>
+    <busStop id="gtfs_510" lane="-452330587#1_1" startPos="11.95" endPos="31.95" friendlyPos="true" name="S Washington St &amp; 3rd Ave S"/>
+    <busStop id="gtfs_625" lane="462696713#3_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="S Washington St &amp; 4th Ave S"/>
+    <busStop id="gtfs_11075" lane="gneE549_1" startPos="16.35" endPos="36.35" friendlyPos="true" name="Boren Ave &amp; Seneca St"/>
+    <busStop id="gtfs_11085" lane="428230996_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Boren Ave &amp; Madison St"/>
+    <busStop id="gtfs_11087" lane="369877026#1_1" startPos="5.76" endPos="25.76" friendlyPos="true" name="Boren Ave &amp; Columbia St"/>
+    <busStop id="gtfs_41940" lane="169511255#2_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="9th Ave &amp; James St"/>
+    <busStop id="gtfs_41950" lane="169511255#8_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="9th Ave &amp; Columbia St"/>
+    <busStop id="gtfs_41955" lane="621283347#3_1" startPos="18.88" endPos="38.88" friendlyPos="true" name="9th Ave &amp; Spring St"/>
+    <busStop id="gtfs_125" lane="-428089353_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Madison St &amp; Boylston Ave"/>
+    <busStop id="gtfs_126" lane="-428227818_1" startPos="0.00" endPos="15.36" friendlyPos="true" name="Madison St &amp; Terry Ave"/>
+    <busStop id="gtfs_127" lane="gneE535_1" startPos="0.00" endPos="19.71" friendlyPos="true" name="Madison St &amp; 8th Ave"/>
+    <busStop id="gtfs_128" lane="191144466#4_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Madison St &amp; 5th Ave"/>
+    <busStop id="gtfs_129" lane="6428348#0_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Madison St &amp; 3rd Ave"/>
+    <busStop id="gtfs_100" lane="610573957#1_1" startPos="23.65" endPos="43.65" friendlyPos="true" name="1st Ave &amp; Spring St"/>
+    <busStop id="gtfs_101" lane="gneE312_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Spring St &amp; 3rd Ave"/>
+    <busStop id="gtfs_103" lane="13726937#0_1" startPos="54.06" endPos="74.06" friendlyPos="true" name="Spring St &amp; 8th Ave"/>
+    <busStop id="gtfs_104" lane="428227865#1_1" startPos="0.00" endPos="16.39" friendlyPos="true" name="Madison St &amp; Terry Ave"/>
+    <busStop id="gtfs_105" lane="428089353_1" startPos="2.58" endPos="22.58" friendlyPos="true" name="Madison St &amp; Boylston Ave"/>
+    <busStop id="gtfs_628" lane="263673735#0_1" startPos="7.01" endPos="27.01" friendlyPos="true" name="4th Ave S &amp; S Washington St"/>
+    <busStop id="gtfs_648" lane="gneE215_1" startPos="21.61" endPos="41.61" friendlyPos="true" name="4th Ave &amp; Cherry St"/>
+    <busStop id="gtfs_670" lane="163419189#1.58_1" startPos="0.00" endPos="18.93" friendlyPos="true" name="4th Ave &amp; Seneca St"/>
+    <busStop id="gtfs_720" lane="428305118#1_1" startPos="21.08" endPos="41.08" friendlyPos="true" name="4th Ave &amp; Stewart St"/>
+    <busStop id="gtfs_280" lane="428243144#0_1" startPos="12.82" endPos="32.82" friendlyPos="true" name="2nd Ave &amp; Stewart St"/>
+    <busStop id="gtfs_320" lane="428243313#1_1" startPos="0.87" endPos="20.87" friendlyPos="true" name="2nd Ave &amp; Seneca St"/>
+    <busStop id="gtfs_360" lane="428243311#1_1" startPos="46.71" endPos="66.71" friendlyPos="true" name="2nd Ave &amp; Cherry St"/>
+    <busStop id="gtfs_375" lane="462696719#1_1" startPos="23.59" endPos="43.59" friendlyPos="true" name="2nd Ave Ext S &amp; Yesler Way"/>
 </additional>
