@@ -16,7 +16,17 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 - The user works on Windows and Mac; keep notebook setup cells working on both.
 
 # Handoff discipline
-- After each completed milestone, or after roughly 30 minutes of substantial work, refresh `HANDOFF.md` by following `.claude/commands/handoff.md` (the `/handoff` command).
-- After each finished task, add a dated entry to the working log `Simulation/Work_Done.txt`.
-- `HANDOFF.md` is the shared memory between sessions and context resets: keep section 2 (status / next steps) and section 5 (change history) especially current.
-- When a turn begins with "Session started or context was reset" text from the SessionStart hook, read `HANDOFF.md`, `README.md` and `Simulation/Work_Done.txt` before continuing. If the user hasn't given a different task, resume the next steps in `HANDOFF.md` section 2; if they have, do what they asked and use the handoff as background.
+- After each completed milestone, refresh `HANDOFF.md` with `/handoff` (`.claude/commands/handoff.md`).
+- After each finished task, append a dated entry to `Simulation/Work_Done.txt` (append only; don't read the file to do it).
+- `HANDOFF.md` is the shared memory between sessions: keep section 2 (status / next steps) and section 5 (change history) current.
+- On "Session started or context was reset" from the SessionStart hook: read `HANDOFF.md` only. Don't read `README.md`, `Work_Done.txt` or the GTFS README in full; grep them for the topic at hand. If the user hasn't given a task, resume `HANDOFF.md` section 2.
+
+# Token use
+- Be concise. No pleasantries, filler or preamble. Don't explain code changes unless asked.
+- Edit with diffs/targeted edits, never full-file rewrites. Show minimal snippets, not whole files.
+- Don't re-read files already in context. Use grep / line ranges (`sed -n`, `offset`/`limit`) instead of reading whole files.
+- Large files: `Work_Done.txt` (~57 KB), `GTFS/README.md` (~50 KB), `.net.xml`, `.rou.xml`, `gtfs_pt_*.add.xml`, the notebooks (`.ipynb`), SUMO logs/outputs. Grep these; never cat them.
+- Sim outputs: summarise with a script (counts, means); don't print XML.
+- Subagents only for wide searches where only the conclusion matters.
+- Lab server: ask for short reports (headline + table); full detail stays in its `lab_notes/`.
+- Keep this file under 200 lines; it's an index of rules and pointers, not history or tutorials.

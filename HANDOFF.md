@@ -1,5 +1,5 @@
 # HANDOFF: Downtown Seattle SUMO digital twin (2026-10-22)
-Repo `BlueSoheil99/DowntownSeattleSUMO`, branch `main`, HEAD `8fa720a` = origin. Details: `Simulation/GTFS/README.md` (main technical doc), `Simulation/ridership/readme.md`, dated log `Simulation/Work_Done.txt`.
+Repo `BlueSoheil99/DowntownSeattleSUMO`, branch `main`, HEAD `9236c7b` = origin. Details: `Simulation/GTFS/README.md` (main technical doc), `Simulation/ridership/readme.md`, dated log `Simulation/Work_Done.txt`.
 
 ## 1. Role
 You are a lab/research assistant helping build a digital twin of downtown Seattle in SUMO with multiple transit modes. Your responsibilities:
@@ -11,16 +11,16 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims never write to `Simulation/new output/`).
 
 ## 2. Project status snapshot
-**Now:** handoff fixes done (hook prints this section only; `/handoff` caps it; old session's scratchpad items saved), uncommitted. Waiting on the lab's W2 full run (Link riders), ETA ~16:00 lab time 2026-10-22. Next: log W2 results.
-**Sessions:** primary home = `HOME_DTS_Current`; old `HOME_DTS_OLD_03` forwards anything it receives. Lab = `lab-server_sumo` (Remote Control; replies to the sender, so a new primary messages it with its name). Outstanding with the lab: W2 report.
-**Uncommitted / pending:** files in section 5 "uncommitted". User hasn't answered: implement the robustness fixes (step 2) now?
+**Now:** W2 (Link riders) passed: Link rides 94.5% finished, bus boardings 0.969 (Work_Done Oct 22). Found: buses/trains get SUMO rerouting (14% of buses). Next: step 1 or 2.
+**Sessions:** primary home = `HOME_DTS_Current`; old `HOME_DTS_OLD_03` forwards anything it receives. Lab = `lab-server_sumo` (Remote Control; replies to the sender, so a new primary messages it with its name). Outstanding with the lab: nothing.
+**Uncommitted / pending:** HANDOFF.md, Work_Done.txt (W2 entries). User hasn't answered: turn off transit rerouting (step 1)? robustness fixes now?
 **Works:** cars + 40 KCM bus lines + Link 1/2 Line + bus and Link riders, 05:00-12:00. `sumo -c gtfs_ridership_vehicular.sumocfg` from `Simulation/` (details section 6).
 **Next steps:**
-1. Log W2 results (Link rides, train loads, bus/car vs W_vtypes) in Work_Done.txt.
+1. No rerouting for transit: `has.rerouting.device=false` param in the bus + Link vType cells; regenerate, test on a copy (Work_Done Oct 22).
 2. Robustness fixes from the modularity tests (list in Work_Done Oct 22). Test on a copy.
-3. 3rd Ave & James St hotspot: signal draft `GTFS/additional_net/drafts/signal_3rd_james_90s.diff` (teleports 101->71); timepoint-only holding untested.
+3. 3rd Ave & James St hotspot (82 teleports in W2): signal draft `GTFS/additional_net/drafts/signal_3rd_james_90s.diff`.
 4. Shape-based bus routing after gtfs2pt (108 trips off-shape, 4 places).
-5. Report draft.
+5. Report draft (W2 is the current baseline).
 
 ## 3. Repo structure
 - Root: `CLAUDE.md` (working rules), `HANDOFF.md` (this), `.claude/commands/handoff.md` (`/handoff`), `.claude/hooks/restore_context.py` + `.claude/settings.json` (SessionStart hook: prints the HANDOFF title, section 2 and the newest Work_Done headers, under the ~2 KB preview, on startup/compact/clear; runs `python`, Mac likely needs `python3` in `.claude/settings.local.json` **[UNVERIFIED]**). `docs/`: archived older handoffs.
@@ -45,7 +45,7 @@ Under `Simulation/`:
 - **Check:** `GTFS/check_bus_routes_vs_shapes.py` (needs shapely, pyproj).
 
 ## 5. Change history (newest first; full log in Work_Done.txt)
-- Uncommitted (2026-10-22): hook digest (`.claude/hooks/restore_context.py`), `.claude/commands/handoff.md`, this file, `docs/HANDOFF_2026-10-20_full.md` (old 38.8 KB handoff), `Simulation/GTFS/additional_net/drafts/signal_3rd_james_90s.diff`, Power BI query and route-check venv notes in `Simulation/GTFS/README.md`, Work_Done.txt.
+- `9236c7b` (2026-10-22): hook digest (`.claude/hooks/restore_context.py`), `.claude/commands/handoff.md`, this file, `docs/HANDOFF_2026-10-20_full.md` (old 38.8 KB handoff), `Simulation/GTFS/additional_net/drafts/signal_3rd_james_90s.diff`, Power BI query and route-check venv notes in `Simulation/GTFS/README.md`, Work_Done.txt.
 - `8fa720a` handoff automation; CLAUDE.md and HANDOFF.md now tracked.
 - `fe0d81f` Link riders, weekday rail date 2026-04-22, rail scenario section, `--original-lines` for rail.
 - `1d75d16` scenario.json/scenario.py; coverage and missing-line warnings.
@@ -76,7 +76,8 @@ Under `Simulation/`:
 - Signal timing source undocumented (ask Soheil / SDOT records request).
 - Buses appear/disappear at trip ends; riders only at stops; through Link riders not generated.
 - W99 car-following params ignored (Krauss runs).
-- Marymoor Village has no trainStop; terminus layover boarding issue (Northgate/Angle Lake in older feeds).
+- Marymoor Village has no trainStop; terminus layover boarding issue (Northgate/Angle Lake in older feeds; Downtown Redmond in W2: 6 riders can't board, train waits 5.3 km from the platform).
+- Link train loads are low (core mean 102, max 467 vs capacity 776): through riders not generated; the first trains collect riders queued since flows start 10 min early.
 - Lab's 2025-04 Link boardings look off (Northgate 3,503, Stadium 6,804).
 - GitHub: #18341 (bug, open; user replied 2026-10-22 with --stops results), #18342 (feature, open), #18408 (crash, open).
 - SessionStart hook: exec-form `args` support in this Claude Code version **[UNVERIFIED]**; fallback is a single-string `command`.
