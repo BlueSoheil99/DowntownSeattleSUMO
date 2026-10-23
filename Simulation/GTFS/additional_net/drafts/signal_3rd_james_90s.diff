@@ -1,21 +1,22 @@
 # Draft, not applied: 3rd Ave & James St bus hotspot. Lengthens phase 0 of tls 764028198 (+3 s) and 53221905 (+5 s)
+# Regenerated 2026-10-23 against the 5-link program of 764028198 (gneE170 pedestrian-only).
 # so both cycles become 90 s. Tested on a copy 2026-10-21 (transit + cars): teleports 101 -> 71.
 # Possible next variant: shorten the 32 s ped-only phase at 764028198 to ~21 s. Holding buses only at GTFS timepoints is untested.
 # Apply to a COPY of the signal file (from Simulation/):
 #   patch --binary -o "clean corrected inputs/signal_90s_test.add.xml" "clean corrected inputs/correct_Alaskan_new_signal_additional_columbia_eb.add.xml" GTFS/additional_net/drafts/signal_3rd_james_90s.diff
 # If the hunks fail, retry without --binary (line endings differ by OS/checkout), or edit the two phase-0 durations by hand.
 --- a/clean corrected inputs/correct_Alaskan_new_signal_additional_columbia_eb.add.xml
-+++ b/clean corrected inputs/signal_90s_test.add.xml
-@@ -1617,7 +1617,7 @@
- 		<param key="linkMinDur:13" value="4.0"/>
++++ b/clean corrected inputs/correct_Alaskan_new_signal_additional_columbia_eb.add.xml
+@@ -1578,7 +1578,7 @@
  	</tlLogic>
  	<tlLogic id="764028198" type="static" programID="2" offset="32">
--		<phase duration="50.5" maxDur="50.5" minDur="7.0" name="0" next="2" state="GGgGGGr"/>
-+		<phase duration="53.5" maxDur="53.5" minDur="7.0" name="0" next="2" state="GGgGGGr"/>
- 		<phase duration="32.0" maxDur="32.0" minDur="7.0" name="0" next="0" state="rrrrrrG"/>
- 		<phase duration="3.5" name="0" next="3" state="yyyyyyr"/>
- 		<phase duration="1.0" name="0" next="1" state="rrrrrrr"/>
-@@ -1625,7 +1625,7 @@
+ 		<!-- links 2-3 (turns onto gneE170) removed 2026-10-23: gneE170 is pedestrian-only (additional_net/ped_only_paths.*) -->
+-		<phase duration="50.5" maxDur="50.5" minDur="7.0" name="0" next="2" state="GGGGr"/>
++		<phase duration="53.5" maxDur="53.5" minDur="7.0" name="0" next="2" state="GGGGr"/>
+ 		<phase duration="32.0" maxDur="32.0" minDur="7.0" name="0" next="0" state="rrrrG"/>
+ 		<phase duration="3.5" name="0" next="3" state="yyyyr"/>
+ 		<phase duration="1.0" name="0" next="1" state="rrrrr"/>
+@@ -1586,7 +1586,7 @@
  		<param key="linkMinDur:0" value="7.0"/>
  	</tlLogic>
  	<tlLogic id="53221905" type="static" programID="2" offset="25">

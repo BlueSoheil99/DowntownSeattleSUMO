@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Goes with ped_only_paths.edg.xml: netconvert -s keeps the old vehicle connections into and out of gneE743
+     after its lane becomes pedestrian-only, so delete them (the second one was tls 53088992 link 8). -->
+<connections>
+    <delete from="61025856#0" to="gneE743" fromLane="1" toLane="0"/>
+    <delete from="gneE743" to="164241876" fromLane="0" toLane="2"/>
+</connections>

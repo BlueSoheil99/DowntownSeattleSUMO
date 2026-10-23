@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Pedestrian-only edges (user review 2026-10-23):
+     gneE170: path from 3rd Ave (node 764028198) to Yesler Way (gneJ237); in reality a footpath, not a turn lane.
+              Its vehicle lane is removed, leaving the sidewalk lane.
+     gneE743: plaza between 61025856#0 and tls 53088992; was a 1-lane vehicle edge used by bus lines 101/102/150. -->
+<edges>
+    <edge id="gneE170" numLanes="1"/>
+    <edge id="gneE743">
+        <lane index="0" allow="pedestrian"/>
+    </edge>
+</edges>

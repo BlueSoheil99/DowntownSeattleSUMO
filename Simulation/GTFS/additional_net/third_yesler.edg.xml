@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 3rd Ave NB approaching Yesler Way: 6449188#0 was spreadType "center" while gneE173 after it uses the default
+     "right" (same 4 lanes), so the lanes met offset by half the road width at node 5768983689. Visual fix.
+     6449188#0 is changed, not gneE173: re-centring gneE173 moved bus stop 1610 onto the Yesler WB lane. -->
+<edges>
+    <edge id="6449188#0" spreadType="right"/>
+</edges>

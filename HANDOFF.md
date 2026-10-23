@@ -11,16 +11,15 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims never write to `Simulation/new output/`).
 
 ## 2. Project status snapshot
-**Now:** W2 (Link riders) passed: Link rides 94.5% finished, bus boardings 0.969 (Work_Done Oct 22). Found: buses/trains get SUMO rerouting (14% of buses). Next: step 1 or 2.
-**Sessions:** primary home = `HOME_DTS_Current`; old `HOME_DTS_OLD_03` forwards anything it receives. Lab = `lab-server_sumo` (Remote Control; replies to the sender, so a new primary messages it with its name). Outstanding with the lab: nothing.
-**Uncommitted / pending:** HANDOFF.md, Work_Done.txt (W2 entries). User hasn't answered: turn off transit rerouting (step 1)? robustness fixes now?
+**Now:** transit rerouting off (done, local test: transit reroutes 89->0, bus teleports 78->149 from 3rd Ave jams). 3rd & Yesler geometry + signal drafted from user review. Next: commit, then lab runs R / R+Yesler / R+Yesler+James.
+**Sessions:** primary home = `HOME_DTS_Current`. Lab = `lab-server_sumo` (replies to the sender; a new primary messages it with its name). Outstanding with the lab: nothing yet.
+**Uncommitted / pending:** rerouting fix (notebook, bus.add.xml, tram.add.xml), Yesler drafts, docs. User hasn't answered: robustness fixes now?
 **Works:** cars + 40 KCM bus lines + Link 1/2 Line + bus and Link riders, 05:00-12:00. `sumo -c gtfs_ridership_vehicular.sumocfg` from `Simulation/` (details section 6).
 **Next steps:**
-1. No rerouting for transit: `has.rerouting.device=false` param in the bus + Link vType cells; regenerate, test on a copy (Work_Done Oct 22).
-2. Robustness fixes from the modularity tests (list in Work_Done Oct 22). Test on a copy.
-3. 3rd Ave & James St hotspot (82 teleports in W2): signal draft `GTFS/additional_net/drafts/signal_3rd_james_90s.diff`.
-4. Shape-based bus routing after gtfs2pt (108 trips off-shape, 4 places).
-5. Report draft (W2 is the current baseline).
+1. 3rd Ave hotspots: Yesler + ped-only patches applied in working copy (`GTFS/additional_net/third_yesler.*`, `ped_only_paths.*`); GTFS outputs + riders regenerated; draft `drafts/signal_3rd_james_90s.diff`; lab before/after pending.
+2. Shape-based bus routing after gtfs2pt (108 trips off-shape, 4 places).
+3. Report draft (new baseline after step 1).
+4. Robustness fixes from the modularity tests (only if other periods are run).
 
 ## 3. Repo structure
 - Root: `CLAUDE.md` (working rules), `HANDOFF.md` (this), `.claude/commands/handoff.md` (`/handoff`), `.claude/hooks/restore_context.py` + `.claude/settings.json` (SessionStart hook: prints the HANDOFF title, section 2 and the newest Work_Done headers, under the ~2 KB preview, on startup/compact/clear; runs `python`, Mac likely needs `python3` in `.claude/settings.local.json` **[UNVERIFIED]**). `docs/`: archived older handoffs.
@@ -56,8 +55,8 @@ Under `Simulation/`:
 - `28e1f84` bus riders; single-threaded. `6ee46ab`, `a3337d4`, `358818f`: line reviews; network patches (Columbia EB bus lane, Mercer St, E Union St, Belmont/Bellevue Pl, connection fixes).
 
 ## 6. SUMO technical notes
-- Run from `Simulation/`: `sumo -c gtfs_ridership_vehicular.sumocfg` (full; PSRC 2018 TAZ demand ~206k trips, step 0.1 s) or `sumo -c gtfs_transit_only.sumocfg` (no cars/riders). GUI: `& "C:\Program Files (x86)\SUMO\bin\sumo-gui.exe" -c ...` (PowerShell). Full run ~2 h on the lab, single-threaded. Last check: bus boardings 0.97 x ridership (31/33 big lines within 10%), bus routes 94% on the GTFS shape.
-- Lab clone: `C:\Users\dharoot\Documents\iUTS_Projects\DT_Seattle_SUMO_git` (at fe0d81f), notes in `lab_notes/`. Talk to it via `ListAgents` then `SendMessage`.
+- Run from `Simulation/`: `sumo -c gtfs_ridership_vehicular.sumocfg` (full; PSRC 2018 TAZ demand ~206k trips, step 0.1 s) or `sumo -c gtfs_transit_only.sumocfg` (no cars/riders). GUI: `& "C:\Program Files (x86)\SUMO\bin\sumo-gui.exe" -c ...` (PowerShell). Full run ~2 h on the lab, single-threaded. Runs over 15 min go to the lab (CLAUDE.md); on this PC 05:00-09:00 with cars takes ~2 h. Last check: bus boardings 0.97 x ridership (31/33 big lines within 10%), bus routes 94% on the GTFS shape.
+- Lab clone: `C:\Users\dharoot\Documents\iUTS_Projects\DT_Seattle_SUMO_git` (at 4c231e2), notes in `lab_notes/` (index `README_LAB.md`). Talk to it via `ListAgents` then `SendMessage`.
 - SUMO 1.28.0, `C:\Program Files (x86)\SUMO` (SUMO_HOME). Lab: same. Mac **[UNVERIFIED]**.
 - Python: home `C:\Users\dahh2\anaconda3\python.exe` (pandas, rtree; gtfs2pt needs rtree on PATH). Don't pip-install sumolib/traci. Route check needs shapely+pyproj (not in anaconda): make a venv, see GTFS README "Route check".
 - Link boardings come from Sound Transit's Power BI dashboard; query method in GTFS README "Link riders".

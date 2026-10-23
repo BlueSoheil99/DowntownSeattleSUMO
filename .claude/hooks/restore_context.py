@@ -52,8 +52,8 @@ def main():
     except Exception:
         pass
     root = repo_root()
-    print("Session started or context was reset. Digest below; READ the full HANDOFF.md, README.md "
-          "and Simulation/Work_Done.txt before continuing (see CLAUDE.md).")
+    print("Session started or context was reset. Digest below; READ the full HANDOFF.md "
+          "before continuing; grep README.md / Work_Done.txt only as needed (see CLAUDE.md).")
 
     try:
         path = os.path.join(root, "HANDOFF.md")

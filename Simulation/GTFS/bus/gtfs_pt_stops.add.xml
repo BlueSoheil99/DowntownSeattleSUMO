@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-10-22 02:44:53.387205 by Eclipse SUMO gtfs2pt.py v1_28_0+0000-daf91b55789
+<!-- generated on 2026-10-23 01:31:08.754647 by Eclipse SUMO gtfs2pt.py v1_28_0+0000-daf91b55789
 <configuration>
     <gtfs value="gtfs data/kcm_google_transit_downtown.zip"/>
     <date value="20251015"/>
@@ -19,7 +19,7 @@
 
 <additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
     <busStop id="gtfs_1530" lane="gneE402_1" startPos="0.00" endPos="40.00" friendlyPos="true" name="S Jackson St &amp; 5th Ave S"/>
-    <busStop id="gtfs_1610" lane="gneE173_1" startPos="0.00" endPos="42.36" friendlyPos="true" name="Prefontaine Pl S &amp; Yesler Way"/>
+    <busStop id="gtfs_1610" lane="gneE173_1" startPos="0.00" endPos="42.26" friendlyPos="true" name="Prefontaine Pl S &amp; Yesler Way"/>
     <busStop id="gtfs_538" lane="gneE282_1" startPos="13.01" endPos="73.01" friendlyPos="true" name="3rd Ave &amp; Columbia St"/>
     <busStop id="gtfs_558" lane="-421777784#2_1" startPos="7.77" endPos="67.77" friendlyPos="true" name="3rd Ave &amp; Seneca St"/>
     <busStop id="gtfs_575" lane="532243339#0_1" startPos="41.47" endPos="101.47" friendlyPos="true" name="3rd Ave &amp; Pike St"/>
@@ -76,7 +76,7 @@
     <busStop id="gtfs_300" lane="428244385#0_1" startPos="53.86" endPos="73.86" friendlyPos="true" name="2nd Ave &amp; Pike St"/>
     <busStop id="gtfs_340" lane="428243312#0_1" startPos="48.05" endPos="68.05" friendlyPos="true" name="2nd Ave &amp; Marion St"/>
     <busStop id="gtfs_361" lane="gneE238_1" startPos="28.90" endPos="48.90" friendlyPos="true" name="2nd Ave &amp; James St"/>
-    <busStop id="gtfs_390" lane="164241876_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="2nd Ave Ext S &amp; S Jackson St"/>
+    <busStop id="gtfs_390" lane="gneE458_1" startPos="0.00" endPos="15.24" friendlyPos="true" name="2nd Ave Ext S &amp; S Jackson St"/>
     <busStop id="gtfs_99271" lane="398982875_0" startPos="33.23" endPos="53.23" friendlyPos="true" name="SODO Busway &amp; S Royal Brougham Way">
         <access friendlyPos="true" lane="-370826209.583_0" pos="36.06" length="5.00"/>
         <access friendlyPos="true" lane="-370826214#2_0" pos="0.00" length="90.96"/>
@@ -256,7 +256,7 @@
     <busStop id="gtfs_13910" lane="6448598#1_1" startPos="58.55" endPos="78.55" friendlyPos="true" name="W Mercer St &amp; 3rd Ave W"/>
     <busStop id="gtfs_1710" lane="gneE126_1" startPos="26.17" endPos="46.17" friendlyPos="true" name="Terrace St &amp; 5th Ave"/>
     <busStop id="gtfs_510" lane="-452330587#1_1" startPos="11.95" endPos="31.95" friendlyPos="true" name="S Washington St &amp; 3rd Ave S"/>
-    <busStop id="gtfs_625" lane="462696713#3_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="S Washington St &amp; 4th Ave S"/>
+    <busStop id="gtfs_625" lane="462696713#3_1" startPos="2.90" endPos="22.90" friendlyPos="true" name="S Washington St &amp; 4th Ave S"/>
     <busStop id="gtfs_11075" lane="gneE549_1" startPos="16.35" endPos="36.35" friendlyPos="true" name="Boren Ave &amp; Seneca St"/>
     <busStop id="gtfs_11085" lane="428230996_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="Boren Ave &amp; Madison St"/>
     <busStop id="gtfs_11087" lane="369877026#1_1" startPos="5.76" endPos="25.76" friendlyPos="true" name="Boren Ave &amp; Columbia St"/>
@@ -273,7 +273,7 @@
     <busStop id="gtfs_103" lane="13726937#0_1" startPos="54.06" endPos="74.06" friendlyPos="true" name="Spring St &amp; 8th Ave"/>
     <busStop id="gtfs_104" lane="428227865#1_1" startPos="0.00" endPos="16.39" friendlyPos="true" name="Madison St &amp; Terry Ave"/>
     <busStop id="gtfs_105" lane="428089353_1" startPos="2.58" endPos="22.58" friendlyPos="true" name="Madison St &amp; Boylston Ave"/>
-    <busStop id="gtfs_628" lane="263673735#0_1" startPos="7.01" endPos="27.01" friendlyPos="true" name="4th Ave S &amp; S Washington St"/>
+    <busStop id="gtfs_628" lane="263673735#0_1" startPos="0.00" endPos="20.00" friendlyPos="true" name="4th Ave S &amp; S Washington St"/>
     <busStop id="gtfs_648" lane="gneE215_1" startPos="21.61" endPos="41.61" friendlyPos="true" name="4th Ave &amp; Cherry St"/>
     <busStop id="gtfs_670" lane="163419189#1.58_1" startPos="0.00" endPos="18.93" friendlyPos="true" name="4th Ave &amp; Seneca St"/>
     <busStop id="gtfs_720" lane="428305118#1_1" startPos="21.08" endPos="41.08" friendlyPos="true" name="4th Ave &amp; Stewart St"/>

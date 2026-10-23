@@ -1565,62 +1565,23 @@
 		<param key="linkMaxDur:2" value="21.5"/>
 		<param key="linkMinDur:2" value="7.0"/>
 	</tlLogic>
-	<tlLogic id="53071891" type="static" programID="2" offset="54">
-		<phase duration="29.5" maxDur="29.5" minDur="4.0" name="0" next="18 2 3" state="rrrGGrrrrrrGrGGr"/>
-		<phase duration="19.0" maxDur="19.0" minDur="4.0" name="0" next="20 5 6" state="GrrrrrrrGGGrGrrr"/>
-		<phase duration="29.5" maxDur="29.5" minDur="7.0" name="0" next="21 7" state="rrrGGrrrrrrGrGGr"/>
-		<phase duration="22.0" maxDur="22.0" minDur="4.0" name="0" next="23 7 8" state="rrrGGrrrrrrGrGGr"/>
-		<phase duration="24.0" maxDur="24.0" minDur="4.0" name="0" next="9 10" state="gGgrrgGgrrrrGGrG"/>
-		<phase duration="19.0" maxDur="19.0" minDur="7.0" name="0" next="25 11" state="GrrrrrrrGGGrGrrr"/>
-		<phase duration="19.0" maxDur="19.0" minDur="4.0" name="0" next="26 11 12" state="GrrrrrrrGGGrGrrr"/>
-		<phase duration="22.0" maxDur="22.0" minDur="4.0" name="0" next="27 13" state="rrrGGrrrrrrGrGGr"/>
-		<phase duration="27.0" maxDur="27.0" minDur="4.0" name="0" next="29 13" state="rrrGGrrrrrrGrGGr"/>
-		<phase duration="24.0" maxDur="24.0" minDur="7.0" name="0" next="14" state="gGgrrgGgrrrrGGrG"/>
-		<phase duration="22.0" maxDur="22.0" minDur="4.0" name="0" next="14 15" state="gGgrrgGgrrrrGGrG"/>
-		<phase duration="19.0" maxDur="19.0" minDur="4.0" name="0" next="31 16" state="GrrrrrrrGGGrGrrr"/>
-		<phase duration="19.0" maxDur="19.0" minDur="4.0" name="0" next="32 16" state="GrrrrrrrGGGrGrrr"/>
-		<phase duration="27.0" maxDur="27.0" minDur="4.0" name="0" next="33" state="rrrGGrrrrrrGrGGr"/>
-		<phase duration="22.0" maxDur="22.0" minDur="4.0" name="0" next="17" state="gGgrrgGgrrrrGGrG"/>
-		<phase duration="24.0" maxDur="24.0" minDur="4.0" name="0" next="17" state="gGgrrgGgrrrrGGrG"/>
-		<phase duration="19.0" maxDur="19.0" minDur="4.0" name="0" next="35" state="GrrrrrrrGGGrGrrr"/>
-		<phase duration="24.0" maxDur="24.0" minDur="4.0" name="0" next="36" state="gGgrrgGgrrrrGGrG"/>
-		<phase duration="3.5" name="0" next="19" state="rrryyrrrrrryryyr"/>
-		<phase duration="2.0" name="0" next="1" state="rrrrrrrrrrrrrrrr"/>
-		<phase duration="3.5" name="0" next="4" state="GrrrrrrryyyrGrrr"/>
-		<phase duration="3.5" name="0" next="22" state="rrryyrrrrrryryyr"/>
-		<phase duration="2.0" name="0" next="5" state="rrrrrrrrrrrrrrrr"/>
-		<phase duration="3.0" name="0" next="24" state="rrryyrrrrrryryyr"/>
-		<phase duration="1.0" name="0" next="6" state="rrrrrrrrrrrrrrrr"/>
-		<phase duration="3.5" name="0" next="9" state="GrrrrrrryyyrGrrr"/>
-		<phase duration="3.0" name="0" next="10" state="GrrrrrrryyyrGrrr"/>
-		<phase duration="3.0" name="0" next="28" state="rrryyrrrrrryryyr"/>
-		<phase duration="1.0" name="0" next="11" state="rrrrrrrrrrrrrrrr"/>
-		<phase duration="3.0" name="0" next="30" state="rrryyrrrrrryryyr"/>
-		<phase duration="1.0" name="0" next="12" state="rrrrrrrrrrrrrrrr"/>
-		<phase duration="3.0" name="0" next="14" state="GrrrrrrryyyrGrrr"/>
-		<phase duration="3.0" name="0" next="15" state="GrrrrrrryyyrGrrr"/>
-		<phase duration="3.0" name="0" next="34" state="rrryyrrrrrryryyr"/>
-		<phase duration="1.0" name="0" next="16" state="rrrrrrrrrrrrrrrr"/>
-		<phase duration="3.0" name="0" next="17" state="GrrrrrrryyyrGrrr"/>
-		<phase duration="3.0" name="0" next="0" state="yyyrryyyrrrryGry"/>
-		<param key="linkMaxDur:3" value="29.5"/>
-		<param key="linkMinDur:3" value="7.0"/>
-		<param key="linkMaxDur:0" value="19.0"/>
-		<param key="linkMinDur:0" value="7.0"/>
-		<param key="linkMaxDur:1" value="24.0"/>
-		<param key="linkMinDur:1" value="7.0"/>
-		<param key="linkMaxDur:11" value="49.0"/>
-		<param key="linkMinDur:11" value="4.0"/>
-		<param key="linkMaxDur:12" value="49.0"/>
-		<param key="linkMinDur:12" value="4.0"/>
-		<param key="linkMaxDur:13" value="27.0"/>
-		<param key="linkMinDur:13" value="4.0"/>
+	<tlLogic id="53071891" type="static" programID="2" offset="32">
+		<!-- 3rd Ave & Yesler Way, 90 s cycle (2026-10-23, user review): 3rd Ave through gets most of the green, short phases for 3rd SB left and Yesler. Offset matches tls 764028198, 16 m upstream. -->
+		<phase duration="46.0" state="rrrGGrrrGrGrrGr"/>  <!-- 3rd Ave NB + SB through -->
+		<phase duration="3.5" state="rrryyrrrGrrrrGr"/>  <!-- NB yellow, SB through continues -->
+		<phase duration="12.0" state="rrrrrrrrGGrrrGr"/>  <!-- 3rd SB through + protected left -->
+		<phase duration="3.5" state="rrrrrrrryyrrrrr"/>
+		<phase duration="1.5" state="rrrrrrrrrrrrrrr"/>
+		<phase duration="18.5" state="gGgrrgGgrrrGGrG"/>  <!-- Yesler Way both directions, permissive turns -->
+		<phase duration="3.5" state="yyyrryyyrrrrrrr"/>
+		<phase duration="1.5" state="rrrrrrrrrrrrrrr"/>
 	</tlLogic>
 	<tlLogic id="764028198" type="static" programID="2" offset="32">
-		<phase duration="50.5" maxDur="50.5" minDur="7.0" name="0" next="2" state="GGgGGGr"/>
-		<phase duration="32.0" maxDur="32.0" minDur="7.0" name="0" next="0" state="rrrrrrG"/>
-		<phase duration="3.5" name="0" next="3" state="yyyyyyr"/>
-		<phase duration="1.0" name="0" next="1" state="rrrrrrr"/>
+		<!-- links 2-3 (turns onto gneE170) removed 2026-10-23: gneE170 is pedestrian-only (additional_net/ped_only_paths.*) -->
+		<phase duration="50.5" maxDur="50.5" minDur="7.0" name="0" next="2" state="GGGGr"/>
+		<phase duration="32.0" maxDur="32.0" minDur="7.0" name="0" next="0" state="rrrrG"/>
+		<phase duration="3.5" name="0" next="3" state="yyyyr"/>
+		<phase duration="1.0" name="0" next="1" state="rrrrr"/>
 		<param key="linkMaxDur:0" value="50.5"/>
 		<param key="linkMinDur:0" value="7.0"/>
 	</tlLogic>

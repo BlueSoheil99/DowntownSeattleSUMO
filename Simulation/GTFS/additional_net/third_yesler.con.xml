@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 3rd Ave & Yesler Way (junction/tls 53071891): no right turn from 3rd Ave southbound (gneE171, bus-only) onto
+     Yesler Way westbound (gneE495); that lane/movement doesn't exist in reality. Lane 1 becomes through only,
+     lane 2 stays left only. No bus route uses the deleted movement (checked 2026-10-23).
+     Signal program for this junction: clean corrected inputs/correct_Alaskan_new_signal_additional_columbia_eb.add.xml
+     (programID 2, must have 15 links after this patch). -->
+<connections>
+    <delete from="gneE171" to="gneE495" fromLane="1" toLane="1"/>
+</connections>
