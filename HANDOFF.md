@@ -11,14 +11,14 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims never write to `Simulation/new output/`).
 
 ## 2. Project status snapshot
-**Now:** transit rerouting off (done, local test: transit reroutes 89->0, bus teleports 78->149 from 3rd Ave jams). 3rd & Yesler geometry + signal drafted from user review. Next: commit, then lab runs R / R+Yesler / R+Yesler+James.
-**Sessions:** primary home = `HOME_DTS_Current`. Lab = `lab-server_sumo` (replies to the sender; a new primary messages it with its name). Outstanding with the lab: nothing yet.
-**Uncommitted / pending:** rerouting fix (notebook, bus.add.xml, tram.add.xml), Yesler drafts, docs. User hasn't answered: robustness fixes now?
+**Now:** X1 (a2e02b8) is the new baseline: 3rd Ave bus teleports 147->3, bus boardings 0.973, 33/33 lines within 10%, cars +4.9% vs W2. James 90 s draft rejected (X2 worse). Watch junction 53129291.
+**Sessions:** primary home = `HOME_DTS_Current`. Lab = `lab-server_sumo` (replies to the sender; a new primary messages it with its name). Outstanding with the lab: nothing.
+**Uncommitted / pending:** this file. User hasn't answered: robustness fixes now?
 **Works:** cars + 40 KCM bus lines + Link 1/2 Line + bus and Link riders, 05:00-12:00. `sumo -c gtfs_ridership_vehicular.sumocfg` from `Simulation/` (details section 6).
 **Next steps:**
-1. 3rd Ave hotspots: Yesler + ped-only patches applied in working copy (`GTFS/additional_net/third_yesler.*`, `ped_only_paths.*`); GTFS outputs + riders regenerated; draft `drafts/signal_3rd_james_90s.diff`; lab before/after pending.
-2. Shape-based bus routing after gtfs2pt (108 trips off-shape, 4 places).
-3. Report draft (new baseline after step 1).
+1. Junction 53129291 (right_before_left, near the gneE743 plaza): check why cars now jam there; next-phase network review (3rd SB/Yesler EB one lane, real signal timings).
+2. Shape-based bus routing: done in working copy (`GTFS/route_buses_by_shape.py`, cell 5b1e7c2a; route check 108 -> 0 wrong-street trips); lab full run pending.
+3. Report draft (baseline X1, lab test_X1).
 4. Robustness fixes from the modularity tests (only if other periods are run).
 
 ## 3. Repo structure
