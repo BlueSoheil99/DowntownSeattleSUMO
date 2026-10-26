@@ -31,7 +31,9 @@ STOPS = "bus/gtfs_pt_stops.add.xml"
 VEHICLES = "bus/gtfs_pt_vehicles.add.xml"
 OFF_DIST = 20.0      # m: an edge further than this from the shape (mean of samples) is "off"
 OFF_WEIGHT = 20.0    # off edges cost (1 + OFF_WEIGHT) x their length
-MIN_GAIN = 30.0      # m: replace a leg only if it gets at least this much less off-shape length
+MIN_GAIN = 150.0     # m: replace a leg only if it gets at least this much less off-shape length.
+                     # 30 m also changed 7, G, 10, 11, 12 (gains 70-109 m, never flagged by the route check);
+                     # the lab run S1 showed more teleports/skipped stops there. Real fixes gain 243-1075 m.
 SAMPLE = 10.0        # m between samples along an edge
 GRID = 50.0          # m cell size of the shape segment index
 

@@ -11,13 +11,13 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims never write to `Simulation/new output/`).
 
 ## 2. Project status snapshot
-**Now:** X1 (a2e02b8) is the new baseline: 3rd Ave bus teleports 147->3, bus boardings 0.973, 33/33 lines within 10%, cars +4.9% vs W2. James 90 s draft rejected (X2 worse). Watch junction 53129291.
-**Sessions:** primary home = `HOME_DTS_Current`. Lab = `lab-server_sumo` (replies to the sender; a new primary messages it with its name). Outstanding with the lab: nothing.
+**Now:** shape-based bus routes with MIN_GAIN 150 m (only lines 21/H/56/57/113/125/3/49 changed; S1 at 30 m also touched 7/G/10/11/12 and added teleports). Lab running S2 vs S1. Next: review S2, then report draft.
+**Sessions:** primary home = `HOME_DTS_Current`. Lab = `lab-server_sumo` (replies to the sender; a new primary messages it with its name). Outstanding with the lab: S2 report.
 **Uncommitted / pending:** this file. User hasn't answered: robustness fixes now?
 **Works:** cars + 40 KCM bus lines + Link 1/2 Line + bus and Link riders, 05:00-12:00. `sumo -c gtfs_ridership_vehicular.sumocfg` from `Simulation/` (details section 6).
 **Next steps:**
 1. Junction 53129291 (right_before_left, near the gneE743 plaza): check why cars now jam there; next-phase network review (3rd SB/Yesler EB one lane, real signal timings).
-2. Shape-based bus routing: done in working copy (`GTFS/route_buses_by_shape.py`, cell 5b1e7c2a; route check 108 -> 0 wrong-street trips); lab full run pending.
+2. Shape-based bus routing: done (f6be9ca, cell 5b1e7c2a); S2 (MIN_GAIN 150 m) pending at the lab.
 3. Report draft (baseline X1, lab test_X1).
 4. Robustness fixes from the modularity tests (only if other periods are run).
 
