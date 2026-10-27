@@ -11,14 +11,14 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 Rules in `CLAUDE.md` (commits: list files + get OK, stage by name; test sims never write to `Simulation/new output/`).
 
 ## 2. Project status snapshot
-**Now:** shape-based bus routes with MIN_GAIN 150 m (only lines 21/H/56/57/113/125/3/49 changed; S1 at 30 m also touched 7/G/10/11/12 and added teleports). Lab running S2 vs S1. Next: review S2, then report draft.
-**Sessions:** primary home = `HOME_DTS_Current`. Lab = `lab-server_sumo` (replies to the sender; a new primary messages it with its name). Outstanding with the lab: S2 report.
+**Now:** shape-based bus routing done; S2 (df4663c) is the baseline. Seed test: S2 vs X1 car-teleport gap is seed noise; only line 21 has 2-3 bus teleports per seed. Next: report draft (use 3 seeds).
+**Sessions:** primary home = `HOME_DTS_Current`. Lab = `lab-server_sumo` (replies to the sender; a new primary messages it with its name). Outstanding with the lab: nothing.
 **Uncommitted / pending:** this file. User hasn't answered: robustness fixes now?
 **Works:** cars + 40 KCM bus lines + Link 1/2 Line + bus and Link riders, 05:00-12:00. `sumo -c gtfs_ridership_vehicular.sumocfg` from `Simulation/` (details section 6).
 **Next steps:**
 1. Junction 53129291 (right_before_left, near the gneE743 plaza): check why cars now jam there; next-phase network review (3rd SB/Yesler EB one lane, real signal timings).
-2. Shape-based bus routing: done (f6be9ca, cell 5b1e7c2a); S2 (MIN_GAIN 150 m) pending at the lab.
-3. Report draft (baseline X1, lab test_X1).
+2. Line 21 on its new route: 2-3 bus teleports per seed; find where (optional).
+3. Report draft (baseline S2 = df4663c, lab test_S2 + _s2/_s3 seeds).
 4. Robustness fixes from the modularity tests (only if other periods are run).
 
 ## 3. Repo structure
