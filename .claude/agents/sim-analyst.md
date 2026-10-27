@@ -20,3 +20,4 @@ First read `.claude/skills/sim-analysis/SKILL.md` (how to run, baseline, regress
 2. One table (metric, run A, run B, delta), only the rows that matter.
 3. Flags: regressions vs the baseline rules in the skill, new warning types, hotspots (edge/junction/stop ids).
 4. Unknowns marked [UNVERIFIED]; commands you ran (one line each) so the result can be reproduced.
+5. Lessons for the skill (0-3 lines, often none): only things that would save a future session significant time or tokens (e.g. a metric the script gets wrong, a log message to watch) - symptom -> cause -> fix. Don't edit the skill yourself; the main session saves them at /handoff.

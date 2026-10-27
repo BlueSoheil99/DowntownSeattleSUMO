@@ -220,3 +220,6 @@ October 27th (lab check): summarize_run.py validated on S2 vs X1, fixes
 October 27th (continued): Subagent definitions and delegation rules
     - .claude/agents/sim-analyst.md (Sonnet; read-only on the repo; summarize_run.py first, streaming scripts otherwise; local runs < 15 min to the scratchpad; reply headline + table <= 30 lines) and net-editor.md (Opus; patches only in additional_net/drafts/, builds and checks on a scratch copy, never touches the real nets, signal file or git; reply = files, reapply commands, checks, what's left).
     - CLAUDE.md: new Delegation section (main session = lead; skills; sim-analyst / net-editor / lab / Explore routing; one session per task). Agents load only in sessions started after they exist.
+October 27th (continued): Lesson saving at /handoff
+    - .claude/commands/handoff.md: new step before writing HANDOFF.md: save lessons (big time/token savers, repeat bugs; symptom -> cause -> fix, one line) into the matching skill's Pitfalls, merge/replace rather than append, skills under ~100 lines, show the user the diff first.
+    - sim-analyst and net-editor reply format: optional 'Lessons for the skill' (0-3 lines); agents don't edit skills. CLAUDE.md Delegation: one-line pointer.

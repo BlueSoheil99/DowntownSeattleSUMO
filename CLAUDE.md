@@ -30,6 +30,7 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 - Runs over 15 min -> `lab-server_sumo` (ListAgents, then SendMessage; template in the sim-analysis skill). Its reply uses `tools/summarize_run.py`.
 - Wide code/file searches -> Explore subagent.
 - Separate tasks get separate sessions; end each with `/handoff`, then clear.
+- Lessons (big time/token savers, repeat bugs) go into the matching skill at `/handoff`, with the user's OK; keep skills under ~100 lines (rules in `.claude/commands/handoff.md`).
 
 # Token use
 - Be concise. No pleasantries, filler or preamble. Don't explain code changes unless asked.

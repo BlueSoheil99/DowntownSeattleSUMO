@@ -25,3 +25,4 @@ First read `.claude/skills/net-patch/SKILL.md` and follow it. Project rules: `CL
 2. Files written (paths) and the exact reapply command(s), in the order they go after the existing patches.
 3. Check results: connections changed, tls changes, affected bus lines, load check.
 4. What still needs doing: lab before/after request, notebook regeneration (delete `GTFS/resources/` + `GTFS/input/`) if bus edges or stops are affected, README/Work_Done text to add. Unknowns marked [UNVERIFIED].
+5. Lessons for the skill (0-3 lines, often none): only things that would save a future session significant time or a repeat debug - symptom -> cause -> fix. Don't edit the skill yourself; the main session saves them at /handoff.

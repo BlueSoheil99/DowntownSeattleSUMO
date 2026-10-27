@@ -2,6 +2,12 @@ Refresh HANDOFF.md so that a fresh context (a new session, compaction, or /clear
 
 Before writing, check the current state of the repo directly: run `git log --oneline -30`, `git status`, and list the directory tree (skip large generated outputs). Base the handoff on what's actually in the repo, plus what we did in this conversation. Don't rely on memory alone.
 
+Then save lessons to the skills (`.claude/skills/<name>/SKILL.md`), before writing HANDOFF.md. Go through this conversation and any "Lessons for the skill" lines from subagent replies.
+- Save a lesson only if it would save significant time or tokens next time, or stop a future session from debugging the same problem again. Examples: a non-obvious cause and fix (e.g. a spreadType change moving a snapped bus stop), a command or flag that works where the obvious one fails, a check that would have caught a bug early, a dead end not to retry. Skip one-off facts, results (those go in Work_Done.txt), and anything already in the skill or CLAUDE.md.
+- One line per lesson under the skill's "Pitfalls" (or the step it belongs to): symptom -> cause -> fix, with ids or commands. Prefer editing or merging an existing line over adding a new one; delete lines that are no longer true.
+- Keep each SKILL.md under ~100 lines. If a skill would go over, move long reference material into a separate file in the same skill folder and link it, or cut the least useful lines. Lessons that fit no skill: CLAUDE.md only if they are short rules for every session; otherwise the GTFS README.
+- Show me the skill diff (lines added/changed/removed) and wait for my OK before saving. In the 3-line summary, say which skills changed.
+
 Structure it exactly like this:
 
 ## 1. Role (write this as instructions addressed to the new Claude)
