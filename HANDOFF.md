@@ -13,7 +13,7 @@ Rules in `CLAUDE.md` (commit OK + stage by name; runs > 15 min go to the lab; te
 ## 2. Project status snapshot
 **Now:** phase 1 (bus routes + ridership) is done apart from the report. Baseline = S2 (`df4663c`): shape-based bus routes, no transit rerouting, 3rd & Yesler fixes. Seed test: S2 vs X1 differences are seed noise. Next: report draft.
 **Sessions:** primary home = `HOME_DTS_Current`. Lab = `lab-server_sumo` (Remote Control; replies to the sender, so a new primary messages it with its name). Outstanding with the lab: nothing.
-**Uncommitted / pending:** only regenerated files with timestamp-only changes (rail outputs, vtypes, downtown zips) and old junk; don't commit. New, uncommitted (multi-agent setup, 2026-10-27): `Simulation/tools/summarize_run.py`, `.claude/skills/{net-patch,gtfs-pipeline,demand-taz,sim-analysis}/SKILL.md`; next: lab checks the script on S2 outputs, then agent definitions + CLAUDE.md delegation rules. User hasn't answered: robustness fixes (only if other periods run).
+**Uncommitted / pending:** only regenerated files with timestamp-only changes (rail outputs, vtypes, downtown zips) and old junk; don't commit. Multi-agent setup (2026-10-27): script + skills pushed (eb7cccc, lab pulled); uncommitted: `.claude/agents/{sim-analyst,net-editor}.md` and CLAUDE.md "Delegation" section (awaiting user review); first real test = next network task. User hasn't answered: robustness fixes (only if other periods run).
 **Works:** cars + 40 KCM bus lines + Link 1/2 Line + bus and Link riders, 05:00-12:00: `sumo -c gtfs_ridership_vehicular.sumocfg` from `Simulation/` (section 6).
 **Next steps:**
 1. Report draft for the research write-up (baseline S2; lab outputs test_S2, test_S2_s2, test_S2_s3; report over 3 seeds).
@@ -23,7 +23,7 @@ Rules in `CLAUDE.md` (commit OK + stage by name; runs > 15 min go to the lab; te
 
 ## 3. Repo structure
 (H) hand-edited, (G) generated.
-- Root: `CLAUDE.md`, `HANDOFF.md`, `.claude/commands/handoff.md` (`/handoff`), `.claude/hooks/restore_context.py` + `.claude/settings.json` (SessionStart hook: HANDOFF title + section 2 + 3 newest log headers, < 2 KB). `.claude/skills/`: net-patch, gtfs-pipeline, demand-taz, sim-analysis (procedures, loaded on demand). `Simulation/tools/summarize_run.py` (H): run summary / comparison table. `docs/`: archived handoff.
+- Root: `CLAUDE.md`, `HANDOFF.md`, `.claude/commands/handoff.md` (`/handoff`), `.claude/hooks/restore_context.py` + `.claude/settings.json` (SessionStart hook: HANDOFF title + section 2 + 3 newest log headers, < 2 KB). `.claude/skills/`: net-patch, gtfs-pipeline, demand-taz, sim-analysis (procedures, loaded on demand). `.claude/agents/`: sim-analyst (Sonnet, output analysis + short checks), net-editor (Opus, drafts/tests patches on a copy). `Simulation/tools/summarize_run.py` (H): run summary / comparison table. `docs/`: archived handoff.
 - `Simulation/scenario.json` + `scenario.py` (H): bus feed, sim date, ridership period, lines, rail section.
 - `Simulation/gtfs_ridership_vehicular.sumocfg` (full), `gtfs_transit_only.sumocfg` (H). `clean_reformed_Seattle.sumocfg`, `fullDayTests.sumocfg`: older car-only configs, don't break.
 - `Simulation/adjusted_alaskanway_..._V3.rou.xml` (G, Soheil): car demand. `clean corrected inputs/`: TAZs, signal file `correct_Alaskan_new_signal_additional_columbia_eb.add.xml` (H, GTFS configs only).

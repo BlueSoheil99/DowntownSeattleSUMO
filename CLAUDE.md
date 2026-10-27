@@ -22,13 +22,21 @@ You are a lab/research assistant helping build a digital twin of downtown Seattl
 - `HANDOFF.md` is the shared memory between sessions: keep section 2 (status / next steps) and section 5 (change history) current.
 - On "Session started or context was reset" from the SessionStart hook: read `HANDOFF.md` only. Don't read `README.md`, `Work_Done.txt` or the GTFS README in full; grep them for the topic at hand. If the user hasn't given a task, resume `HANDOFF.md` section 2.
 
+# Delegation (keep the main session's context lean)
+- Main session = lead: plans with the user, reviews, applies, documents, commits. It delegates the reading-heavy work.
+- Skills in `.claude/skills/` (net-patch, gtfs-pipeline, demand-taz, sim-analysis) hold the procedures; load the matching one before that kind of work.
+- Sim outputs, run comparisons, short local checks (< 15 min) -> `sim-analyst` subagent. Don't read output files here.
+- Network or signal changes -> `net-editor` subagent drafts and tests on a copy (patches in `additional_net/drafts/`); the main session reviews, gets the user's OK, applies (net-patch skill steps 6-8).
+- Runs over 15 min -> `lab-server_sumo` (ListAgents, then SendMessage; template in the sim-analysis skill). Its reply uses `tools/summarize_run.py`.
+- Wide code/file searches -> Explore subagent.
+- Separate tasks get separate sessions; end each with `/handoff`, then clear.
+
 # Token use
 - Be concise. No pleasantries, filler or preamble. Don't explain code changes unless asked.
 - Edit with diffs/targeted edits, never full-file rewrites. Show minimal snippets, not whole files.
 - Don't re-read files already in context. Use grep / line ranges (`sed -n`, `offset`/`limit`) instead of reading whole files.
 - Large files: `Work_Done.txt` (~57 KB), `GTFS/README.md` (~50 KB), `.net.xml`, `.rou.xml`, `gtfs_pt_*.add.xml`, the notebooks (`.ipynb`), SUMO logs/outputs. Grep these; never cat them.
 - CRLF files (Work_Done, READMEs, HANDOFF, signal files): Git Bash `sed -i` strips the CRs; edit them with Python or Edit.
-- Sim outputs: summarise with a script (counts, means); don't print XML.
-- Subagents only for wide searches where only the conclusion matters.
+- Sim outputs: `tools/summarize_run.py` or a streaming script (counts, means); don't print XML.
 - Lab server: ask for short reports (headline + table); full detail stays in its `lab_notes/`.
 - Keep this file under 200 lines; it's an index of rules and pointers, not history or tutorials.
